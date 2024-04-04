@@ -1,7 +1,7 @@
 <template>
   <app-page>
     <template #body>
-      <v-container fluid>
+      <v-container fluid v-if="data">
         <v-row>
           <v-col cols="12" md="8" class="text-center">
             <div>
@@ -39,7 +39,7 @@
                   <v-card-title>Price Alert</v-card-title>
                   <v-card-text class="text-white text-md-h4 text-h6">
                     <v-chip class="mb-2">Initial Price</v-chip>
-                    0.018BTSG
+                    {{ data.initialPrice }} BTSG
                   </v-card-text>
                   <AppDropNotificationBtn class="mt-n1 ma-3" :drop-id="data.id" :title="data.title"
                     :subtitle="data.artists.join(', ')" :image="data.artworkUrl" :start-time="data.startTime" />
@@ -54,6 +54,17 @@
                   <nuxt-link :to="`/u/${data.creator}`" class="text-decoration-none text-white">
                     {{ formatShortAddress(data.creator, 8) }}
                   </nuxt-link>
+                </div>
+              </v-col>
+
+              <v-col cols="12" md="6">
+                <div class="text-caption text-grey text-uppercase">Marketplace</div>
+                <div>
+                  <nuxt-link target="_blank" :to="`https://www.mintscan.io/bitsong/address/${data.marketplaceAddress}`"
+                    class="text-decoration-none text-white">
+                    {{ formatShortAddress(data.marketplaceAddress, 8) }}
+                  </nuxt-link>
+                  <AppCopyBtn class="mt-n3" :text="data.marketplaceAddress" />
                 </div>
               </v-col>
 
@@ -111,43 +122,38 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "\"Supreme Forces\" by House Of Disaster is a groundbreaking orchestral masterpiece tailored for the cinematic landscape of Web 3.0. This symphonic marvel transcends sound, immersing listeners in realms of emotion and grandeur. With resounding notes and sweeping crescendos, House Of Disaster crafts a sonic tapestry that captivates the soul. In an era of digital innovation, they push boundaries, reaffirming mastery while redefining cinematic soundscapes. Step into this auditory realm to experience the sheer power and majesty of House Of Disaster's artistry, elevating storytelling with each note."
+const route = useRoute()
+const data = getTrackById(route.params.id as string)
 
-const data = reactive({
-  id: 'supreme-forces',
-  title: "Supreme Forces",
-  artists: ["House Of Disaster"],
-  description,
-  creator: "bitsong14r978dkxftm36s7a02g6p2xvvypykq376scn9w",
-  sellerFeeBps: 500,
-  referralFeeBps: 100,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPd25EnJo3grbwJywXPDNyyY6VCrqMNXuHCtrsPQczMk3",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmbaW1vD8cYCtGLWxfyS4cbCCnj5fHewXnMA46mC8JC9UY",
-  startTime: 1708682400,
-  genre: "Classical",
-  explicit: "Clean",
-  license: "All Rights Reserved",
-})
+if (!data) {
+  navigateTo('/')
+}
+
+if (data?.startTime! <= Math.floor(Date.now() / 1000)) {
+  navigateTo(`/nfts/${data?.nftAddress}`)
+}
 
 useSeoMeta({
-  title: `${data.title} by ${data.artists.join(', ')}`,
-  description: data.description,
-  ogTitle: data.title,
-  twitterTitle: data.title,
-  ogImage: data.artworkUrl,
-  ogDescription: data.description,
-  twitterDescription: data.description,
+  title: `${data?.title} by ${data?.artists.join(', ')}`,
+  description: data?.description,
+  ogTitle: data?.title,
+  twitterTitle: data?.title,
+  ogImage: data?.artworkUrl,
+  ogDescription: data?.description,
+  twitterDescription: data?.description,
   twitterCard: "summary_large_image",
 })
 
 defineOgImageComponent('DropPreview', {
-  title: data.title,
-  subtitle: data.artists.join(', '),
-  image: data.artworkUrl,
-  startTime: data.startTime,
+  title: data?.title,
+  subtitle: data?.artists.join(', '),
+  image: data?.artworkUrl,
+  startTime: data?.startTime,
 });
 
 const remainingTime = computed(() => {
+  if (!data) return 0
+
   return (data.startTime - Math.floor(Date.now() / 1000)) * 1000
 })
 </script>
