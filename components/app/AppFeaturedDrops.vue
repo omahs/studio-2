@@ -150,6 +150,132 @@ const drops = [{
   title: "Supreme Forces",
   startTime: 1708682400,
   link: "/nfts/bitsong1hdnu502uecmddk9w48kxvekgp43mjdpr3mza9kj2tfvjpgef5grs2t5qp5"
+}, {
+  id: 'uno-dos-tres',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXVXMo3TESkYnXbR8zb1kBeRRtRhYkTDK9T9uFjoTBdjo",
+  subtitle: "Torrex",
+  title: "Uno Dos Tres",
+  startTime: 1709056800,
+  link: "/nfts/bitsong1r8td9cjggx9f5ek2gzfh34kguxuz5j9rfjemamvjw2he2y84t3xqp9vgyz"
+}, {
+  id: 'destructure',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPSq8vYWJ1ALdjBAyju2Gb2yyUoXHwpLwxVoyFrUjVa52",
+  subtitle: "Luca Testa",
+  title: "Destructure (Feat Gab3z)",
+  startTime: 1709143200,
+  link: "/nfts/bitsong1l0z6d7wlwpwequtenwt8pd44685jyhqys6jdnp8xa8ektn0un4zshplnar"
+}, {
+  id: 'feel-the-vibe',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRWZFsYP9m1eQeSooSSk72hBwECLy11U7RvR6mZGuUEKS",
+  subtitle: "Dino Brown, Adam Clay",
+  title: "Feel The Vibe",
+  startTime: 1709316000,
+  link: "/nfts/bitsong156x86uprzaj04v7qwnpl8djj5jws3gn73jz08qkydmkd0c0lp6gqn6xarq"
+}, {
+  id: 'wind-still-blows',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPCoexML73gyABtNfJthK2qMwpLqF5Q5F2scS9jr6qVtS",
+  subtitle: "Kiras",
+  title: "The Wind Still Blows",
+  startTime: 1709661600,
+  link: "/nfts/bitsong18dhyf7sdkjpmgu4jg6fmf4d6cyj9lez6c2cs5lvprkmyctfrtnzq94q0l6"
+}, {
+  id: 'all-i-want',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmdKJA6PG55qc3Hbe9Qp8njFjtc8MxMkkU8buvhZUr3shj",
+  subtitle: "J Press",
+  title: "All I Want",
+  startTime: 1709575200,
+  link: "/nfts/bitsong1dhmd8lredr9psu4afk8j3lstdg896pme49mje6maxucuuugmmptspwx04e"
+}, {
+  id: 'closer',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmdbSuJW3a1xWoLgPosaKkKW3ihSGKDWuXVMNQNsyUXr4W",
+  subtitle: "Florin Dumbraveanu",
+  title: "Closer",
+  startTime: 1710525600,
+  link: "/nfts/bitsong1lgprt38gkp4nvggjl0dm0e7k5lgd80e525f8rjg60tc6fk2xexcqad682u"
+}, {
+  id: 'all-i-need',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmSvWAqpea6xZT8z2tzZeLCS9hxEfePkGLq2qju7kzL3cp",
+  subtitle: "Lollino & Deebesh",
+  title: "All I Need",
+  startTime: 1709920800,
+  link: "/nfts/bitsong1kg02jufkxt6znuv2r96nkpdc7nxdlfeznaz7gfyj6449x6tle2ksyyxt6n"
+}, {
+  id: 'secrets',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmTPzYSevY31hX6Dy6nAXrBz5cBpMjLFRoc1JKk1FzFnDc",
+  subtitle: "Noyse, Zangi",
+  title: "Secrets (Feat. Eli Limaj)",
+  startTime: 1709834400,
+  link: "/nfts/bitsong1sj7zrll8n6rh07hgzqtjemeeane53a68fzqzsmnyntw95w4h7z6sfjk6ht"
+}, {
+  id: 'famous-girl',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmZrLNcJVx4s9MNjK2dwW55iXrxnD1KFZ8knbehXJQFzFE",
+  subtitle: "J Press",
+  title: "Famous Girl",
+  startTime: 1710180000,
+  link: "/nfts/bitsong1jeh4eqlsge0w8kcmjlt82rzzwe4vr5yxe69nvqt2jcgg4q4e8ypq9592yw"
+}, {
+  id: 'mexico-bailante',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmNQBCwB6nshni2vpdpC1VNoMnEDjByM3RGxz6UWgL3Brf",
+  subtitle: "Torrex",
+  title: "Mexico Bailante",
+  startTime: 1710266400,
+  link: "/nfts/bitsong1aqjn8sha92zyqd27d4gw8lnjgmgt24v3ytwm2f9j9rza7pfuku4s7ej6r7"
+}, {
+  id: 'casanova',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmUeYQ7cFWdzNoVckpXnNtWBobNUiYieUNGLKtp1VQ9isS",
+  subtitle: "Campoli, Adam Clay",
+  title: "Casanova",
+  startTime: 1710439200,
+  link: "/nfts/bitsong1fdtlnwuqwp38tq5ky5g3xfkkafexa4e8q4qy90jxe2vmtl8n56ksjpjhxs"
+}, {
+  id: 'anything-i-do',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmcwP241RSACz8LcZy8ms49TSpgGheq8ejRHPsXRaJZDwP",
+  subtitle: "BlackJack, Hamster NFT",
+  title: "Anything I Do",
+  startTime: 1710352800,
+  link: "/nfts/bitsong1hje6ecs6u683ypnzu8l5d4jsxq4dy96s0m6ezps9uwcuwl30hfuqk95jqe"
+}, {
+  id: 'feeling-good',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/Qmf1KLZF1TWums7VYMzg8Ark8cU2XhX91yNzoj5kGFXMX2",
+  subtitle: "Torrex, J Press & Deviless",
+  title: "Feeling Good",
+  startTime: 1710957600,
+  link: "/nfts/bitsong19vxp8vq8qm368dr026qxh8v82satwaf79y235lfv6wmgpwxx8dts2dftve"
+}, {
+  id: 'spicy',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmQpN2HN6HECMEo7WrWcrR2dtyMZwCGfRqn2hFveo5tRMc",
+  subtitle: "J Press",
+  title: "Spicy",
+  startTime: 1711044000,
+  link: "/nfts/bitsong1s84uvkzuz7tlyykp587aynn8xr0m6t5r64lz6pkfyzyrhzaezhrszhwyz5"
+}, {
+  id: 'i-want-to',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPs61TrrSyjvTZeuPsHKUY8MNiAXkTH196CQprdumhp92",
+  subtitle: "Alpaca, Dario Denso",
+  title: "I Want To",
+  startTime: 1711130400,
+  link: "/nfts/bitsong13xww866f545ackl0004tm94jdh5y7hht5rjnpejktyw4nqkvrxtswkmt53"
+}, {
+  id: 'up-funk',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmQGKBtyGg2xFS26qoVYCSewGtdkdtVg2asTRrxzRX1xXV",
+  subtitle: "Torrex",
+  title: "Up Funk",
+  startTime: 1711648800,
+  link: "/nfts/bitsong1taerpmv0tzdrnls7z567khds88fwfpdaeeg7s0wkel9zjap7gnesxnsv6c"
+}, {
+  id: 'with-me',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXJecNhzJKgyaXzWS1PCct3WbJMt2S6qcLj6gx4yRGNRs",
+  subtitle: "J Press, Torrex",
+  title: "With Me",
+  startTime: 1711735200,
+  link: "/nfts/bitsong1quce89l8clsn8s5tmq5sylg370h58xfnkwadx72crjv90jmetp4sm9de2c"
+}, {
+  id: 'high',
+  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmVk5hmF6KFE6gAgrfwmf5QFM5yJLbVButohmqs5BuqcTM",
+  subtitle: "HXRT",
+  title: "High",
+  startTime: 1712163600,
+  link: "/nfts/bitsong1ukhxlrtje0dt2n7k54m8l83rxjrta7fqwvzzhapgzafwzt38u8pq6pj7dq"
 }]
 
 const activeDrops = computed(() => {

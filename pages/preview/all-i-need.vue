@@ -122,24 +122,24 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "I'm thrilled to introduce \"Glory,\" my latest house music track that's all set to take you on a cosmic journey of inspiration and energy. Drawing from the vastness of the universe, \"Glory\" infuses deep gospel voices and beats to ignite your soul and fuel your motivation.\n\nThis is just the beginning of my NFT venture, and \"Glory\" marks the Genesis NFT exclusively launching on BitSong Studio. You won't find it anywhere else!\n\nAs the holder of \"Glory,\" you'll enjoy exclusive perks and VIP treatment, including:\n\n- Airdrops of my upcoming releases\n- Random draws to share in the royalties of some of my future releases on BitSong Studio\n- Opportunities for collaborations with me\n- VIP access to my real-life events through random draws\nAnd that's just the beginning!\n\nDon't miss out on the chance to own a piece of my musical journey and unlock unforgettable experiences with \"Glory.\"\n\nCatch you on the cosmic beats!"
+const description = "Lollino, an experienced DJ from Turin, has been a prominent figure in the music industry for nearly two\ndecades. He has graced the decks of top clubs worldwide. Joining him is Deebesh, a DJ and producer from Savona, now based in Turin. Their collaboration gave birth to \"All I Need,\" a cutting-edge tech house track with underground vibes and futuristic sounds. Featuring a heavy bass line, mesmerizing synth, and dynamic drums, this track is primed to ignite dancefloors at clubs and festivals."
 
 const data = reactive({
-  id: 'glory',
-  title: "GLORY",
-  artists: ["Triplo Max"],
+  id: 'all-i-need',
+  title: "All I Need",
+  artists: ["Lollino & Deebesh"],
   description,
-  creator: "bitsong1rztprdvx003fj6gtwtwum5jw62capvsmyxercf",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
   sellerFeeBps: 500,
-  referralFeeBps: 50,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWMKEpXXtPpfLuPfBR84gLiLVV8egLQPKVRk5RGPobdVt",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  startTime: 1709229600,
-  genre: "House",
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXXibPrZqtXAqbz1BS8JDVqqMyfkkStGdoRrBkkXZqCrv",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmSvWAqpea6xZT8z2tzZeLCS9hxEfePkGLq2qju7kzL3cp",
+  startTime: 1709920800,
+  genre: "Electronic",
   explicit: "Clean",
   license: "All Rights Reserved",
-  initialPrice: 0.053,
-  marketplaceAddress: "bitsong19cq5ladm6mxu8clszem8d8cwj9haac4du08s5zq2uvpyg4ue625ql4nskw"
+  initialPrice: 0.02106,
+  marketplaceAddress: "bitsong10l67n20j7cjxu83a6yrdyqqln6mrcq3844c3wccr7qk0vn5j0laq4jvsd4",
 })
 
 useSeoMeta({

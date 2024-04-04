@@ -122,24 +122,24 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "I'm thrilled to introduce \"Glory,\" my latest house music track that's all set to take you on a cosmic journey of inspiration and energy. Drawing from the vastness of the universe, \"Glory\" infuses deep gospel voices and beats to ignite your soul and fuel your motivation.\n\nThis is just the beginning of my NFT venture, and \"Glory\" marks the Genesis NFT exclusively launching on BitSong Studio. You won't find it anywhere else!\n\nAs the holder of \"Glory,\" you'll enjoy exclusive perks and VIP treatment, including:\n\n- Airdrops of my upcoming releases\n- Random draws to share in the royalties of some of my future releases on BitSong Studio\n- Opportunities for collaborations with me\n- VIP access to my real-life events through random draws\nAnd that's just the beginning!\n\nDon't miss out on the chance to own a piece of my musical journey and unlock unforgettable experiences with \"Glory.\"\n\nCatch you on the cosmic beats!"
+const description = "In a mesmerizing blend of digital art and music, composer Tulea BlackJack partners with Hamster NFT to unveil \"Anything I Do,\" a groundbreaking video that merges NFT art and melody.\nThis collaboration brings to life a narrative set in a vibrant club scene, accentuated by BlackJack's emotive music, which captures human emotions.\n\nThe video unfolds in a neon-lit club, brimming with energy, where a DJ, inspired by BlackJack, spins tracks that fill the space with a captivating rhythm. Amidst shadows and light, each musical beat echoes the pulse of the night.\n\nCentral to the story are digital hamsters crafted by Hamster NFT, symbolizing love in the digital era. With vivid animations, they navigate the club, reflecting the lyrics' exploration of love, longing, and the pursuit of connections amidst life's fleeting moments.\n\nJoin our digital journey with Tulea BlackJack and Hamster NFT. Spin the digital wheel and explore the boundless creativity of NFT art and music!"
 
 const data = reactive({
-  id: 'glory',
-  title: "GLORY",
-  artists: ["Triplo Max"],
+  id: 'anything-i-do',
+  title: "Anything I Do",
+  artists: ["BlackJack", "Hamster NFT"],
   description,
-  creator: "bitsong1rztprdvx003fj6gtwtwum5jw62capvsmyxercf",
+  creator: "bitsong1w35ntzzkf7dugwlq5a6lhrrp2lkq6yamxk42he",
   sellerFeeBps: 500,
   referralFeeBps: 50,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWMKEpXXtPpfLuPfBR84gLiLVV8egLQPKVRk5RGPobdVt",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  startTime: 1709229600,
-  genre: "House",
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmSC6HrG9mLZDwtPYdF88ihdzcLEZAuQf63FY7Wmripj3R",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmcwP241RSACz8LcZy8ms49TSpgGheq8ejRHPsXRaJZDwP",
+  startTime: 1710352800,
+  genre: "Dance",
   explicit: "Clean",
   license: "All Rights Reserved",
-  initialPrice: 0.053,
-  marketplaceAddress: "bitsong19cq5ladm6mxu8clszem8d8cwj9haac4du08s5zq2uvpyg4ue625ql4nskw"
+  initialPrice: 0.01053,
+  marketplaceAddress: "bitsong1csgj9nugf2dgq2hu4zmm3986ss038ehr3c82ty6hr00drh37peus8facz4",
 })
 
 useSeoMeta({

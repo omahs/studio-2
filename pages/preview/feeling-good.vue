@@ -122,24 +122,24 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "I'm thrilled to introduce \"Glory,\" my latest house music track that's all set to take you on a cosmic journey of inspiration and energy. Drawing from the vastness of the universe, \"Glory\" infuses deep gospel voices and beats to ignite your soul and fuel your motivation.\n\nThis is just the beginning of my NFT venture, and \"Glory\" marks the Genesis NFT exclusively launching on BitSong Studio. You won't find it anywhere else!\n\nAs the holder of \"Glory,\" you'll enjoy exclusive perks and VIP treatment, including:\n\n- Airdrops of my upcoming releases\n- Random draws to share in the royalties of some of my future releases on BitSong Studio\n- Opportunities for collaborations with me\n- VIP access to my real-life events through random draws\nAnd that's just the beginning!\n\nDon't miss out on the chance to own a piece of my musical journey and unlock unforgettable experiences with \"Glory.\"\n\nCatch you on the cosmic beats!"
+const description = "\"Feeling”Good stands as a groundbreaking Tech house masterpiece by Torrex, J Press, and Deviless. This track not only showcases They exceptional talent in the realm of Tech house, but it also pioneers a new era in the music industry by embracing the world of non-fungible tokens (NFTs). As the rhythmic beats and soulful melodies enchant listeners, the unique opportunity to own a piece of musical history through an NFT adds an innovative dimension to the overall experience. “Feeling Good” transcends conventional boundaries, not just in its musical brilliance but also in its approach to distribution, making it a must-have for both tech house enthusiasts and NFT collectors alike."
 
 const data = reactive({
-  id: 'glory',
-  title: "GLORY",
-  artists: ["Triplo Max"],
+  id: 'feeling-good',
+  title: "Feeling Good",
+  artists: ["Torrex, J Press & Deviless"],
   description,
-  creator: "bitsong1rztprdvx003fj6gtwtwum5jw62capvsmyxercf",
+  creator: "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
   sellerFeeBps: 500,
   referralFeeBps: 50,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWMKEpXXtPpfLuPfBR84gLiLVV8egLQPKVRk5RGPobdVt",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  startTime: 1709229600,
-  genre: "House",
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmeUTTZBsoR9HoTzujGionEtSbmKdvisV4xQvWje9kTMky",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/Qmf1KLZF1TWums7VYMzg8Ark8cU2XhX91yNzoj5kGFXMX2",
+  startTime: 1710957600,
+  genre: "Dance",
   explicit: "Clean",
   license: "All Rights Reserved",
-  initialPrice: 0.053,
-  marketplaceAddress: "bitsong19cq5ladm6mxu8clszem8d8cwj9haac4du08s5zq2uvpyg4ue625ql4nskw"
+  initialPrice: 0.01053,
+  marketplaceAddress: "bitsong1h7aw6rca4l6ykxkugr5lujadpnkc5wemr7xjmzt76ymjn05pcamspmus09",
 })
 
 useSeoMeta({

@@ -122,24 +122,24 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "I'm thrilled to introduce \"Glory,\" my latest house music track that's all set to take you on a cosmic journey of inspiration and energy. Drawing from the vastness of the universe, \"Glory\" infuses deep gospel voices and beats to ignite your soul and fuel your motivation.\n\nThis is just the beginning of my NFT venture, and \"Glory\" marks the Genesis NFT exclusively launching on BitSong Studio. You won't find it anywhere else!\n\nAs the holder of \"Glory,\" you'll enjoy exclusive perks and VIP treatment, including:\n\n- Airdrops of my upcoming releases\n- Random draws to share in the royalties of some of my future releases on BitSong Studio\n- Opportunities for collaborations with me\n- VIP access to my real-life events through random draws\nAnd that's just the beginning!\n\nDon't miss out on the chance to own a piece of my musical journey and unlock unforgettable experiences with \"Glory.\"\n\nCatch you on the cosmic beats!"
+const description = "\"All I Want\" stands as a groundbreaking deep house masterpiece by the renowned DJ/producer J Press, and it marks a significant milestone as the inaugural release from Semantic Sounds, an italian record label founded by djs/producers Torrex & J Press, available as an NFT on bitsong.studio. This track not only showcases J Press's exceptional talent in the realm of deep house, but it also pioneers a new era in the music industry by embracing the world of non-fungible tokens (NFTs). As the rhythmic beats and soulful melodies enchant listeners, the unique opportunity to own a piece of musical history through an NFT adds an innovative dimension to the overall experience. \"All I Want\" transcends conventional boundaries, not just in its musical brilliance but also in its approach to distribution, making it a must-have for both deep house enthusiasts and NFT collectors alike."
 
 const data = reactive({
-  id: 'glory',
-  title: "GLORY",
-  artists: ["Triplo Max"],
+  id: 'all-i-want',
+  title: "All I Want",
+  artists: ["J Press"],
   description,
-  creator: "bitsong1rztprdvx003fj6gtwtwum5jw62capvsmyxercf",
+  creator: "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
   sellerFeeBps: 500,
-  referralFeeBps: 50,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWMKEpXXtPpfLuPfBR84gLiLVV8egLQPKVRk5RGPobdVt",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  startTime: 1709229600,
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmcHotd42aAo9dS69MtJy6287TEoofXWsCU7YBsaLSUhm9",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmdKJA6PG55qc3Hbe9Qp8njFjtc8MxMkkU8buvhZUr3shj",
+  startTime: 1709575200,
   genre: "House",
   explicit: "Clean",
   license: "All Rights Reserved",
-  initialPrice: 0.053,
-  marketplaceAddress: "bitsong19cq5ladm6mxu8clszem8d8cwj9haac4du08s5zq2uvpyg4ue625ql4nskw"
+  initialPrice: 0.02106,
+  marketplaceAddress: "bitsong1naazzhhz5k92m26ap6phqmht5d8js52mg9uke2wynenqzzn6s63qej43gn",
 })
 
 useSeoMeta({

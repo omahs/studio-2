@@ -122,24 +122,24 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "I'm thrilled to introduce \"Glory,\" my latest house music track that's all set to take you on a cosmic journey of inspiration and energy. Drawing from the vastness of the universe, \"Glory\" infuses deep gospel voices and beats to ignite your soul and fuel your motivation.\n\nThis is just the beginning of my NFT venture, and \"Glory\" marks the Genesis NFT exclusively launching on BitSong Studio. You won't find it anywhere else!\n\nAs the holder of \"Glory,\" you'll enjoy exclusive perks and VIP treatment, including:\n\n- Airdrops of my upcoming releases\n- Random draws to share in the royalties of some of my future releases on BitSong Studio\n- Opportunities for collaborations with me\n- VIP access to my real-life events through random draws\nAnd that's just the beginning!\n\nDon't miss out on the chance to own a piece of my musical journey and unlock unforgettable experiences with \"Glory.\"\n\nCatch you on the cosmic beats!"
+const description = "\"Mexico Bailante\" is an electrifying Latin Tech House track that transports listeners to the pulsating rhythms of the dance floor. Produced by the talented DJ/producer Torrex, this dynamic composition seamlessly blends the infectious beats of Tech House with the vibrant essence of Latin music. The track's title, \"Uno Dos Tres,\" reflects its rhythmic cadence that invites the audience to move in unison. Released as an exclusive NFT by the esteemed Italian record label Semantic Sounds, this musical gem not only captivates the senses but also marks a groundbreaking intersection of electronic music. \"Mexico Bailante\" is not just a track; it's an immersive experience, a testament to the innovative spirit of Torrex and the forward-thinking approach of Semantic Sounds."
 
 const data = reactive({
-  id: 'glory',
-  title: "GLORY",
-  artists: ["Triplo Max"],
+  id: 'mexico-bailante',
+  title: "Mexico Bailante",
+  artists: ["Torrex"],
   description,
-  creator: "bitsong1rztprdvx003fj6gtwtwum5jw62capvsmyxercf",
+  creator: "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
   sellerFeeBps: 500,
-  referralFeeBps: 50,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWMKEpXXtPpfLuPfBR84gLiLVV8egLQPKVRk5RGPobdVt",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  startTime: 1709229600,
-  genre: "House",
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmZxDxSroSwfPkDcRcdtyNponqV1qNjfQbWpEZn4X6iiJk",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmNQBCwB6nshni2vpdpC1VNoMnEDjByM3RGxz6UWgL3Brf",
+  startTime: 1710266400,
+  genre: "Dance",
   explicit: "Clean",
   license: "All Rights Reserved",
-  initialPrice: 0.053,
-  marketplaceAddress: "bitsong19cq5ladm6mxu8clszem8d8cwj9haac4du08s5zq2uvpyg4ue625ql4nskw"
+  initialPrice: 0.02106,
+  marketplaceAddress: "bitsong1x4kzffnyd7jkldual9xkp2hu22g5vs0k8kuw847mtkevs8pcec5sarl6d9",
 })
 
 useSeoMeta({

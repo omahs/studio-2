@@ -122,24 +122,24 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "I'm thrilled to introduce \"Glory,\" my latest house music track that's all set to take you on a cosmic journey of inspiration and energy. Drawing from the vastness of the universe, \"Glory\" infuses deep gospel voices and beats to ignite your soul and fuel your motivation.\n\nThis is just the beginning of my NFT venture, and \"Glory\" marks the Genesis NFT exclusively launching on BitSong Studio. You won't find it anywhere else!\n\nAs the holder of \"Glory,\" you'll enjoy exclusive perks and VIP treatment, including:\n\n- Airdrops of my upcoming releases\n- Random draws to share in the royalties of some of my future releases on BitSong Studio\n- Opportunities for collaborations with me\n- VIP access to my real-life events through random draws\nAnd that's just the beginning!\n\nDon't miss out on the chance to own a piece of my musical journey and unlock unforgettable experiences with \"Glory.\"\n\nCatch you on the cosmic beats!"
+const description = "\"Casanova\" - a red-hot collaboration between Adam Clay and the young, talented Italian DJ, Alessio Campoli. With its irresistible blend of spicy lyrics and infectious beats, this track embodies the essence of the legendary Italian Latin lover.  The groove of the track is anchored by a thick, groovy bass line that sets the perfect foundation for Adam Clay's smooth rap delivery, punctuated by bursts of horn section that add an imperial and pompous riff, elevating the chorus to new heights. \nFrom the moment the music starts, you're transported into a world of pulsating energy and undeniable charm. \nGet ready to dance and feel the heat with \"Casanova\"!"
 
 const data = reactive({
-  id: 'glory',
-  title: "GLORY",
-  artists: ["Triplo Max"],
+  id: 'casanova',
+  title: "Casanova",
+  artists: ["Campoli", "Adam Clay"],
   description,
-  creator: "bitsong1rztprdvx003fj6gtwtwum5jw62capvsmyxercf",
+  creator: "bitsong1f5ze3svwg8fgjuwwnr743j6fr9vtyr58nex7tu",
   sellerFeeBps: 500,
-  referralFeeBps: 50,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWMKEpXXtPpfLuPfBR84gLiLVV8egLQPKVRk5RGPobdVt",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  startTime: 1709229600,
-  genre: "House",
-  explicit: "Clean",
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXrW1iLUX8eGYpNdUUKMvBmh1PMft6jyVuGqSV7Ho21ge",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmUeYQ7cFWdzNoVckpXnNtWBobNUiYieUNGLKtp1VQ9isS",
+  startTime: 1710439200,
+  genre: "Dance",
+  explicit: "Explicit",
   license: "All Rights Reserved",
-  initialPrice: 0.053,
-  marketplaceAddress: "bitsong19cq5ladm6mxu8clszem8d8cwj9haac4du08s5zq2uvpyg4ue625ql4nskw"
+  initialPrice: 0.02106,
+  marketplaceAddress: "bitsong1ncqsywt37u5utre8f9maptwn6fm6378lfs8avg9zl6qj73x2adgqyppade",
 })
 
 useSeoMeta({

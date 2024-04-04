@@ -122,24 +122,24 @@
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import { marked } from 'marked'
 
-const description = "I'm thrilled to introduce \"Glory,\" my latest house music track that's all set to take you on a cosmic journey of inspiration and energy. Drawing from the vastness of the universe, \"Glory\" infuses deep gospel voices and beats to ignite your soul and fuel your motivation.\n\nThis is just the beginning of my NFT venture, and \"Glory\" marks the Genesis NFT exclusively launching on BitSong Studio. You won't find it anywhere else!\n\nAs the holder of \"Glory,\" you'll enjoy exclusive perks and VIP treatment, including:\n\n- Airdrops of my upcoming releases\n- Random draws to share in the royalties of some of my future releases on BitSong Studio\n- Opportunities for collaborations with me\n- VIP access to my real-life events through random draws\nAnd that's just the beginning!\n\nDon't miss out on the chance to own a piece of my musical journey and unlock unforgettable experiences with \"Glory.\"\n\nCatch you on the cosmic beats!"
+const description = "\"I Want To\" is an exclusive project that combines the sound of Alpaca with the visual arts of Dario Denso Andriolo. It is a multisensory experience that blends drum & bass with low ambient breakdowns, enriched by the interaction between digital instruments, synthesizers, and vocals. \nThrough its pulsating rhythms and ethereal pauses, this track transports the listener on a journey to an unknown world, between Blockchain and the Metaverse.\n\nIn this NFT, 3D scans of real models, ordinary men and women, are presented, whose anatomical details are intentionally blurred almost as if to remove identity from the subjects. These individuals are dressed, in addition to the typical intangibility of religious representation, in original patterns that decorate their bodies like giant tiles extracted from the Sicilian Reflection exhibition."
 
 const data = reactive({
-  id: 'glory',
-  title: "GLORY",
-  artists: ["Triplo Max"],
+  id: 'i-want-to',
+  title: "I Want To",
+  artists: ["Alpaca", "Dario Denso"],
   description,
-  creator: "bitsong1rztprdvx003fj6gtwtwum5jw62capvsmyxercf",
+  creator: "bitsong1rtrd00hk5up3uc0nttxkutena56sywy0vae44s",
   sellerFeeBps: 500,
-  referralFeeBps: 50,
-  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWMKEpXXtPpfLuPfBR84gLiLVV8egLQPKVRk5RGPobdVt",
-  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  startTime: 1709229600,
-  genre: "House",
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXwUhQTnVhJN1An7rXJGzHkWUmAGK4nJz3F4r6KBFXBEf",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPs61TrrSyjvTZeuPsHKUY8MNiAXkTH196CQprdumhp92",
+  startTime: 1711130400,
+  genre: "Electronic",
   explicit: "Clean",
   license: "All Rights Reserved",
-  initialPrice: 0.053,
-  marketplaceAddress: "bitsong19cq5ladm6mxu8clszem8d8cwj9haac4du08s5zq2uvpyg4ue625ql4nskw"
+  initialPrice: 0.013162,
+  marketplaceAddress: "bitsong1478sh2c7xgk2xufh32l3p4vsyeyd5xemqm6f2jrwz39wa9atgkpsvzchzq",
 })
 
 useSeoMeta({
