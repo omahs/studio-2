@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'all-in',
+  title: 'All In',
+  artists: ["HXRT"],
+  description: "'All In' by HXRT via N43 Records",
+  creator: "bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/Qmdob8QBFEsnZUECKoWN7ocyhPDXLTCyu6qCcSUoNyJhBt",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmTf7q5mQLmQE4iGnS3eazu6corap9cH52jLxMXZ7omTNX",
+  startTime: 1713290400,
+  genre: "Pop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.013162,
+  nftAddress: "bitsong1he85n9h0mcnzhpegj76wwcyjv626tced0zkp58wakjc7d3fm50xq0yhd4d",
+  marketplaceAddress: "bitsong1wxhcewdtc8xzr6wmythx9ja8yagskgptfu6s6aa3pevzm4avgrxsljchrv"
+}, {
+  id: 'atom',
+  title: 'Atom',
+  artists: ["Alterego & Roberto Pagliaccia"],
+  description: "\"Atom\" is a groundbreaking collaboration between Alterego and Roberto Pagliaccia, prominent figures in \nmelodic techno. Together, they seamlessly fuse the emotive melodies of melodic techno with captivating \nrhythms, creating a genre-defying masterpiece. This track, characterized by its celestial energy, immerses \nlisteners in a sonic vortex where cosmic melodies intertwine with mesmerizing beats. It's a musical \nodyssey that transcends boundaries, inviting listeners to explore new dimensions. \"Atom\" is a \ntransformative experience, showcasing the creative synergy of these two visionary forces in electronic \nmusic.",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
+  sellerFeeBps: 300,
+  referralFeeBps: 50,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmcisLkWyR1UrKAVEB6LujydNkXGjkcQR2U7eowMLSvQUW",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmS1TB21euDpWT5mXTDPVuJ2jArvwQ4Pk6QZKRDRjTsw5j",
+  startTime: 1713200400,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01033,
+  nftAddress: "bitsong17v00rapt956mudlfxl3t6gf455t07y708z8vjkjfgar87q8c9vns2avy64",
+  marketplaceAddress: "bitsong1s5rf2dnfmda864n6awcshv8uyx0u5hlgmv3q3e8we5665485h4lq7lpt0k"
+}, {
   id: 'spacelink',
   title: 'Spacelink',
   artists: ["Alex Nocera, Roy Batti, Alex Raider"],
