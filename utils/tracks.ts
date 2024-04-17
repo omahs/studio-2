@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'burning',
+  title: 'Burning',
+  artists: ["Bashment YC, Go At"],
+  description: "\"Burning\" stands as a groundbreaking house masterpiece. This track not only showcases They exceptional talent in the realm of house, but it also pioneers a new era in the music industry by embracing the world of non-fungible tokens (NFTs). As the rhythmic beats and soulful melodies enchant listeners, the unique opportunity to own a piece of musical history through an NFT adds an innovative dimension to the overall experience. “Burning” transcends conventional boundaries, not just in its musical brilliance but also in its approach to distribution, making it a must-have for both deep house enthusiasts and NFT collectors alike.",
+  creator: "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXe6JKEHHDAQskHkiQ1VLq1Ns1odgQpxYgEfQQ29eMHNY",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXcDRtp6WpsUE7bs54Rw7aAa3PqAEtAvbRCvpVBLBX5F1",
+  startTime: 1713366000,
+  genre: "House",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong12qla58t6s4ncl7lfda6273x7lrn8xwfjn7u2yqlll6r690d9e3esusepnt",
+  marketplaceAddress: "bitsong129w4tcrmzxk8u37qqtc0hezp66mkef45m3d9atnvlz09dar9a50qqvsgqf"
+}, {
   id: 'all-in',
   title: 'All In',
   artists: ["HXRT"],
