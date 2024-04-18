@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'definition-of-love',
+  title: 'Vaelocity - Definition Of Love',
+  artists: ["Vaelocity"],
+  description: "The Circle Of Love is a story-telling album involving all the stages inside the phenomenon called love. The album consists of 7 storylines and 14 tracks (7 radio and 7 extended edits). First, the 7 radio edits are dropped as an NFT. A new NFT/song from the album will be dropped every week until the album is complete. \n\nUtilities:\n\t• The first 10 holders of \"The Definition Of Love\" will receive an NFT airdrop of the 2nd song on the album \"The Search\" (release on april 26th); \n\t• The first 2 holders of \"The Definition Of Love\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the next NFT \"The Search\" (release on april 26th); \n\t• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"The Definition Of Love\";\n\t• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmNcK2D3sxJzCz5TTj8Sgw7bBiaCsuNRHaniGRCd9Xnedt",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1713546000,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong12qltyf0vmpwlfn2g2ghd26uzjtfpmxu9f4fwjvgwhrk9je0xg73q3e55pj",
+  marketplaceAddress: "bitsong16z0sj8fqc75gggsyjm4quajwgfg6w67z28g8sunfc0a8puxqlhvqjes886"
+}, {
+  id: 'break-it-down',
+  title: 'Break It Down',
+  artists: ["Roberto Molinaro"],
+  description: "Roberto Molinaro, a celebrated Italian DJ with a career spanning from the '90s to the present day, is \nknown for his remixes and original productions in the field of dance and electronic music. Regarded as \none of the pioneers of Italian EDM, his track \"Break It Down\" takes you on a fascinating journey through \nthe depths of the downtempo genre. With a perfect blend of relaxing rhythms and hypnotic melodies, \n\"Break It Down\" is the ideal song to unwind, relax, and be carried away by its enveloping beauty.",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXoxFCYqPJH7EC7eZaZ1h1xs6EqtVEmTQR96vVH4vLnHH",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPqwM9u8hG9EwKsGzanTmswc6JsK3fdQgZns2Z3JcTyZ2",
+  startTime: 1713452400,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong14d9u3d2j7tfpj6tyfaft5a7szq2sc89dmtvfd8vfdhqct296qkeqxwcffj",
+  marketplaceAddress: "bitsong1krhr0nmqhnrq9t4pkx3l8cynm5anhp7unnxz42r0zya3wass6pgqmwk6um"
+}, {
   id: 'burning',
   title: 'Burning',
   artists: ["Bashment YC, Go At"],
