@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'take-me',
+  title: 'Take Me',
+  artists: ["AXIVER, Joseph & Baltazar, POIZZONED"],
+  description: "\"Take Me\" is a techno track produced by Axiver, Joseph & Baltazar, and Poizzoned. The song features pulsating beats, intricate melodies, and a driving bassline that create an electrifying atmosphere on the dancefloor. With its seamless fusion of hypnotic rhythms and immersive soundscapes, \"Take Me\" transports listeners on a euphoric journey through the realms of electronic music.",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPSsGXwn9UFngC2CsqsGqdGLGgVLKCG3Ytk5mePmrWGJZ",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmY9VdxA3wxYdFwbaNhALQ4NcNbjaFvNwh9fYRr2mrEw12",
+  startTime: 1713538800,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong17u493k974uagyay9eh97tudyygfr6qgcgfmxnzle60xerqtsdycs6n8gqg",
+  marketplaceAddress: "bitsong1pcre7qn7pprvp3shncaa9lfzcen6uxwac8qynj60h9v7esrg3y0saakj5p"
+}, {
   id: 'definition-of-love',
   title: 'Vaelocity - Definition Of Love',
   artists: ["Vaelocity"],
