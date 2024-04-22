@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'gnor',
+  title: 'Gnor',
+  artists: ["Tava & Provenzano"],
+  description: "Discover 'Gnor,' the future of electronic music! Immerse yourself in a high-energy fusion of \npulsating beats, hypnotic melodies, and electrifying drops that will transport you to a new \ndimension of sound. Get ready to dance the night away and elevate your music experience with this cutting-edge hyper house sensation.",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmaoR5ogrqWyQSPV4YKSpqXJXSS51FaYn91zWS5n3CwHs1",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmU9qqkBYMa31fwa31fFmU1jBefaTSKDi98ZDaPhFQ9Sby",
+  startTime: 1713970800,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.001053,
+  nftAddress: "bitsong16v9et8644mhs4jwkkkhuvejjzzpuw3tnsw7x7l63sv4rx8ttq4cs7qyax8",
+  marketplaceAddress: "bitsong17xwak89tznhhgrdnvxu4szcnf45tg7xjqjew6vzdezs2qlfwpk3qwekd3y"
+}, {
+  id: 'baila',
+  title: 'Baila',
+  artists: ["Stefano Pain & Trasko"],
+  description: "Introducing \"Baila\" by Stefano Pain & Trasko. A mesmerizing journey through the pulsating heart of tech \nhouse music. This infectious track combines thumping basslines, intricate percussion, and hypnotic \nsynths to create an electrifying atmosphere on the dancefloor. With its seamless blend of cutting-edge \nproduction and irresistible grooves, \"Baila\" is the ultimate sonic experience for those seeking an \nunforgettable night of music and movement. Get ready to lose yourself in the rhythm and let the music \ntake control. \nThis is “Baila\".",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmWXQgwDpZNXvHJ6mEwU54XobjD8MsfwFh2geqLFS9TwvT",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmbCVYLr9L4XZfYYPPrs74DaRBP6MYWDdFVKVwabpfwHeB",
+  startTime: 1713884400,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.001316,
+  nftAddress: "bitsong12237299f0zfntn7mqjz665l0fjq9ad2ksyn7ud9c4jsly9phr3xqycwe5j",
+  marketplaceAddress: "bitsong1543sffahe5r9t28ea2h62zwy2nfq2248yavh5pt8wz6907rl63dqrma4q4"
+}, {
   id: 'make-it-hot',
   title: 'Make It Hot',
   artists: ["Frank Nitty"],
