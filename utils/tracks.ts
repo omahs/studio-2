@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'make-it-hot',
+  title: 'Make It Hot',
+  artists: ["Frank Nitty"],
+  description: "Frank Nitty's latest creation blends infectious basslines, hypnotic synths, and relentless grooves, creating \nan anthem destined to set dancefloors ablaze. With his signature innovation, Frank Nitty delivers a sonic \njourney that transcends genre boundaries, inviting music enthusiasts worldwide to experience the future \nof electronic music.",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmUtxAXLQFzz1gteow7EyTuebZWu1eBgCDw43tQYNsLhLV",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXFQnPKaxEJSVZEuyuxehJF32m6VNNBW6EgiYTKcKgzBU",
+  startTime: 1713798000,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.002106,
+  nftAddress: "bitsong15cqej6m3wdqkde2h3x896t4e7ln8ru2xefgznvqcrx2c4cv4pljqdxj74u",
+  marketplaceAddress: "bitsong1030w0x3zev3wh9u2zu2tn4sj7tcudyfauucdcvl7jz5c4x2ayfls3qztsp"
+}, {
   id: 'take-me',
   title: 'Take Me',
   artists: ["AXIVER, Joseph & Baltazar, POIZZONED"],
