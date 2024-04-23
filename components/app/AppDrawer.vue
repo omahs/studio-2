@@ -80,7 +80,8 @@ const isAdmin = computed(() => {
   const admins = [
     "bitsong1h882ezq7dyewld6gfv2e06qymvjxnu842586h2",
     "bitsong1q49ntyz2wjurrm56ymm5hjnz60ya3x783c5m6e",
-    "bitsong1f5ze3svwg8fgjuwwnr743j6fr9vtyr58nex7tu"
+    "bitsong1f5ze3svwg8fgjuwwnr743j6fr9vtyr58nex7tu",
+    "bitsong1yyjyrzuk6r3fcrjrxyumgy85ys8lr9kn6xzxcj"
   ];
 
   return admins.includes(user.value.address);
