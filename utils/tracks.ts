@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'the-search',
+  title: 'Vaelocity - The Search',
+  artists: ["Vaelocity"],
+  description: "The Circle Of Love is a story-telling album involving all the stages inside the phenomenon called love. The album consists of 7 storylines and 14 tracks (7 radio and 7 extended edits). First, the 7 radio edits are dropped as an NFT. A new NFT/song from the album will be dropped every week until the album is complete.\n\nUtilities: \n• The first 10 holders of \"The Search\" will receive an NFT airdrop of the 3th song on the album \"Matching 3 Worlds\" (release on March 3); \n• The first 2 holders of \"The Search\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the next NFT \"Matching 3 Worlds\" (release on March 3); \n• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"The Search\"; \n• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmdFz3rzQj43dZAiMkvDtnTgKME842VvaAwkeWujwfyMFL",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1714143600,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong1p0s68cduzq40jmf3pqm4ln2669n8789rq2awz3tw5r8vhca6ykdqxfcetn",
+  marketplaceAddress: "bitsong1jzl4telukvjx56l72zxuts0xm60gefgu3kla36fvfqlfxn0ckuvsys9fe3"
+}, {
+  id: 'sabor',
+  title: 'Sabor',
+  artists: ["Joe Berte'", "Adam Clay", "Paul Cam"],
+  description: "\"Sabor\" is a scintillating fusion of Italian taste and Latin rhythm, crafted by the dynamic duo of Joe Berte' and PaulCam with the sultry vocals of international singers Adam Clay and Mr Don. This vibrant track ignites the dance floor with its irresistible energy, inviting listeners to immerse themselves in a whirlwind of beats and melodies.\nFrom the moment the music starts, it's impossible to resist the urge to move and groove to the infectious rhythm.\n\"Sabor\" is the ultimate anthem for anyone craving a taste of the summer spirit. So grab your dancing shoes and get ready to indulge in this electrifying musical feast!",
+  creator: "bitsong18h2flt7dhzqlnatmqlufkknm9e2g9hy60l2h6n",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmeDjsRqz5ZjgVHfzvAGDvUE684bCvPmZPgGnEpA5bNBT5",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmaPmQYN4cgAAXvzd6aXaqz9q3ghUTqbStxz5ysPUgoKVV",
+  startTime: 1714060800,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.00351,
+  nftAddress: "bitsong1txmfsh3x38qt3fgsuthmmmqc7d96zh5k6t803fnpkm8dxa52tdhqa3medg",
+  marketplaceAddress: "bitsong139pffmfeyvrrkzs6alau94x5hxl75fs3w6gyzzg6a4wqxtqnxecq3gfeey"
+}, {
   id: 'gnor',
   title: 'Gnor',
   artists: ["Tava & Provenzano"],
