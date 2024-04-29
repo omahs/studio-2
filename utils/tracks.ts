@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'true-love-or-fantasy',
+  title: 'True Love Or Fantasy',
+  artists: ["Nico Del Prato"],
+  description: "A unique and harmonious record a pleasant listen and an enchanting voice",
+  creator: "bitsong18h2flt7dhzqlnatmqlufkknm9e2g9hy60l2h6n",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmecQAtAbF6bLRm3q6c9ZtX3eCfTGsDHXQS1hS52MYLmLS",
+  artworkUrl: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmUTkqunZMiV6VrNH74vs6mpSsE5oqaiqLs7K3LcgKCh1L",
+  startTime: 1714492800,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.005265,
+  nftAddress: "bitsong1nvnyaedrxtvhgxkdwghpr377vlg484asapf9j76pdxczw6y2dxvqs65tyc",
+  marketplaceAddress: "bitsong1q9jkey9ntzked207lf7sera422z83glm77zpycg98aur6uw08dwszv6x5a"
+}, {
   id: 'the-search',
   title: 'Vaelocity - The Search',
   artists: ["Vaelocity"],
