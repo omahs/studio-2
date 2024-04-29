@@ -100,6 +100,10 @@ watch(track, (newVal) => {
   if (newVal?.payment_address) {
     currentStep.value = 2
   }
+
+  if (newVal?.status === 'Minted') {
+    currentStep.value = 3
+  }
 }, {
   immediate: true
 })
@@ -205,7 +209,7 @@ async function createCurve() {
       factoryAddress,
     );
 
-    const tx = await factoryClient.createCurve(msg, "auto", "", [{ amount: "500000000", denom: "ubtsg" }],);
+    const tx = await factoryClient.createCurve(msg, "auto", "", [{ amount: "500000000", denom: "ubtsg" }]);
 
     const nft_address = tx.logs[0].events[3].attributes[2].value
 
