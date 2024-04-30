@@ -142,7 +142,7 @@ async function onContinue() {
   loading.value = true;
 
   try {
-    await $fetch(`/api/me/tracks/${props.trackId}`, {
+    await $fetch(`/media-api/tracks/${props.trackId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

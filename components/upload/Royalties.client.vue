@@ -20,8 +20,8 @@
                       hide-details></v-text-field>
                   </v-col>
                   <v-col cols="12" md="6">
-                    <v-select variant="outlined" :items="royaltiesRoles" item-title="text" item-value="value" label="Role"
-                      append-inner-icon="mdi-menu-down" v-model="r.role"></v-select>
+                    <v-select variant="outlined" :items="royaltiesRoles" item-title="text" item-value="value"
+                      label="Role" append-inner-icon="mdi-menu-down" v-model="r.role"></v-select>
                   </v-col>
                 </v-row>
                 <v-row no-gutters>
@@ -189,7 +189,7 @@ async function onContinue() {
       return
     }
 
-    await $fetch(`/api/me/tracks/${props.trackId}`, {
+    await $fetch(`/media-api/tracks/${props.trackId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

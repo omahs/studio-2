@@ -65,7 +65,7 @@ async function upload(file: File) {
     const formData = new FormData()
     formData.append('audio', file)
 
-    const response = await $fetch(`/api/me/tracks`, {
+    const response = await $fetch<{ id: string }>(`/media-api/tracks`, {
       method: 'POST',
       body: formData,
     })
@@ -92,6 +92,9 @@ onChange(async (files) => {
 
 onMounted(async () => {
   await nextTick()
+
+  console.dir(useCookie('auth_session').value)
+
   loading.value = false
 })
 </script>

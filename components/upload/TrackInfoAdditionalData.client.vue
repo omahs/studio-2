@@ -38,7 +38,8 @@
       <v-col>
         <v-row>
           <v-col>
-            <v-slider class="mt-5" :min="15000" :max="30000" :step="500" v-model="modelValue.previewDuration"></v-slider>
+            <v-slider class="mt-5" :min="15000" :max="30000" :step="500"
+              v-model="modelValue.previewDuration"></v-slider>
           </v-col>
           <v-col>
             <div class="mt-6">{{ previewDuration }} sec</div>
@@ -71,7 +72,8 @@
     <v-row no-gutters>
       <v-col cols="10" md="8">
         <v-card-title class="px-0">Previously Released</v-card-title>
-        <v-card-subtitle class="px-0">If this track has been previously released, please check this box.</v-card-subtitle>
+        <v-card-subtitle class="px-0">If this track has been previously released, please check this
+          box.</v-card-subtitle>
       </v-col>
       <v-col>
         <v-switch v-model="modelValue.previousRelease" color="primary"></v-switch>
@@ -197,7 +199,7 @@ async function onContinue() {
   loading.value = true;
 
   try {
-    await $fetch(`/api/me/tracks/${props.trackId}`, {
+    await $fetch(`/media-api/tracks/${props.trackId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

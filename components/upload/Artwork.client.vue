@@ -80,7 +80,7 @@ async function upload(file: File) {
     const formData = new FormData()
     formData.append('image', file)
 
-    const response = await $fetch(`/api/me/tracks/${props.trackId}/artwork`, {
+    const response = await $fetch(`/media-api/tracks/${props.trackId}/artwork`, {
       method: 'PUT',
       body: formData,
     })

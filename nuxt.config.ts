@@ -78,6 +78,13 @@ export default defineNuxtConfig({
         driver: 'fs',
         base: './storage/mnft',
       }
+    },
+    routeRules: {
+      '/media-api/**': {
+        proxy: {
+          to: 'http://localhost:3001/**',
+        }
+      }
     }
   },
   vueEmail: {

@@ -72,7 +72,7 @@ definePageMeta({
 
 const trackId = useRoute().params.id as string
 
-const { data: track, refresh } = await useFetch(`/api/me/tracks/${trackId}`, {
+const { data: track, refresh } = await useFetch(`/media-api/tracks/${trackId}`, {
   immediate: true
 })
 

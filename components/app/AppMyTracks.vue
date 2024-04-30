@@ -11,7 +11,7 @@
 
 
 <script lang="ts" setup>
-const { data: tracks, error } = await useFetch(`/api/me/tracks`)
+const { data: tracks, error } = await useFetch(`/media-api/tracks`)
 
 function getTrackLink(track: { id: string; status: string, nft_address?: string }) {
   if (track.status.toLowerCase() === 'draft') {

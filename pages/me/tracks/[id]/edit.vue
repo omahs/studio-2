@@ -78,7 +78,7 @@ const form = reactive({
   } as MarketPlace,
 });
 
-const { data: track, error, refresh } = await useFetch(`/api/me/tracks/${trackId}`, {
+const { data: track, error, refresh } = await useFetch(`/media-api/tracks/${trackId}`, {
   immediate: true
 })
 

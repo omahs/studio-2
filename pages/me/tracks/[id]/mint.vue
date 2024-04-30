@@ -88,7 +88,7 @@ const trackId = useRoute().params.id as string
 
 const currentStep = ref(0)
 
-const { data: track, refresh } = await useFetch(`/api/me/tracks/${trackId}`, {
+const { data: track, refresh } = await useFetch(`/media-api/tracks/${trackId}`, {
   immediate: true
 })
 
@@ -142,7 +142,7 @@ async function publishMetadata() {
   loading.value = true
 
   try {
-    await $fetch(`/api/me/tracks/${trackId}/publish`, {
+    await $fetch(`/media-api/tracks/${trackId}/publish`, {
       method: "POST",
     })
 
@@ -169,10 +169,10 @@ async function createRoyalties() {
       factoryAddress,
     );
 
-    const msg = await $fetch(`/api/me/tracks/${trackId}/msgs/royalties`)
+    const msg = await $fetch(`/media-api/tracks/${trackId}/msgs/royalties`)
     const tx = await factoryClient.createRoyaltiesGroup(msg, "auto", "", []);
 
-    await $fetch(`/api/me/tracks/${trackId}`, {
+    await $fetch(`/media-api/tracks/${trackId}`, {
       method: "PUT",
       body: {
         payment_address: toValue(tx.logs[0].events[1].attributes[0].value)
@@ -198,7 +198,7 @@ async function createCurve() {
   loading.value = true
 
   try {
-    const msg = await $fetch(`/api/me/tracks/${trackId}/msgs/curve`)
+    const msg = await $fetch(`/media-api/tracks/${trackId}/msgs/curve`)
 
     const address = getAddress("bitsong");
     const factoryAddress = "bitsong1wug8sewp6cedgkmrmvhl3lf3tulagm9hnvy8p0rppz9yjw0g4wtqy04vy2";
@@ -213,7 +213,7 @@ async function createCurve() {
 
     const nft_address = tx.logs[0].events[3].attributes[2].value
 
-    await $fetch(`/api/me/tracks/${trackId}/confirm`, {
+    await $fetch(`/media-api/tracks/${trackId}/confirm`, {
       method: "POST",
       body: {
         nft_address

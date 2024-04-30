@@ -17,7 +17,6 @@
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.2.0",
     "@prisma/client": "^5.9.1",
-    "@types/fluent-ffmpeg": "^2.1.24",
     "@types/formidable": "^3.4.5",
     "@types/uuid": "^9.0.7",
     "@vue-email/nuxt": "^0.8.8",
@@ -60,7 +59,6 @@
     "bignumber.js": "^9.1.2",
     "cosmjs-types": "^0.8.0",
     "file-type": "^19.0.0",
-    "fluent-ffmpeg": "^2.1.2",
     "formidable": "^3.5.1",
     "h3-formidable": "^1.0.0",
     "iso-3166-1": "^2.1.1",
@@ -72,7 +70,7 @@
     "nuxt-gtag": "^1.1.2",
     "nuxt-umami": "^2.5.7",
     "pinia": "^2.1.7",
-    "sharp": "0.33.2",
+    "sharp": "^0.32.6",
     "superjson": "^2.2.1",
     "swiper": "^11.0.5",
     "trpc-nuxt": "^0.10.17",
@@ -87,7 +85,7 @@
   },
   "pnpm": {
     "overrides": {
-      "sharp": "0.33.2"
+      "sharp": "0.32.6"
     },
     "supportedArchitectures": {
       "os": [

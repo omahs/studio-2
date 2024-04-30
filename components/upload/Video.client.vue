@@ -71,7 +71,7 @@ async function upload(file: File) {
     const formData = new FormData()
     formData.append('video', file)
 
-    await $fetch(`/api/me/tracks/${props.trackId}/video`, {
+    await $fetch(`/media-api/tracks/${props.trackId}/video`, {
       method: 'PUT',
       body: formData,
     })

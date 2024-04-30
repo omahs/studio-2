@@ -117,8 +117,11 @@ async function onTranscode() {
   try {
     isTranscoding.value = true
 
-    await $studio.admin.nfts.transcode.mutate({
-      id: nftId.value
+    // await $studio.admin.nfts.transcode.mutate({
+    //   id: nftId.value
+    // })
+    await $fetch(`/media-api/admin/nfts/${nftId.value}/transcode`, {
+      method: 'POST'
     })
 
     success('NFT transcoded successfully')
