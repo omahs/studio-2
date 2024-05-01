@@ -80,9 +80,12 @@ async function upload(file: File) {
     const formData = new FormData()
     formData.append('image', file)
 
-    const response = await $fetch(`/media-api/tracks/${props.trackId}/artwork`, {
+    const response = await $fetch(`https://media-api.bitsong.studio/tracks/${props.trackId}/artwork`, {
       method: 'PUT',
       body: formData,
+      headers: {
+        'Authorization': `Bearer ${useUserState().value?.sid}`
+      }
     })
 
     console.log(response)

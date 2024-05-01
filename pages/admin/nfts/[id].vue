@@ -73,6 +73,7 @@
 </template>
 
 <script lang="ts" setup>
+import type { NuxtError } from '#app';
 import { useQuery } from '@tanstack/vue-query'
 import VueJsonPretty from 'vue-json-pretty';
 import 'vue-json-pretty/lib/styles.css';
@@ -117,18 +118,16 @@ async function onTranscode() {
   try {
     isTranscoding.value = true
 
-    // await $studio.admin.nfts.transcode.mutate({
-    //   id: nftId.value
-    // })
-    await $fetch(`/media-api/admin/nfts/${nftId.value}/transcode`, {
-      method: 'POST'
+    await $fetch(`https://media-api.bitsong.studio/admin/nfts/${nftId.value}/transcode`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${useUserState().value?.sid}`
+      }
     })
 
     success('NFT transcoded successfully')
-    //navigateTo('/admin/tracks')
-  } catch (error) {
-    console.error(error)
-    errorNotify(`Failed to transcode NFT: ${(error as Error).message}`)
+  } catch (e) {
+    errorNotify((e as NuxtError).statusMessage || `Failed to transcode NFT`)
   } finally {
     isTranscoding.value = false
   }

@@ -72,8 +72,11 @@ definePageMeta({
 
 const trackId = useRoute().params.id as string
 
-const { data: track, refresh } = await useFetch(`/media-api/tracks/${trackId}`, {
-  immediate: true
+const { data: track, refresh } = await useFetch(`https://media-api.bitsong.studio/tracks/${trackId}`, {
+  immediate: true,
+  headers: {
+    'Authorization': `Bearer ${useUserState().value?.sid}`
+  }
 })
 
 const img = useImage();

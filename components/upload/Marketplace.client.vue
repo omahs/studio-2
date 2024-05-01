@@ -253,10 +253,11 @@ async function onContinue() {
       return
     }
 
-    await $fetch(`/media-api/tracks/${props.trackId}`, {
+    await $fetch(`https://media-api.bitsong.studio/tracks/${props.trackId}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${useUserState().value?.sid}`
       },
       body: {
         marketplace: {

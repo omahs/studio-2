@@ -11,7 +11,11 @@
 
 
 <script lang="ts" setup>
-const { data: tracks, error } = await useFetch(`/media-api/tracks`)
+const { data: tracks, error } = await useFetch(`https://media-api.bitsong.studio/tracks`, {
+  headers: {
+    'Authorization': `Bearer ${useUserState().value?.sid}`
+  }
+})
 
 function getTrackLink(track: { id: string; status: string, nft_address?: string }) {
   if (track.status.toLowerCase() === 'draft') {
