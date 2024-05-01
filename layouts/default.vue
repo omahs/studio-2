@@ -1,10 +1,10 @@
 <template>
   <v-layout>
-    <AppAlertConfirmEmail />
-    <app-drawer/>
-    <app-bar :show-logo="false"/>
+    <app-drawer />
+    <app-bar :show-logo="false" />
     <v-main>
-      <slot/>
+      <AppAlertConfirmEmail />
+      <slot />
     </v-main>
   </v-layout>
 </template>

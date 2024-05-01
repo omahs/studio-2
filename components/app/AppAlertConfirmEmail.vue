@@ -1,16 +1,12 @@
 <template>
-  <v-app-bar v-if="showAlert" color="red" density="compact">
+  <v-app-bar v-if="user !== null && user !== O && showAlert" color="red" density="compact">
     <v-list-item>
       Please confirm your email address {{ user?.email_to_verify }}
-      <v-btn
-v-if="canResendEmail" :loading="status === 'pending'" class="ml-2" variant="outlined" size="small"
+      <v-btn v-if="canResendEmail" :loading="status === 'pending'" class="ml-2" variant="outlined" size="small"
         color="white" @click="execute">
         resend email
       </v-btn>
     </v-list-item>
-    <!--<template #append>
-      <v-btn size="small" icon="mdi-close" variant="text"></v-btn>
-    </template>-->
   </v-app-bar>
 </template>
 
