@@ -10,7 +10,7 @@ export const auth = lucia({
     key: "userKey"
   }),
   middleware: h3(),
-  env: process.dev ? "DEV" : "PROD",
+  env: import.meta.dev ? "DEV" : "PROD",
   getUserAttributes: (data) => {
     return {
       address: data.address,

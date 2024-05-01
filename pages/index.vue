@@ -4,12 +4,12 @@
 
       <ClientOnly>
         <v-window v-model="window" show-arrows>
-          <template v-slot:prev="{ props }">
-            <v-btn variant="text" color="white" icon="mdi-chevron-left" @click="props.onClick"></v-btn>
+          <template #prev="{ props }">
+            <v-btn variant="text" color="white" icon="mdi-chevron-left" @click="props.onClick"/>
           </template>
 
-          <template v-slot:next="{ props }">
-            <v-btn variant="text" color="white" icon="mdi-chevron-right" @click="props.onClick"></v-btn>
+          <template #next="{ props }">
+            <v-btn variant="text" color="white" icon="mdi-chevron-right" @click="props.onClick"/>
           </template>
 
           <v-window-item v-for="(drop, index) in activeDrops" :key="index" :value="index">
@@ -37,8 +37,9 @@
                       <v-row>
                         <v-col cols="12" md="10" class="text-h4 px-md-4 py-3">
                           <ClientOnly>
-                            <vue-countdown class="px-md-2" :time="remainingTime(drop.startTime)"
-                              v-slot="{ days, hours, minutes, seconds }">
+                            <vue-countdown
+v-slot="{ days, hours, minutes, seconds }" class="px-md-2"
+                              :time="remainingTime(drop.startTime)">
                               {{ days }}d {{ hours }}h {{ minutes }}m {{ seconds }}s
                             </vue-countdown>
                           </ClientOnly>
@@ -47,10 +48,11 @@
 
                       <v-row>
                         <v-col cols="12" md="10" class="pb-0">
-                          <v-btn @click.stop="navigateTo(`/preview/${drop.id}`)" block size="large">Preview</v-btn>
+                          <v-btn block size="large" @click.stop="navigateTo(`/preview/${drop.id}`)">Preview</v-btn>
                         </v-col>
                         <v-col cols="12" md="10">
-                          <AppDropNotificationBtn size="large" class="mt-3" :drop-id="drop.id" :title="drop.title"
+                          <AppDropNotificationBtn
+size="large" class="mt-3" :drop-id="drop.id" :title="drop.title"
                             :subtitle="drop.subtitle"
                             :image="img(drop.image, { width: 230, height: 230, fit: 'cover' })"
                             :start-time="drop.startTime" />
@@ -66,8 +68,9 @@
             </v-card>
           </v-window-item>
 
-          <v-window-item :key="drops.length" :value="drops.length">
-            <AppNftHero class="nft-hero mt-8"
+          <v-window-item :key="activeDrops.length" :value="activeDrops.length">
+            <AppNftHero
+class="nft-hero mt-8"
               :image="useIpfsLink('ipfs://QmbGwgtpRFX3XiU2ppFEDnwyCzcfYTNBVsuxcxMMwGpP4t')!"
               title="BitSong NFT Genesis Collection"
               description="Dive into the Exclusive Realm of BitSong with Our Genesis NFT Collection! This collection is more than digital art – it's your VIP pass to BitSong's vibrant ecosystem"
@@ -90,8 +93,9 @@
       <v-container v-if="pending" fluid class="pb-0">
         <v-row>
           <v-col>
-            <v-skeleton-loader class="py-2"
-              type="heading, avatar, avatar, avatar, avatar, avatar, avatar, avatar, avatar"></v-skeleton-loader>
+            <v-skeleton-loader
+class="py-2"
+              type="heading, avatar, avatar, avatar, avatar, avatar, avatar, avatar, avatar"/>
           </v-col>
         </v-row>
       </v-container>
@@ -116,138 +120,7 @@ interface LatestUser {
   avatar?: string;
 }
 
-const drops = [{
-  id: 'glory',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRpEuACERGTLctqQaAjiPfQnj8XrzUkF8o6rmLLhCvSzg",
-  subtitle: "Triplo Max",
-  title: "GLORY",
-  startTime: 1709229600,
-  link: "/preview/glory"
-}, {
-  id: 'uno-dos-tres',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXVXMo3TESkYnXbR8zb1kBeRRtRhYkTDK9T9uFjoTBdjo",
-  subtitle: "Torrex",
-  title: "Uno Dos Tres",
-  startTime: 1709056800,
-  link: "/preview/uno-dos-tres"
-}, {
-  id: 'destructure',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPSq8vYWJ1ALdjBAyju2Gb2yyUoXHwpLwxVoyFrUjVa52",
-  subtitle: "Luca Testa",
-  title: "Destructure (Feat Gab3z)",
-  startTime: 1709143200,
-  link: "/preview/destructure"
-}, {
-  id: 'feel-the-vibe',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmRWZFsYP9m1eQeSooSSk72hBwECLy11U7RvR6mZGuUEKS",
-  subtitle: "Dino Brown, Adam Clay",
-  title: "Feel The Vibe",
-  startTime: 1709316000,
-  link: "/preview/feel-the-vibe"
-}, {
-  id: 'wind-still-blows',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPCoexML73gyABtNfJthK2qMwpLqF5Q5F2scS9jr6qVtS",
-  subtitle: "Kiras",
-  title: "The Wind Still Blows",
-  startTime: 1709661600,
-  link: "/preview/wind-still-blows"
-}, {
-  id: 'all-i-want',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmdKJA6PG55qc3Hbe9Qp8njFjtc8MxMkkU8buvhZUr3shj",
-  subtitle: "J Press",
-  title: "All I Want",
-  startTime: 1709575200,
-  link: "/preview/all-i-want"
-}, {
-  id: 'all-i-need',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmSvWAqpea6xZT8z2tzZeLCS9hxEfePkGLq2qju7kzL3cp",
-  subtitle: "Lollino & Deebesh",
-  title: "All I Need",
-  startTime: 1709920800,
-  link: "/preview/all-i-need"
-}, {
-  id: 'secrets',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmTPzYSevY31hX6Dy6nAXrBz5cBpMjLFRoc1JKk1FzFnDc",
-  subtitle: "Noyse, Zangi",
-  title: "Secrets (Feat. Eli Limaj)",
-  startTime: 1709834400,
-  link: "/preview/secrets"
-}, {
-  id: 'famous-girl',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmZrLNcJVx4s9MNjK2dwW55iXrxnD1KFZ8knbehXJQFzFE",
-  subtitle: "J Press",
-  title: "Famous Girl",
-  startTime: 1710180000,
-  link: "/preview/famous-girl"
-}, {
-  id: 'mexico-bailante',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmNQBCwB6nshni2vpdpC1VNoMnEDjByM3RGxz6UWgL3Brf",
-  subtitle: "Torrex",
-  title: "Mexico Bailante",
-  startTime: 1710266400,
-  link: "/preview/mexico-bailante"
-}, {
-  id: 'casanova',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmUeYQ7cFWdzNoVckpXnNtWBobNUiYieUNGLKtp1VQ9isS",
-  subtitle: "Campoli, Adam Clay",
-  title: "Casanova",
-  startTime: 1710439200,
-  link: "/preview/casanova"
-}, {
-  id: 'anything-i-do',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmcwP241RSACz8LcZy8ms49TSpgGheq8ejRHPsXRaJZDwP",
-  subtitle: "BlackJack, Hamster NFT",
-  title: "Anything I Do",
-  startTime: 1710352800,
-  link: "/preview/anything-i-do"
-}, {
-  id: 'feeling-good',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/Qmf1KLZF1TWums7VYMzg8Ark8cU2XhX91yNzoj5kGFXMX2",
-  subtitle: "Torrex, J Press & Deviless",
-  title: "Feeling Good",
-  startTime: 1710957600,
-  link: "/preview/feeling-good"
-}, {
-  id: 'spicy',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmQpN2HN6HECMEo7WrWcrR2dtyMZwCGfRqn2hFveo5tRMc",
-  subtitle: "J Press",
-  title: "Spicy",
-  startTime: 1711044000,
-  link: "/preview/spicy"
-}, {
-  id: 'i-want-to',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmPs61TrrSyjvTZeuPsHKUY8MNiAXkTH196CQprdumhp92",
-  subtitle: "Alpaca, Dario Denso",
-  title: "I Want To",
-  startTime: 1711130400,
-  link: "/preview/i-want-to"
-}, {
-  id: 'up-funk',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmQGKBtyGg2xFS26qoVYCSewGtdkdtVg2asTRrxzRX1xXV",
-  subtitle: "Torrex",
-  title: "Up Funk",
-  startTime: 1711648800,
-  link: "/preview/up-funk"
-}, {
-  id: 'with-me',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmXJecNhzJKgyaXzWS1PCct3WbJMt2S6qcLj6gx4yRGNRs",
-  subtitle: "J Press, Torrex",
-  title: "With Me",
-  startTime: 1711735200,
-  link: "/preview/with-me"
-}, {
-  id: 'high',
-  image: "https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/QmVk5hmF6KFE6gAgrfwmf5QFM5yJLbVButohmqs5BuqcTM",
-  subtitle: "HXRT",
-  title: "High",
-  startTime: 1712163600,
-  link: "/preview/high"
-}]
-
-const activeDrops = computed(() => {
-  return drops.filter(drop => drop.startTime > Math.floor(Date.now() / 1000))
-    .sort((a, b) => a.startTime - b.startTime)
-})
+const activeDrops = getUpcomingDrops();
 
 function remainingTime(startTime: number) {
   return (startTime - Math.floor(Date.now() / 1000)) * 1000
