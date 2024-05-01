@@ -82,7 +82,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/media-api/**': {
         proxy: {
-          to: 'http://localhost:3001/**',
+          to: `${import.meta.env.NUXT_MEDIA_API || 'http://localhost:3000'}/**`,
         }
       }
     }
