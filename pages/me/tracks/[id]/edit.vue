@@ -34,7 +34,7 @@ import type { TrackInfoLyrics } from '~/components/upload/TrackInfoLyrics.vue';
 
 definePageMeta({
   layout: 'app-bar-only',
-  middleware: ["protected"]
+  middleware: ["upload"]
 })
 
 const trackId = useRoute().params.id as string

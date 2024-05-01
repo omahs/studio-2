@@ -2,17 +2,16 @@
   <div v-if="connected" class="d-flex align-center">
     <v-menu v-model="menu" :close-on-content-click="false">
       <template #activator="{ props }">
-        <v-list
-width="210" :style="{ cursor: 'pointer' }" v-bind="props" bg-color="transparent" variant="text"
+        <v-list width="210" :style="{ cursor: 'pointer' }" v-bind="props" bg-color="transparent" variant="text"
           density="comfortable" rounded="pill">
-          <v-list-item :prepend-avatar="avatar" :title="name" :subtitle="formattedBalance"/>
+          <v-list-item :prepend-avatar="avatar" :title="name" :subtitle="formattedBalance" />
         </v-list>
       </template>
 
       <v-card min-width="300">
         <div class="py-3 text-center flex-grow-1">
           <v-avatar size="80" :style="{ cursor: 'pointer' }" @click.stop="navigateTo('/me')">
-            <v-img :src="avatar" :alt="accountName" cover/>
+            <v-img :src="avatar" :alt="accountName" cover />
           </v-avatar>
           <v-card-title :style="{ cursor: 'pointer' }" @click.stop="navigateTo('/me')">
             {{ name }}
@@ -23,12 +22,11 @@ width="210" :style="{ cursor: 'pointer' }" v-bind="props" bg-color="transparent"
           <v-card-subtitle v-if="user?.username">
             {{ formatShortAddress(address, 6) }}
           </v-card-subtitle>
-          <v-btn
-icon="mdi-refresh" :loading="loading" size="small" variant="text" rounded="pill" color="grey-lighten-1"
-            @click.stop="fetchBalance"/>
+          <v-btn icon="mdi-refresh" :loading="loading" size="small" variant="text" rounded="pill" color="grey-lighten-1"
+            @click.stop="fetchBalance" />
           <AppCopyBtn v-if="address" :text="address" />
         </div>
-        <v-divider/>
+        <v-divider />
         <v-list density="comfortable">
           <v-list-item append-icon="mdi-account" to="/me">
             <v-list-item-title>My Profile</v-list-item-title>
@@ -41,8 +39,7 @@ icon="mdi-refresh" :loading="loading" size="small" variant="text" rounded="pill"
           </v-list-item>
         </v-list>
         <v-card-actions>
-          <v-btn
-prepend-icon="mdi-logout" block rounded="pill" variant="outlined" color="primary"
+          <v-btn prepend-icon="mdi-logout" block rounded="pill" variant="outlined" color="primary"
             @click.stop="disconnect">Disconnect</v-btn>
         </v-card-actions>
       </v-card>
@@ -111,4 +108,6 @@ onMounted(async () => {
     await fetchBalance()
   }
 })
+
+const enableUpload = computed(() => useUserState().value?.beta_features?.includes("upload"))
 </script>
