@@ -90,6 +90,7 @@ ${new Date().toUTCString()}`;
       umTrackEvent('login')
 
       return {
+        sid: loginState.sessionId,
         user: loginState.user
       }
     } catch (e) {
@@ -124,7 +125,10 @@ ${new Date().toUTCString()}`;
                 })
               }
 
-              user.value = loginData?.user
+              user.value = {
+                ...loginData?.user,
+                sid: loginData?.sid,
+              }
               break
             } catch (e) {
               remainingAttempts--

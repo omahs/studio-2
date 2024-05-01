@@ -11,7 +11,7 @@ class="d-flex pt-2 pb-1" :class="{
       <div v-if="showAppName" class="ml-3 text-h5 mt-2">{{ appName }}</div>
     </div>
 
-    <template #append>
+    <template #append v-if="showUserMenu">
       <AppUserMenu />
       <client-only>
         <AppConnectBtn />
@@ -26,11 +26,13 @@ import { useNavigationDrawer } from "~/composables/useNavigationDrawer";
 interface Props {
   showLogo?: boolean;
   showAppName?: boolean;
+  showUserMenu?: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
   showLogo: true,
   showAppName: false,
+  showUserMenu: true,
 });
 
 const { appName } = useRuntimeConfig().public

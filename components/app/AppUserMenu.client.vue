@@ -33,6 +33,9 @@ icon="mdi-refresh" :loading="loading" size="small" variant="text" rounded="pill"
           <v-list-item append-icon="mdi-account" to="/me">
             <v-list-item-title>My Profile</v-list-item-title>
           </v-list-item>
+          <v-list-item append-icon="mdi-music" to="/me/tracks">
+            <v-list-item-title>My Tracks</v-list-item-title>
+          </v-list-item>
           <v-list-item append-icon="mdi-bank" to="/me/assets">
             <v-list-item-title>My Assets</v-list-item-title>
           </v-list-item>

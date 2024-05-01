@@ -19,7 +19,8 @@
     "@nuxt/devtools": "latest",
     "@nuxt/eslint": "^0.3.9",
     "@nuxt/image": "^1.2.0",
-    "@prisma/client": "^5.8.1",
+    "@prisma/client": "^5.9.1",
+    "@types/formidable": "^3.4.5",
     "@types/uuid": "^9.0.7",
     "@vue-email/nuxt": "^0.8.8",
     "esbuild-plugin-polyfill-node": "^0.3.0",
@@ -27,7 +28,7 @@
     "nuxt": "^3.9.1",
     "nuxt-icon": "^0.6.8",
     "nuxt-og-image": "3.0.0-rc.25",
-    "prisma": "^5.8.1",
+    "prisma": "^5.9.1",
     "sass": "^1.69.5",
     "typescript": "^5.4.5",
     "vite-plugin-vuetify": "^1.0.2",
@@ -36,9 +37,12 @@
     "vuetify": "^3.5.5"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.501.0",
     "@aws-sdk/client-ses": "^3.490.0",
+    "@aws-sdk/lib-storage": "^3.501.0",
+    "@aws-sdk/s3-request-presigner": "^3.501.0",
     "@bitsongjs/metadata": "^0.2.1",
-    "@bitsongjs/telescope": "3.0.0-dev.21",
+    "@bitsongjs/telescope": "3.0.0-dev.23",
     "@chenfengyuan/vue-countdown": "2",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -52,25 +56,50 @@
     "@quirks/store": "^0.10.0",
     "@quirks/vue": "^0.4.6",
     "@quirks/wallets": "^0.7.4",
+    "@tanstack/vue-query": "^5.20.5",
+    "@trpc/client": "^10.45.0",
+    "@trpc/server": "^10.45.0",
     "@vueuse/core": "^10.7.0",
     "@vueuse/nuxt": "^10.7.0",
     "bignumber.js": "^9.1.2",
     "cosmjs-types": "^0.8.0",
+    "file-type": "^19.0.0",
+    "formidable": "^3.5.1",
+    "h3-formidable": "^1.0.0",
+    "iso-3166-1": "^2.1.1",
+    "iso-639-1": "^3.1.0",
     "lucia": "^2.7.5",
     "marked": "^11.1.1",
+    "nanoid": "^5.0.5",
     "nft.storage": "^7.1.1",
     "nuxt-gtag": "^1.1.2",
     "nuxt-umami": "^2.5.7",
     "pinia": "^2.1.7",
     "sharp": "^0.32.6",
+    "superjson": "^2.2.1",
     "swiper": "^11.0.5",
+    "trpc-nuxt": "^0.10.17",
     "uuid": "^9.0.1",
+    "vue-json-pretty": "^2.3.0",
     "vue-toastification": "2.0.0-rc.5",
     "zod": "^3.22.4"
   },
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=9.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "sharp": "0.32.6"
+    },
+    "supportedArchitectures": {
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    }
   },
   "prisma": {
     "seed": "node seed.js"

@@ -16,12 +16,14 @@ export default defineNuxtConfig({
     awsSecretAccessKey: '',
     awsSesRegion: '',
     awsS3Region: '',
+    awsS3BucketTracks: '',
     awsS3BucketPodcast: '',
     awsS3AccessKeyId: '',
     awsS3SecretAccessKey: '',
     pinataApiKey: '',
     pinataApiSecret: '',
     public: {
+      baseUrl: 'http://localhost:3000',
       network: process.env.NUXT_PUBLIC_NETWORK || 'testnet',
       rpcAddress: process.env.NUXT_PUBLIC_RPC_ADDRESS || 'https://rpc.bwasmnet-1.bitsong.network',
       restAddress: process.env.NUXT_PUBLIC_REST_ADDRESS || 'https://api.bwasmnet-1.bitsong.network',
@@ -41,14 +43,17 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-free/css/all.css'
   ],
   build: {
-    transpile: ['vue-toastification', 'vuetify'],
+    transpile: ['trpc-nuxt', 'vue-toastification', 'vuetify'],
   },
   gtag: {
     id: "G-41SQ7H37C8",
   },
   image: {
     domains: [
-      'yellow-hilarious-jay-665.mypinata.cloud'
+      'yellow-hilarious-jay-665.mypinata.cloud',
+      'localhost',
+      'bitsong.studio',
+      'testnet.bitsong.studio'
     ],
   },
   extends: ['nuxt-umami'],
@@ -67,6 +72,21 @@ export default defineNuxtConfig({
       })
     },
   ],
+  nitro: {
+    storage: {
+      mnft: {
+        driver: 'fs',
+        base: './storage/mnft',
+      }
+    },
+    routeRules: {
+      '/media-api/**': {
+        proxy: {
+          to: `${import.meta.env.NUXT_MEDIA_API || 'http://localhost:3000'}/**`,
+        }
+      }
+    }
+  },
   vueEmail: {
     baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   },

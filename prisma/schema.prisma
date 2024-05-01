@@ -2,7 +2,7 @@ datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
-  schemas   = ["public", "web3auth"] // indexer, nft...
+  schemas   = ["public", "web3auth", "multisig"] // indexer, nft...
 
   // Only if you enable `postgresqlExtensions` preview feature
   // extensions        = [hstore(schema: "myHstoreSchema"), pg_trgm, postgis(version: "2.1")]
@@ -36,6 +36,8 @@ model User {
 
   auth_session UserSession[]
   key          UserKey[]
+  tracks       tracks[]
+  nftview      nftview[]
 
   @@schema("web3auth")
 }
@@ -73,6 +75,256 @@ model DropNotifications {
   @@schema("public")
 }
 
+model tracks {
+  id               String   @id @unique
+  user_id          String
+  title            String?
+  titleLocale      String?
+  format           String?
+  size             Int?
+  license          String?
+  artwork          String?
+  artwork_ipfs_cid String?
+  audio            String?
+  audio_ipfs_cid   String?
+  audio_mime_type  String?
+  video            String?
+  video_ipfs_cid   String?
+  duration         Int?
+  genre            String?
+  country          String?
+  explicit         String?  @default("Clean")
+  description      String?
+  liveRecording    Boolean? @default(false)
+  lyrics           String?
+  lyricsLocale     String?
+  previousRelease  Boolean? @default(false)
+  previewStartTime Int?     @default(0)
+  previewDuration  Int?     @default(15000)
+
+  video_format    String?
+  video_bit_rate  Int?
+  video_duration  Int?
+  video_size      Int?
+  video_mime_type String?
+
+  version String?
+
+  start_time Int?
+
+  payment_address String?
+  payment_denom   String?
+
+  metadata_ipfs_cid String?
+
+  status             TrackStatus                @default(Draft)
+  nft_address        String?
+  created_at         DateTime                   @default(now())
+  updated_at         DateTime                   @default(now()) @updatedAt
+  artists            track_artists[]
+  authors_publishers track_authors_publishers[]
+  royalties_info     track_royalties_info[]
+  marketplace        track_marketplace[]
+
+  user User @relation(fields: [user_id], references: [id])
+
+  @@index([user_id])
+  @@schema("public")
+}
+
+enum TrackStatus {
+  Draft
+  To_Mint
+  Minted
+
+  @@schema("public")
+}
+
+model track_artists {
+  id       String  @id @unique
+  track_id String
+  address  String?
+  name     String?
+  role     String?
+  track    tracks  @relation(fields: [track_id], references: [id])
+
+  @@index([track_id])
+  @@schema("public")
+}
+
+model track_authors_publishers {
+  id       String  @id @unique
+  track_id String
+  address  String?
+  name     String?
+  role     String?
+  track    tracks  @relation(fields: [track_id], references: [id])
+
+  @@index([track_id])
+  @@schema("public")
+}
+
+model track_royalties_info {
+  id       String  @id @unique
+  track_id String
+  address  String?
+  role     String?
+  shares   Int?
+  track    tracks  @relation(fields: [track_id], references: [id])
+
+  @@index([track_id])
+  @@schema("public")
+}
+
+model track_marketplace {
+  id           String @id @unique
+  track_id     String
+  ratio        Int?
+  creator_fee  Float?
+  referral_fee Float?
+  track        tracks @relation(fields: [track_id], references: [id])
+
+  @@index([track_id])
+  @@schema("public")
+}
+
+model music_nfts {
+  id               String  @id @unique
+  title            String
+  titleLocale      String
+  artwork          String
+  audio            String
+  audio_preview    String
+  video            String?
+  duration         Int
+  version          String?
+  genre            String
+  liveRecording    Boolean @default(false)
+  pLine            String?
+  cLine            String?
+  country          String
+  previousRelease  Boolean @default(false)
+  isrc             String?
+  iswc             String?
+  license          String
+  previewStartTime Int?    @default(0)
+  previewDuration  Int?    @default(15000)
+  lyrics           String?
+  lyricsLocale     String?
+  explicit         String? @default("Clean")
+  label            String?
+
+  artists            music_nft_artists[]
+  authors_publishers music_nft_authors_publishers[]
+
+  featured Boolean? @default(false)
+
+  @@schema("public")
+}
+
+model music_nft_artists {
+  id        String     @id @unique
+  nft_id    String
+  address   String?
+  name      String
+  role      String
+  music_nft music_nfts @relation(fields: [nft_id], references: [id])
+
+  @@index([nft_id])
+  @@index([address])
+  @@schema("public")
+}
+
+model music_nft_authors_publishers {
+  id        String     @id @unique
+  nft_id    String
+  address   String?
+  name      String
+  role      String
+  music_nft music_nfts @relation(fields: [nft_id], references: [id])
+
+  @@index([nft_id])
+  @@index([address])
+  @@schema("public")
+}
+
+model multisig_wallets {
+  id          String  @id @unique
+  name        String
+  description String?
+  threshold   Int
+  pubkey      String
+
+  members multisig_wallet_members[]
+  txs     multisig_wallet_txs[]
+
+  created_at DateTime @default(now())
+
+  @@schema("multisig")
+}
+
+model multisig_wallet_members {
+  id        String  @id @unique
+  wallet_id String
+  index     Int
+  name      String?
+  address   String
+
+  wallet multisig_wallets? @relation(fields: [wallet_id], references: [id])
+
+  @@index([wallet_id])
+  @@index([address])
+  @@schema("multisig")
+}
+
+model multisig_wallet_txs {
+  id          String                          @id @unique
+  wallet_id   String
+  title       String
+  description String?
+  memo        String
+  msgs        String
+  fee         String
+  hash        String?
+  sequence    Int
+  status      multisig_tx_status
+  signatures  multisig_wallet_tx_signatures[]
+  wallet      multisig_wallets?               @relation(fields: [wallet_id], references: [id])
+
+  created_at DateTime @default(now())
+
+  @@index([hash])
+  @@index([wallet_id])
+  @@schema("multisig")
+}
+
+enum multisig_tx_status {
+  Pending_Signatures
+  Pending_Execution
+  Executed
+  Failed
+
+  @@schema("multisig")
+}
+
+model multisig_wallet_tx_signatures {
+  id         String @id @unique
+  tx_id      String
+  address    String
+  body_bytes String
+  signature  String
+  sequence   Int
+  memo       String
+
+  tx multisig_wallet_txs? @relation(fields: [tx_id], references: [id])
+
+  created_at DateTime @default(now())
+
+  @@index([tx_id])
+  @@index([address])
+  @@schema("multisig")
+}
+
 view nfttokenview {
   nft_id    String  @id @unique
   nft_name  String
@@ -105,6 +357,8 @@ view nftview {
   volume              Int?
   last_price          Int?
   timestamp           DateTime?
+
+  user User? @relation(fields: [sender], references: [address])
 
   @@schema("public")
 }

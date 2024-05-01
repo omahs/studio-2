@@ -1,4 +1,5 @@
 export interface User {
+  sid: string;
   userId: string;
   address: string;
   username: string | null;

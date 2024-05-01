@@ -6,8 +6,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { sendEmailVerification } from '~/server/utils/email';
 import prisma from '~/server/utils/db'
 
-const pinata = new pinataSDK(useRuntimeConfig().pinataApiKey, useRuntimeConfig().pinataApiSecret);
-
 export default defineEventHandler(async (event) => {
   if (!prisma) {
     throw createError({
@@ -76,6 +74,8 @@ export default defineEventHandler(async (event) => {
   let attrs: Partial<Lucia.DatabaseUserAttributes> = {
     username
   }
+
+  const pinata = new pinataSDK(useRuntimeConfig().pinataApiKey, useRuntimeConfig().pinataApiSecret);
 
   if (avatar !== undefined) {
     if (avatar.data.toString() === null || avatar.data.toString() === '') {
