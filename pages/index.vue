@@ -5,11 +5,18 @@
       <ClientOnly>
         <v-window v-model="window" show-arrows>
           <template #prev="{ props }">
+            <<<<<<< HEAD <v-btn variant="text" color="white" icon="mdi-chevron-left" @click="props.onClick" />
+          </template>
+
+          <template #next="{ props }">
+            <v-btn variant="text" color="white" icon="mdi-chevron-right" @click="props.onClick" />
+            =======
             <v-btn variant="text" color="white" icon="mdi-chevron-left" @click="props.onClick" />
           </template>
 
           <template #next="{ props }">
             <v-btn variant="text" color="white" icon="mdi-chevron-right" @click="props.onClick" />
+            >>>>>>> fde36c1f0ee14863434458c3b978eb4a3c6eaf00
           </template>
 
           <v-window-item v-for="(drop, index) in activeDrops" :key="index" :value="index">
