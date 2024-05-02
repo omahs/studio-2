@@ -3,19 +3,19 @@
     <div v-if="slots.title" class="d-flex justify-space-between align-center mt-4 mb-6">
       <v-container fluid>
         <h1 class="text-h4 font-weight-medium">
-          <slot name="title"/>
+          <slot name="title" />
         </h1>
 
         <p v-if="slots.subtitle" class="text-grey mb-2">
-          <slot name="subtitle"/>
+          <slot name="subtitle" />
         </p>
       </v-container>
       <div>
-        <slot name="append"/>
+        <slot name="append" />
       </div>
     </div>
     <div>
-      <slot name="body"/>
+      <slot name="body" />
     </div>
   </v-container>
 </template>

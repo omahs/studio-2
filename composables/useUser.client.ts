@@ -127,7 +127,13 @@ ${new Date().toUTCString()}`;
 
               user.value = {
                 ...loginData?.user,
-                sid: loginData?.sid,
+              }
+
+              if (loginData?.sid) {
+                user.value = {
+                  ...user.value,
+                  sid: loginData?.sid,
+                }
               }
               break
             } catch (e) {

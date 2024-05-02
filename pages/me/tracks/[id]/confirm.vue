@@ -67,7 +67,7 @@ const { Bs721FactoryClient } = contracts.Bs721Factory;
 
 definePageMeta({
   layout: 'app-bar-only',
-  middleware: ["protected"]
+  middleware: ["upload"]
 })
 
 const trackId = useRoute().params.id as string

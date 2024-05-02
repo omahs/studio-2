@@ -13,6 +13,7 @@ declare namespace Lucia {
     email_verification_token_expires_at: string | null;
     email_verification_sent_at: string | null;
     email_verified_at: string | null;
+    beta_features: string
   };
   type DatabaseSessionAttributes = unknown;
 }

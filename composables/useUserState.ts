@@ -10,6 +10,7 @@ export interface User {
   email_verification_sent_at: Date | null;
   avatar: string | null;
   cover: string | null;
+  beta_features: string;
 }
 
 export const useUserState = () => {

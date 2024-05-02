@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 definePageMeta({
   layout: 'app-bar-only',
-  middleware: ["protected"]
+  middleware: ["upload"]
 })
 
 function onUploadTrackDone(trackId: string) {

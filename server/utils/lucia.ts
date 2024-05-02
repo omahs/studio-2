@@ -13,6 +13,7 @@ export const auth = lucia({
   env: import.meta.dev ? "DEV" : "PROD",
   getUserAttributes: (data) => {
     return {
+      beta_features: data.beta_features,
       address: data.address,
       avatar: data.avatar,
       cover: data.cover,
