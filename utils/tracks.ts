@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'vaelocity-matching-3-worlds',
+  title: 'Vaelocity - Matching 3 Worlds',
+  artists: ["Vaelocity"],
+  description: "Utilities: \n• The first 10 holders of \"Matching 3 Worlds\" will receive an NFT airdrop of the 4th song on the album \"This Is Julian\" (release on March 10); \n• The first 2 holders of \"Matching 3 Worlds\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the next NFT \"This Is Julian\" (release on March 10); \n• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"Matching 3 Worlds\"; \n• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmNtqnayVG1NqQA33iJVbtKR4yg9fB5jcnD5mwmbNmJXQK",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1714748400,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.005238,
+  nftAddress: "bitsong1e0x2hnhhwyek7eq3kcxu2x6pt77wdnwz0lutz9fespdr9utq963qlmqzm3",
+  marketplaceAddress: "bitsong19gmkm9fnx5s0qkc0e34kq8vd2k330j4kyrzhtxtdh3wy527qnvdsth6m8m"
+}, {
   id: 'love-me',
   title: 'Love me',
   artists: ["Rawanne"],
