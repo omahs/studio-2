@@ -1,13 +1,12 @@
 <template>
-  <v-app-bar elevation="0" color="black">
-    <v-btn class="d-md-none" variant="text" icon="mdi-menu" @click.stop="toggle"/>
+  <v-app-bar elevation="0" color="black" :class="{ 'v-toolbar--player-queue': showQueue }">
+    <v-btn class="d-md-none" variant="text" icon="mdi-menu" @click.stop="toggle" />
 
-    <div
-class="d-flex pt-2 pb-1" :class="{
-      'd-md-none': !showLogo,
-      'ml-4': showLogo,
-    }" :style="{ cursor: 'pointer' }" @click.stop="navigateTo('/')">
-      <div><app-logo/></div>
+    <div class="d-flex pt-2 pb-1" :class="{
+    'd-md-none': !showLogo,
+    'ml-4': showLogo,
+  }" :style="{ cursor: 'pointer' }" @click.stop="navigateTo('/')">
+      <div><app-logo /></div>
       <div v-if="showAppName" class="ml-3 text-h5 mt-2">{{ appName }}</div>
     </div>
 
@@ -22,6 +21,8 @@ class="d-flex pt-2 pb-1" :class="{
 
 <script lang="ts" setup>
 import { useNavigationDrawer } from "~/composables/useNavigationDrawer";
+
+const { showQueue } = usePlayer()
 
 interface Props {
   showLogo?: boolean;

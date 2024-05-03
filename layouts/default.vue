@@ -2,7 +2,7 @@
   <v-layout ref="app">
     <app-drawer />
     <app-bar :show-logo="false" />
-    <v-main>
+    <v-main :class="{ 'v-main--player-queue': showQueue }">
       <AppAlertConfirmEmail />
       <slot />
     </v-main>
@@ -93,4 +93,6 @@ useHead({
     },
   ]
 })
+
+const { showQueue } = usePlayer()
 </script>
