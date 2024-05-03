@@ -1,7 +1,7 @@
 <template>
   <AppPage>
     <template #body>
-      ciao, {{ isReady }}, {{ isPlaying }}, {{ track }}
+      ciao, {{ time }}
 
       <v-btn v-if="!isPlaying" @click="onPlay">Play</v-btn>
       <v-btn v-else @click="pause">Pause</v-btn>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-const { isReady, isPlaying, track, play, pause } = usePlayer()
+const { isPlaying, play, pause, time } = usePlayer()
 
 function onPlay() {
   play({

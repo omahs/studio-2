@@ -1,11 +1,13 @@
 <template>
-  <v-layout>
+  <v-layout ref="app">
     <app-drawer />
     <app-bar :show-logo="false" />
     <v-main>
       <AppAlertConfirmEmail />
       <slot />
     </v-main>
+    <AppPlayerQueue />
+    <AppPlayer />
   </v-layout>
 </template>
 
