@@ -337,6 +337,19 @@ view nfttokenview {
   @@schema("public")
 }
 
+model storage_ipfs {
+  id         String   @id @unique
+  owner      String
+  name       String?
+  size       Int
+  mimetype   String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now()) @updatedAt
+
+  @@index([owner])
+  @@schema("public")
+}
+
 view nftview {
   id                  String    @id @unique
   block_height        Int

@@ -72,7 +72,7 @@ definePageMeta({
 
 const trackId = useRoute().params.id as string
 
-const { data: track, refresh } = await useFetch(`https://media-api.bitsong.studio/tracks/${trackId}`, {
+const { data: track, refresh } = await useFetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}`, {
   immediate: true,
   headers: {
     'Authorization': `Bearer ${useUserState().value?.sid}`

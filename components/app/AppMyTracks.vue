@@ -11,7 +11,7 @@
 
 
 <script lang="ts" setup>
-const { data: tracks, error } = await useFetch(`https://media-api.bitsong.studio/tracks`, {
+const { data: tracks, error } = await useFetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks`, {
   headers: {
     'Authorization': `Bearer ${useUserState().value?.sid}`
   }

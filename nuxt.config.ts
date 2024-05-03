@@ -33,9 +33,11 @@ export default defineNuxtConfig({
         tos: 'https://bitsong.io/tos',
         privacy: 'https://bitsong.io/privacy'
       },
-      ipfsGateway: 'https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/{cid}',
+      //ipfsGateway: 'https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/{cid}',
+      ipfsGateway: 'https://media-api.bitsong.studio/ipfs/{cid}',
       umamiHost: '',
       umamiId: '',
+      mediaApiDirect: '/media-api',
     },
   },
   css: [
@@ -51,6 +53,7 @@ export default defineNuxtConfig({
   image: {
     domains: [
       'yellow-hilarious-jay-665.mypinata.cloud',
+      'media-api.bitsong.studio',
       'localhost',
       'bitsong.studio',
       'testnet.bitsong.studio'

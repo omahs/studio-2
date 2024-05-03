@@ -78,7 +78,7 @@ const form = reactive({
   } as MarketPlace,
 });
 
-const { data: track, error, refresh } = await useFetch(`https://media-api.bitsong.studio/tracks/${trackId}`, {
+const { data: track, error, refresh } = await useFetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}`, {
   immediate: true,
   headers: {
     'Authorization': `Bearer ${useUserState().value?.sid}`

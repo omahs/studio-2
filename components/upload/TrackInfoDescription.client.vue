@@ -47,7 +47,7 @@ async function onContinue() {
   loading.value = true;
 
   try {
-    await $fetch(`https://media-api.bitsong.studio/tracks/${props.trackId}`, {
+    await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${props.trackId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

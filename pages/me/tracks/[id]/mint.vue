@@ -88,7 +88,7 @@ const trackId = useRoute().params.id as string
 
 const currentStep = ref(0)
 
-const { data: track, refresh } = await useFetch(`https://media-api.bitsong.studio/tracks/${trackId}`, {
+const { data: track, refresh } = await useFetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}`, {
   immediate: true,
   headers: {
     'Authorization': `Bearer ${useUserState().value?.sid}`
@@ -145,7 +145,7 @@ async function publishMetadata() {
   loading.value = true
 
   try {
-    await $fetch(`https://media-api.bitsong.studio/tracks/${trackId}/publish`, {
+    await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}/publish`, {
       method: "POST",
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`
@@ -175,14 +175,14 @@ async function createRoyalties() {
       factoryAddress,
     );
 
-    const msg = await $fetch(`https://media-api.bitsong.studio/tracks/${trackId}/msgs/royalties`, {
+    const msg = await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}/msgs/royalties`, {
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`
       }
     })
     const tx = await factoryClient.createRoyaltiesGroup(msg, "auto", "", []);
 
-    await $fetch(`https://media-api.bitsong.studio/tracks/${trackId}`, {
+    await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}`, {
       method: "PUT",
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`
@@ -211,7 +211,7 @@ async function createCurve() {
   loading.value = true
 
   try {
-    const msg = await $fetch(`https://media-api.bitsong.studio/tracks/${trackId}/msgs/curve`, {
+    const msg = await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}/msgs/curve`, {
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`
       }
@@ -230,7 +230,7 @@ async function createCurve() {
 
     const nft_address = tx.logs[0].events[3].attributes[2].value
 
-    await $fetch(`https://media-api.bitsong.studio/tracks/${trackId}/confirm`, {
+    await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/tracks/${trackId}/confirm`, {
       method: "POST",
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`

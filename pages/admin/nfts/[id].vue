@@ -118,7 +118,7 @@ async function onTranscode() {
   try {
     isTranscoding.value = true
 
-    await $fetch(`https://media-api.bitsong.studio/admin/nfts/${nftId.value}/transcode`, {
+    await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/admin/nfts/${nftId.value}/transcode`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`

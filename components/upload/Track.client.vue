@@ -65,7 +65,7 @@ async function upload(file: File) {
     const formData = new FormData()
     formData.append('audio', file)
 
-    const response = await $fetch<{ id: string }>(`https://media-api.bitsong.studio/tracks`, {
+    const response = await $fetch<{ id: string }>(`${useRuntimeConfig().public.mediaApiDirect}/tracks`, {
       method: 'POST',
       body: formData,
       headers: {
