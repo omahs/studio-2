@@ -1,16 +1,17 @@
 <template>
-  <v-responsive class="player-queue" v-if="showQueue" rounded="xl">
+  <v-responsive class="player-queue" rounded="xl">
 
-    <v-card v-if="track" flat class="pa-4 pt-6">
+    <v-card flat class="pa-4 pt-6">
       <v-row class="d-flex" align="center" justify="space-around" no-gutters>
         <v-col cols="auto">
-          <NuxtImg :src="track.cover" width="287" fit="cover" class="rounded-xl" />
+          <NuxtImg :src="track?.cover" width="287" fit="cover" class="rounded-xl" />
+          <video ref="audioEl" controls preload="auto" playsinline width="287" rounded-xl />
         </v-col>
       </v-row>
       <v-row class="d-flex mt-0" align="center">
         <v-col cols="auto">
-          <div class="text-h5">{{ track.title }}</div>
-          <div class="text-surface-variant text-h6">{{ track.artist }}</div>
+          <div class="text-h5">{{ track?.title }}</div>
+          <div class="text-surface-variant text-h6">{{ track?.artist }}</div>
         </v-col>
       </v-row>
     </v-card>
@@ -37,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-const { track, showQueue, toggleQueue } = usePlayer()
+const { track, showQueue, toggleQueue, audioEl } = usePlayer()
 </script>
 
 <style>

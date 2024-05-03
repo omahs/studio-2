@@ -3,11 +3,15 @@ interface PlayerTrack {
   title: string;
   artist: string;
   cover: string;
-  source: string;
+  sources: {
+    audio: string;
+    video?: string;
+  }
 }
 
 export const usePlayer = () => {
-  const audioEl = useState<HTMLAudioElement | null>("audioEl", () => null);
+  //const audioEl = useState<HTMLVideoElement | null>("audioEl", () => null);
+  const audioEl = ref<HTMLVideoElement>()
 
   const isReady = useState<boolean>("isReady", () => false);
   const isPlaying = useState<boolean>("isPlaying", () => false);
@@ -24,7 +28,8 @@ export const usePlayer = () => {
   const showQueue = useState<boolean>("showQueue", () => false);
 
   function setupAudio() {
-    audioEl.value = new Audio();
+    //audioEl.value = new Audio();
+    audioEl.value = document.createElement("video");
 
     audioEl.value.addEventListener("timeupdate", onProgress);
 
@@ -143,7 +148,7 @@ export const usePlayer = () => {
       throw new Error("Audio element is not ready");
     }
 
-    audioEl.value.src = track.source;
+    audioEl.value.src = track.sources.video || track.sources.audio;
     audioEl.value.crossOrigin = "anonymous";
 
     if (options.autoplay) {
@@ -236,6 +241,7 @@ export const usePlayer = () => {
   })
 
   return {
+    audioEl,
     isReady,
     isPlaying,
     track,
