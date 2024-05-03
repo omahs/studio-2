@@ -18,10 +18,12 @@
         <v-btn v-if="!isPlaying" color="white" icon="mdi-play" variant="text" @click="togglePlay" />
         <v-btn v-else variant="text" color="white" icon="mdi-pause" @click="togglePlay" />
       </v-col>
-      <v-col cols="auto" class="d-none d-md-flex align-center">
+      <v-col cols="auto" class="align-center">
         <v-btn icon="mdi-playlist-music" variant="text" :color="showQueue ? 'white' : 'surface-variant'"
           @click="toggleQueue" />
-        <div class="text-surface-variant text-subtitle-2">{{ time }}</div>
+        <div class="d-none d-md-flex">
+          <div class="text-surface-variant text-subtitle-2">{{ time }}</div>
+        </div>
       </v-col>
     </v-row>
   </v-container>
