@@ -306,15 +306,16 @@ export const usePlayer = () => {
       return;
     }
 
-    isBuffering.value = el.buffered.length === 0;
+    isBuffering.value = el.buffered.length === 0 || el.readyState < 4
 
     if (el.duration > 0) {
+      let bufferEnd = 0;
       for (let i = 0; i < el.buffered.length; i++) {
-        if (el.buffered.start(el.buffered.length - 1 - i) < el.currentTime) {
-          buffer.value = el.buffered.end(el.buffered.length - 1 - i) / el.duration * 100;
-          break;
+        if (el.buffered.start(i) <= el.currentTime) {
+          bufferEnd = Math.max(bufferEnd, el.buffered.end(i));
         }
       }
+      buffer.value = (bufferEnd / el.duration) * 100;
     }
 
     const _progress = (el.currentTime / el.duration) * 100;

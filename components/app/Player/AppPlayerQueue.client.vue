@@ -1,6 +1,9 @@
 <template>
 
-  <v-card flat title="Listening to..." append-icon="mdi-close" class="player-queue rounded-xl">
+  <v-card v-show="showQueue" flat title="Listening to..." append-icon="mdi-close" class="player-queue rounded-xl">
+    <template #append>
+      <v-btn icon="mdi-close" color="white" variant="text" @click="toggleQueue" />
+    </template>
     <v-row class="d-flex" align="center" justify="space-around" no-gutters>
       <v-col cols="auto">
         <NuxtImg v-show="output === 'audio'" :src="track?.cover" width="287" fit="cover" class="rounded-xl" />
