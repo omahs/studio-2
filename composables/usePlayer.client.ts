@@ -13,7 +13,7 @@ export const usePlayer = () => {
   const audioEl = useState<HTMLAudioElement | null>("audioEl", () => null);
   const videoEl = useState<HTMLVideoElement | null>("videoEl", () => null);
 
-  const output = useState<"audio" | "video">("output", () => "video");
+  const output = useState<"audio" | "video">("output", () => "audio");
 
   const isReady = useState<boolean>("isReady", () => false);
   const isPlaying = useState<boolean>("isPlaying", () => false);
