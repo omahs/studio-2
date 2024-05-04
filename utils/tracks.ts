@@ -1049,6 +1049,10 @@ export function getTrackById(id: string): Track | undefined {
   return tracks.find(track => track.id === id);
 }
 
+export function getAllTracks(): Track[] {
+  return tracks;
+}
+
 interface Drop {
   id: string;
   image: string;

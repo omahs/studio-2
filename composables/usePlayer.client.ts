@@ -144,7 +144,22 @@ export const usePlayer = () => {
     )
   }
 
-  function play(...tracks: PlayerTrack[]) {
+  //function play(...tracks: PlayerTrack[]) {
+  async function play(...nfts: string[]) {
+    let tracks = await $fetch<PlayerTrack[]>(`https://media-api.bitsong.studio/nfts/stream-info?ids=${nfts.join(",")}`);
+    if (!tracks.length) {
+      return;
+    }
+
+    tracks = tracks.map((track) => ({
+      ...track,
+      cover: useIpfsLink(track.cover),
+      sources: {
+        audio: useIpfsLink(track.sources.audio),
+        video: track.sources.video ? useIpfsLink(track.sources.video) : undefined
+      }
+    }));
+
     addTracks(tracks);
 
     track.value = tracks[0];
@@ -234,23 +249,40 @@ export const usePlayer = () => {
     console.log('next')
 
     const index = trackIndex.value + 1;
-    console.log('index', index)
-    console.log('queue', queue.value.length)
 
     if (index <= queue.value.length) {
-      console.log('playing next')
-      console.log('track', queue.value[index - 1])
-      play(queue.value[index - 1]);
+      const nextIndex = index - 1;
+
+      // TODO: improve this
+      if (output.value === "video") {
+        if (queue.value[nextIndex].sources.video) {
+          play(queue.value[nextIndex].id);
+        } else {
+          toggleOutput();
+        }
+      }
+
+      play(queue.value[nextIndex].id);
     }
   }
 
   function prev() {
+    console.log('prev')
+
     const index = trackIndex.value - 1;
-    console.log(`Track index: ${trackIndex.value}`)
-    console.log(`Index: ${index}`)
+
     if (index >= 0) {
-      console.log('playing prev')
-      play(queue.value[index - 1]);
+      const prevIndex = index - 1;
+
+      if (output.value === "video") {
+        if (queue.value[prevIndex].sources.video) {
+          play(queue.value[prevIndex].id);
+        } else {
+          toggleOutput();
+        }
+      }
+
+      play(queue.value[prevIndex].id);
     }
   }
 

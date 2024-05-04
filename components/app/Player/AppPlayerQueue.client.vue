@@ -56,7 +56,7 @@
       <v-card-text>
         <v-responsive :max-height="300" style="overflow-y: auto;">
           <v-list density="compact">
-            <v-list-item v-for="track in nextTracks" :key="track.id" class="px-0" @click="play(track)">
+            <v-list-item v-for="track in nextTracks" :key="track.id" class="px-0" @click="play(track.id)">
               <template #prepend>
                 <NuxtImg :src="track?.cover" width="56" fit="cover" class="rounded-md mr-2" />
               </template>
