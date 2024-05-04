@@ -15,10 +15,17 @@
         </v-row>
       </v-col>
       <v-col cols="auto">
-        <v-btn v-if="!isPlaying" color="white" icon="mdi-play" variant="text" @click="togglePlay" />
-        <v-btn v-else variant="text" color="white" icon="mdi-pause" @click="togglePlay" />
+        <v-btn :disabled="!hasPrev" color="white" icon="mdi-skip-previous" class="text-h6 mt-1 mx-1" variant="text"
+          @click="prev" />
+
+        <v-btn v-if="!isPlaying" color="white" icon="mdi-play" variant="text" class="text-h4 mx-2"
+          @click="togglePlay" />
+        <v-btn v-else variant="text" color="white" icon="mdi-pause" class="text-h4 mx-2" @click="togglePlay" />
+
+        <v-btn :disabled="!hasNext" color="white" icon="mdi-skip-next" class="text-h6 mt-1 mx-1" variant="text"
+          @click="next" />
       </v-col>
-      <v-col cols="auto" class="align-center">
+      <v-col cols="auto" class="d-flex align-center">
         <v-btn icon="mdi-playlist-music" variant="text" :color="showQueue ? 'white' : 'surface-variant'"
           @click="toggleQueue" />
         <div class="d-none d-md-flex">
@@ -39,7 +46,11 @@ const {
   showQueue,
   togglePlay,
   seekTo,
-  toggleQueue
+  toggleQueue,
+  hasNext,
+  hasPrev,
+  next,
+  prev
 } = usePlayer()
 </script>
 

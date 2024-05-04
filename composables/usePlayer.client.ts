@@ -27,7 +27,7 @@ export const usePlayer = () => {
 
   const currentTime = useState<number>("currentTime", () => 0);
 
-  const showQueue = useState<boolean>("showQueue", () => false);
+  const showQueue = useState<boolean>("showQueue", () => true);
 
   function setupAudio() {
     audioEl.value = new Audio();
@@ -189,6 +189,8 @@ export const usePlayer = () => {
       await el.play();
       isPlaying.value = true;
     }
+
+    seekTo(0);
   }
 
   function _setNavigatorMetadata(track: PlayerTrack) {
@@ -202,24 +204,26 @@ export const usePlayer = () => {
   }
 
   function pause() {
-    if (output.value === "audio") {
-      audioEl.value?.pause();
-    } else {
-      videoEl.value?.pause();
+    const el = output.value === "audio" ? audioEl.value : videoEl.value;
+    if (!el) {
+      return;
     }
+
+    el.pause();
 
     isPlaying.value = false;
   }
 
   function togglePlay() {
+    const el = output.value === "audio" ? audioEl.value : videoEl.value;
+    if (!el) {
+      return;
+    }
+
     if (isPlaying.value) {
       pause();
     } else {
-      if (output.value === "audio") {
-        audioEl.value?.play();
-      } else {
-        videoEl.value?.play();
-      }
+      el.play();
       isPlaying.value = true;
     }
   }
@@ -240,8 +244,11 @@ export const usePlayer = () => {
 
   function prev() {
     const index = trackIndex.value - 1;
+    console.log(`Track index: ${trackIndex.value}`)
+    console.log(`Index: ${index}`)
     if (index >= 0) {
-      play(queue.value[index]);
+      console.log('playing prev')
+      play(queue.value[index - 1]);
     }
   }
 
@@ -253,7 +260,11 @@ export const usePlayer = () => {
     }
 
     if (typeof value === "number") {
-      el.currentTime = value * el.duration / 100;
+      if (isNaN(el.duration)) {
+        el.currentTime = 0;
+      } else {
+        el.currentTime = value * el.duration / 100;
+      }
     } else {
       if (value.seekTime) {
         el.currentTime = value.seekTime;
@@ -383,6 +394,7 @@ export const usePlayer = () => {
     toggleQueue,
     attachVideo,
     toggleOutput,
-    setupVideo
+    setupVideo,
+    queue
   }
 }
