@@ -10,8 +10,10 @@ interface PlayerTrack {
 }
 
 export const usePlayer = () => {
-  //const audioEl = useState<HTMLVideoElement | null>("audioEl", () => null);
-  const audioEl = ref<HTMLVideoElement>()
+  const audioEl = useState<HTMLAudioElement | null>("audioEl", () => null);
+  const videoEl = ref<HTMLVideoElement>()
+
+  const output = useState<"audio" | "video">("output", () => "audio");
 
   const isReady = useState<boolean>("isReady", () => false);
   const isPlaying = useState<boolean>("isPlaying", () => false);
@@ -28,42 +30,119 @@ export const usePlayer = () => {
   const showQueue = useState<boolean>("showQueue", () => false);
 
   function setupAudio() {
-    //audioEl.value = new Audio();
-    audioEl.value = document.createElement("video");
+    audioEl.value = new Audio();
 
-    audioEl.value.addEventListener("timeupdate", onProgress);
+    _addElementListeners(audioEl.value);
+    _addMediaSessionActionHandler();
 
-    audioEl.value.addEventListener("canplay", () => {
-      console.log("Audio is ready");
-    })
+    isReady.value = true;
 
-    audioEl.value.addEventListener("error", () => {
-      console.error("Failed to play audio");
-    })
-
-    audioEl.value.addEventListener("loadeddata", () => {
-      console.log("loaded data");
-
-      if (progress.value > 0) {
-        audioEl.value!.currentTime = (progress.value * audioEl.value!.duration) / 100;
-      }
-    })
-
-    audioEl.value.addEventListener("ended", onEnded);
-
-    if (track.value?.id) {
-      setupAudioPlayer(track.value, {
+    if (track.value?.id && output.value === "audio") {
+      _playAudio(track.value, {
         autoplay: false
       });
     }
+  }
 
+  function setupVideo(target: Ref<HTMLElement | undefined>) {
+    console.log('setting up video')
+
+    if (!target.value) {
+      console.log("Target element is not available");
+      return;
+    }
+
+    videoEl.value = document.createElement("video");
+    target.value.append(videoEl.value);
+
+    console.log(`video element created`)
+
+    _addElementListeners(videoEl.value);
+    _addMediaSessionActionHandler();
+
+    isReady.value = true;
+
+    if (track.value?.id && output.value === "video") {
+      _playVideo(track.value, {
+        autoplay: false
+      });
+    }
+  }
+
+  function attachVideo(targetId: string) {
+    if (!videoEl.value) {
+      return;
+    }
+
+    const target = document.getElementById(targetId);
+    if (!target) {
+      return;
+    }
+
+    console.log('target', target)
+
+    target.append(videoEl.value);
+  }
+
+  function toggleOutput() {
+    output.value = output.value === "audio" ? "video" : "audio";
+
+    if (!track.value) {
+      return;
+    }
+
+    if (output.value === "audio") {
+      if (videoEl.value) {
+        console.log('pausing video')
+        videoEl.value.pause();
+      }
+
+      console.log('playing audio')
+      _playAudio(track.value, {
+        autoplay: false
+      });
+    } else {
+      if (audioEl.value) {
+        console.log('pausing audio')
+        audioEl.value.pause();
+      }
+
+      console.log('playing video')
+
+      _playVideo(track.value, {
+        autoplay: false
+      });
+    }
+  }
+
+  function _addElementListeners(target: HTMLAudioElement | HTMLVideoElement) {
+    target.addEventListener("timeupdate", onProgress);
+
+    target.addEventListener("canplay", () => {
+      console.log(`${output.value} is ready`);
+    })
+
+    target.addEventListener("error", () => {
+      console.error(`Failed to play ${output.value}`)
+    })
+
+    target.addEventListener("loadeddata", () => {
+      console.log(`loaded data - ${output.value}`)
+
+      if (progress.value > 0) {
+        target.currentTime = (progress.value * target.duration) / 100;
+      }
+    })
+
+    target.addEventListener("ended", onEnded);
+  }
+
+  function _addMediaSessionActionHandler() {
     navigator.mediaSession.setActionHandler("play", onPlayback);
     navigator.mediaSession.setActionHandler("pause", onPlayback);
     navigator.mediaSession.setActionHandler("previoustrack", prev);
     navigator.mediaSession.setActionHandler("nexttrack", next);
     navigator.mediaSession.setActionHandler("seekto", seekTo)
-
-    isReady.value = true;
   }
 
   function addTracks(tracks: PlayerTrack[]) {
@@ -78,11 +157,70 @@ export const usePlayer = () => {
     track.value = tracks[0];
     isPlaying.value = true;
 
-    setupAudioPlayer(track.value);
+    _setNavigatorMetadata(track.value);
+
+    if (output.value === "audio") {
+      _playAudio(track.value)
+    } else {
+      _playVideo(track.value)
+    }
+  }
+
+  async function _playAudio(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
+    if (!audioEl.value) {
+      throw new Error("Audio element is not ready");
+    }
+
+    console.log(`Playing audio - ${track.sources.audio}`)
+
+    audioEl.value.src = track.sources.audio;
+    audioEl.value.crossOrigin = "anonymous";
+
+    if (options.autoplay) {
+      await audioEl.value.play();
+      isPlaying.value = true;
+    }
+  }
+
+  async function _playVideo(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
+    if (!videoEl.value) {
+      throw new Error("Video element is not ready");
+    }
+
+    if (!track.sources.video) {
+      throw new Error("Video source is not available");
+    }
+
+    console.log(`Playing video - ${track.sources.video}`)
+
+    videoEl.value.src = track.sources.video;
+    videoEl.value.crossOrigin = "anonymous";
+    videoEl.value.width = 300;
+    videoEl.value.height = 200;
+
+    if (options.autoplay) {
+      await videoEl.value.play();
+      isPlaying.value = true;
+    }
+  }
+
+  function _setNavigatorMetadata(track: PlayerTrack) {
+    navigator.mediaSession.setPositionState(undefined)
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: track.title,
+      artist: track.artist,
+      album: track.title,
+      artwork: [{ src: track.cover, sizes: "512x512", type: "image/png" }],
+    });
   }
 
   function pause() {
-    audioEl.value?.pause();
+    if (output.value === "audio") {
+      audioEl.value?.pause();
+    } else {
+      videoEl.value?.pause();
+    }
+
     isPlaying.value = false;
   }
 
@@ -90,7 +228,11 @@ export const usePlayer = () => {
     if (isPlaying.value) {
       pause();
     } else {
-      audioEl.value?.play();
+      if (output.value === "audio") {
+        audioEl.value?.play();
+      } else {
+        videoEl.value?.play();
+      }
       isPlaying.value = true;
     }
   }
@@ -143,28 +285,6 @@ export const usePlayer = () => {
 
   const hasNext = computed(() => trackIndex.value < queue.value.length)
 
-  async function setupAudioPlayer(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
-    if (!audioEl.value) {
-      throw new Error("Audio element is not ready");
-    }
-
-    audioEl.value.src = track.sources.video || track.sources.audio;
-    audioEl.value.crossOrigin = "anonymous";
-
-    if (options.autoplay) {
-      await audioEl.value.play();
-      isPlaying.value = true;
-    }
-
-    navigator.mediaSession.setPositionState(undefined)
-    navigator.mediaSession.metadata = new MediaMetadata({
-      title: track.title,
-      artist: track.artist,
-      album: track.title,
-      artwork: [{ src: track.cover, sizes: "512x512", type: "image/png" }],
-    });
-  }
-
   function onPlayback() {
     if (!audioEl.value?.paused) {
       audioEl.value?.pause();
@@ -176,39 +296,46 @@ export const usePlayer = () => {
   }
 
   function onProgress() {
-    if (!audioEl.value) {
+    const el = output.value === "audio" ? audioEl.value : videoEl.value;
+
+    if (!el) {
       return;
     }
 
-    isBuffering.value = audioEl.value.buffered.length === 0;
+    isBuffering.value = el.buffered.length === 0;
 
-    if (audioEl.value.duration > 0) {
-      for (let i = 0; i < audioEl.value.buffered.length; i++) {
-        if (audioEl.value.buffered.start(audioEl.value.buffered.length - 1 - i) < audioEl.value.currentTime) {
-          buffer.value = audioEl.value.buffered.end(audioEl.value.buffered.length - 1 - i) / audioEl.value.duration * 100;
+    if (el.duration > 0) {
+      for (let i = 0; i < el.buffered.length; i++) {
+        if (el.buffered.start(el.buffered.length - 1 - i) < el.currentTime) {
+          buffer.value = el.buffered.end(el.buffered.length - 1 - i) / el.duration * 100;
           break;
         }
       }
     }
 
-    const _progress = (audioEl.value.currentTime / audioEl.value.duration) * 100;
+    const _progress = (el.currentTime / el.duration) * 100;
     if (!isNaN(_progress)) {
       progress.value = _progress;
 
-      currentTime.value = audioEl.value.currentTime;
+      currentTime.value = el.currentTime;
 
       if ("mediaSession" in navigator) {
         navigator.mediaSession.setPositionState({
-          duration: audioEl.value.duration,
-          playbackRate: audioEl.value.playbackRate,
-          position: audioEl.value.currentTime,
+          duration: el.duration,
+          playbackRate: el.playbackRate,
+          position: el.currentTime,
         });
       }
     }
   }
 
   function onEnded() {
-    audioEl.value!.currentTime = 0;
+    const el = output.value === "audio" ? audioEl.value : videoEl.value;
+    if (!el) {
+      return;
+    }
+
+    el.currentTime = 0;
     isPlaying.value = false;
     next();
   }
@@ -230,18 +357,17 @@ export const usePlayer = () => {
     })
     audioEl.value?.removeEventListener("ended", onEnded);
 
+    audioEl.value?.pause();
+    audioEl.value?.remove();
+
     navigator.mediaSession.setActionHandler("play", null);
     navigator.mediaSession.setActionHandler("pause", null);
     navigator.mediaSession.setActionHandler("previoustrack", null);
     navigator.mediaSession.setActionHandler("nexttrack", null);
     navigator.mediaSession.setActionHandler("seekto", null)
-
-    audioEl.value?.pause();
-    audioEl.value?.remove();
   })
 
   return {
-    audioEl,
     isReady,
     isPlaying,
     track,
@@ -250,6 +376,7 @@ export const usePlayer = () => {
     hasNext,
     hasPrev,
     showQueue,
+    output,
     play,
     pause,
     togglePlay,
@@ -257,5 +384,8 @@ export const usePlayer = () => {
     prev,
     seekTo,
     toggleQueue,
+    attachVideo,
+    toggleOutput,
+    setupVideo
   }
 }

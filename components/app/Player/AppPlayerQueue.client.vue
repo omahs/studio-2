@@ -5,7 +5,8 @@
       <v-row class="d-flex" align="center" justify="space-around" no-gutters>
         <v-col cols="auto">
           <NuxtImg :src="track?.cover" width="287" fit="cover" class="rounded-xl" />
-          <video ref="audioEl" controls preload="auto" playsinline width="287" rounded-xl />
+          <!--<video ref="audioEl" controls preload="auto" playsinline width="287" rounded-xl />-->
+          <div ref="playerVideo" :style="{ width: '300px', height: '100px' }"></div>
         </v-col>
       </v-row>
       <v-row class="d-flex mt-0" align="center">
@@ -15,6 +16,9 @@
         </v-col>
       </v-row>
     </v-card>
+
+    <v-btn @click="toggleOutput">Switch to {{ output === 'video' ? 'audio' : 'video' }}</v-btn>
+    <v-btn @click="attach">Retry setup</v-btn>
 
     <v-card v-if="track" flat>
       <v-card-title class="d-flex justify-space-between align-center pr-0 text-body-1 text-surface-variant">
@@ -38,7 +42,17 @@
 </template>
 
 <script lang="ts" setup>
-const { track, showQueue, toggleQueue, audioEl } = usePlayer()
+const { track, showQueue, toggleQueue, attachVideo, toggleOutput, output, setupVideo } = usePlayer()
+
+const playerVideo = ref<HTMLElement>()
+
+function attach() {
+  setupVideo(playerVideo)
+}
+
+onMounted(() => {
+  attach()
+})
 </script>
 
 <style>
