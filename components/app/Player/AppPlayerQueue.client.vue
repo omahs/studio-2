@@ -1,26 +1,24 @@
 <template>
-  <v-responsive class="player-queue" rounded="xl">
 
-    <v-card flat class="pa-4 pt-6">
-      <v-row class="d-flex" align="center" justify="space-around" no-gutters>
-        <v-col cols="auto">
-          <NuxtImg :src="track?.cover" width="287" fit="cover" class="rounded-xl" />
-          <!--<video ref="audioEl" controls preload="auto" playsinline width="287" rounded-xl />-->
-          <div ref="playerVideo" :style="{ width: '300px', height: '100px' }"></div>
-        </v-col>
-      </v-row>
-      <v-row class="d-flex mt-0" align="center">
-        <v-col cols="auto">
-          <div class="text-h5">{{ track?.title }}</div>
-          <div class="text-surface-variant text-h6">{{ track?.artist }}</div>
-        </v-col>
-      </v-row>
-    </v-card>
+  <v-card flat title="Listening to..." append-icon="mdi-close" class="player-queue rounded-xl">
+    <v-row class="d-flex" align="center" justify="space-around" no-gutters>
+      <v-col cols="auto">
+        <NuxtImg v-show="output === 'audio'" :src="track?.cover" width="287" fit="cover" class="rounded-xl" />
+        <!--<video ref="audioEl" controls preload="auto" playsinline width="287" rounded-xl />-->
+        <div v-show="output === 'video'" ref="playerVideo" class="rounded-xl" />
+      </v-col>
+    </v-row>
 
-    <v-btn @click="toggleOutput">Switch to {{ output === 'video' ? 'audio' : 'video' }}</v-btn>
-    <v-btn @click="attach">Retry setup</v-btn>
+    <v-card-text>
+      <div class="text-h5">{{ track?.title }}</div>
+      <div class="text-surface-variant text-h6">{{ track?.artist }}</div>
+      <v-btn size="small" class="mt-2" color="white" :prepend-icon="output === 'video' ? 'mdi-music' : 'mdi-video'"
+        @click="toggleOutput">Switch to {{ output === 'video' ? 'audio' : 'video' }}</v-btn>
+    </v-card-text>
+  </v-card>
 
-    <v-card v-if="track" flat>
+
+  <!--<v-card v-if="track" flat>
       <v-card-title class="d-flex justify-space-between align-center pr-0 text-body-1 text-surface-variant">
         Prossimi brani
       </v-card-title>
@@ -37,8 +35,8 @@
           </v-row>
         </v-responsive>
       </v-card-text>
-    </v-card>
-  </v-responsive>
+    </v-card>-->
+
 </template>
 
 <script lang="ts" setup>
@@ -46,12 +44,9 @@ const { track, showQueue, toggleQueue, attachVideo, toggleOutput, output, setupV
 
 const playerVideo = ref<HTMLElement>()
 
-function attach() {
+onMounted(async () => {
+  await nextTick()
   setupVideo(playerVideo)
-}
-
-onMounted(() => {
-  attach()
 })
 </script>
 

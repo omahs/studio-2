@@ -11,9 +11,9 @@ interface PlayerTrack {
 
 export const usePlayer = () => {
   const audioEl = useState<HTMLAudioElement | null>("audioEl", () => null);
-  const videoEl = ref<HTMLVideoElement>()
+  const videoEl = useState<HTMLVideoElement | null>("videoEl", () => null);
 
-  const output = useState<"audio" | "video">("output", () => "audio");
+  const output = useState<"audio" | "video">("output", () => "video");
 
   const isReady = useState<boolean>("isReady", () => false);
   const isPlaying = useState<boolean>("isPlaying", () => false);
@@ -62,6 +62,7 @@ export const usePlayer = () => {
 
     isReady.value = true;
 
+
     if (track.value?.id && output.value === "video") {
       _playVideo(track.value, {
         autoplay: false
@@ -99,7 +100,7 @@ export const usePlayer = () => {
 
       console.log('playing audio')
       _playAudio(track.value, {
-        autoplay: false
+        autoplay: isPlaying.value
       });
     } else {
       if (audioEl.value) {
@@ -110,7 +111,7 @@ export const usePlayer = () => {
       console.log('playing video')
 
       _playVideo(track.value, {
-        autoplay: false
+        autoplay: isPlaying.value
       });
     }
   }
@@ -184,6 +185,7 @@ export const usePlayer = () => {
 
   async function _playVideo(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
     if (!videoEl.value) {
+      console.log(videoEl.value)
       throw new Error("Video element is not ready");
     }
 
@@ -195,8 +197,8 @@ export const usePlayer = () => {
 
     videoEl.value.src = track.sources.video;
     videoEl.value.crossOrigin = "anonymous";
-    videoEl.value.width = 300;
-    videoEl.value.height = 200;
+    videoEl.value.width = 287
+    videoEl.value.className = "rounded-xl"
 
     if (options.autoplay) {
       await videoEl.value.play();
@@ -252,15 +254,17 @@ export const usePlayer = () => {
   }
 
   function seekTo(value: number | MediaSessionActionDetails) {
-    if (!audioEl.value) {
+    const el = output.value === "audio" ? audioEl.value : videoEl.value;
+
+    if (!el) {
       return;
     }
 
     if (typeof value === "number") {
-      audioEl.value.currentTime = value * audioEl.value.duration / 100;
+      el.currentTime = value * el.duration / 100;
     } else {
       if (value.seekTime) {
-        audioEl.value.currentTime = value.seekTime;
+        el.currentTime = value.seekTime;
       }
     }
   }
