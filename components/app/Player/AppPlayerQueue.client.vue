@@ -1,5 +1,5 @@
 <template>
-  <v-responsive class="player-queue" v-if="showQueue && track">
+  <v-responsive class="player-queue" v-show="showQueue && track">
 
     <v-card flat title="Listening to..." append-icon="mdi-close" class="rounded-xl">
       <template #append>
@@ -52,8 +52,6 @@
 </template>
 
 <script lang="ts" setup>
-import type { text } from '@fortawesome/fontawesome-svg-core';
-
 const { track, showQueue, toggleQueue, attachVideo, toggleOutput, output, setupVideo, queue } = usePlayer()
 
 const playerVideo = ref<HTMLElement>()

@@ -27,7 +27,7 @@ export const usePlayer = () => {
 
   const currentTime = useState<number>("currentTime", () => 0);
 
-  const showQueue = useState<boolean>("showQueue", () => true);
+  const showQueue = useState<boolean>("showQueue", () => false);
 
   function setupAudio() {
     audioEl.value = new Audio();
