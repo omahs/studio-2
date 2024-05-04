@@ -1,5 +1,5 @@
 <template>
-  <v-responsive class="player-queue" v-show="showQueue && track">
+  <v-responsive class="player-queue" v-if="showQueue && track">
 
     <v-card flat title="Listening to..." append-icon="mdi-close" class="rounded-xl">
       <template #append>
