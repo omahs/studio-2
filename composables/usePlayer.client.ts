@@ -37,10 +37,8 @@ export const usePlayer = () => {
 
     isReady.value = true;
 
-    if (track.value?.id && output.value === "audio") {
-      _playAudio(track.value, {
-        autoplay: false
-      });
+    if (track.value?.id) {
+      _play(track.value);
     }
   }
 
@@ -63,10 +61,8 @@ export const usePlayer = () => {
     isReady.value = true;
 
 
-    if (track.value?.id && output.value === "video") {
-      _playVideo(track.value, {
-        autoplay: false
-      });
+    if (track.value?.id) {
+      _play(track.value);
     }
   }
 
@@ -99,9 +95,7 @@ export const usePlayer = () => {
       }
 
       console.log('playing audio')
-      _playAudio(track.value, {
-        autoplay: isPlaying.value
-      });
+      _play(track.value);
     } else {
       if (audioEl.value) {
         console.log('pausing audio')
@@ -110,9 +104,7 @@ export const usePlayer = () => {
 
       console.log('playing video')
 
-      _playVideo(track.value, {
-        autoplay: isPlaying.value
-      });
+      _play(track.value);
     }
   }
 
@@ -160,48 +152,41 @@ export const usePlayer = () => {
 
     _setNavigatorMetadata(track.value);
 
+    _play(track.value)
+  }
+
+  async function _play(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
+    const el: HTMLAudioElement | HTMLVideoElement | null = output.value === "audio" ? audioEl.value : videoEl.value;
+
+    if (!el) {
+      throw new Error(`${output.value} element is not ready`);
+    }
+
+    console.log(`Playing ${output.value}`)
+
+    el.crossOrigin = "anonymous";
+    el.autoplay = options.autoplay;
+
     if (output.value === "audio") {
-      _playAudio(track.value)
+      el.src = track.sources.audio;
     } else {
-      _playVideo(track.value)
+      if (!track.sources.video) {
+        throw new Error("Video source is not available");
+      }
+
+      el.src = track.sources.video;
+      el.className = "rounded-xl"
+
+      if (el instanceof HTMLVideoElement) {
+        el.width = 287
+        el.playsInline = true;
+      }
     }
-  }
 
-  async function _playAudio(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
-    if (!audioEl.value) {
-      throw new Error("Audio element is not ready");
-    }
-
-    console.log(`Playing audio - ${track.sources.audio}`)
-
-    audioEl.value.src = track.sources.audio;
-    audioEl.value.crossOrigin = "anonymous";
+    console.log('autoplay', options.autoplay)
 
     if (options.autoplay) {
-      await audioEl.value.play();
-      isPlaying.value = true;
-    }
-  }
-
-  async function _playVideo(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
-    if (!videoEl.value) {
-      console.log(videoEl.value)
-      throw new Error("Video element is not ready");
-    }
-
-    if (!track.sources.video) {
-      throw new Error("Video source is not available");
-    }
-
-    console.log(`Playing video - ${track.sources.video}`)
-
-    videoEl.value.src = track.sources.video;
-    videoEl.value.crossOrigin = "anonymous";
-    videoEl.value.width = 287
-    videoEl.value.className = "rounded-xl"
-
-    if (options.autoplay) {
-      await videoEl.value.play();
+      await el.play();
       isPlaying.value = true;
     }
   }
@@ -240,9 +225,16 @@ export const usePlayer = () => {
   }
 
   function next() {
+    console.log('next')
+
     const index = trackIndex.value + 1;
-    if (index < queue.value.length) {
-      play(queue.value[index]);
+    console.log('index', index)
+    console.log('queue', queue.value.length)
+
+    if (index <= queue.value.length) {
+      console.log('playing next')
+      console.log('track', queue.value[index - 1])
+      play(queue.value[index - 1]);
     }
   }
 
