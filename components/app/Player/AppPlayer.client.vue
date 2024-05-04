@@ -1,6 +1,5 @@
 <template>
-  <v-container fluid v-if="track && isReady" class="player d-flex flex-column pa-0">
-
+  <v-container fluid v-if="!showQueue && track && isReady" class="player d-flex flex-column pa-0">
     <v-slider v-model="progress" hide-details @update:model-value="seekTo" />
     <v-row no-gutters align="center" justify="space-between" class="px-4 py-0 my-0 info">
       <v-col cols="auto">

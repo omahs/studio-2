@@ -95,7 +95,7 @@ export const usePlayer = () => {
       }
 
       console.log('playing audio')
-      _play(track.value);
+      _play(track.value, { autoplay: isPlaying.value, continue: true });
     } else {
       if (audioEl.value) {
         console.log('pausing audio')
@@ -104,7 +104,7 @@ export const usePlayer = () => {
 
       console.log('playing video')
 
-      _play(track.value);
+      _play(track.value, { autoplay: isPlaying.value, continue: true });
     }
   }
 
@@ -155,7 +155,7 @@ export const usePlayer = () => {
     _play(track.value)
   }
 
-  async function _play(track: PlayerTrack, options: { autoplay: boolean } = { autoplay: true }) {
+  async function _play(track: PlayerTrack, options: { autoplay: boolean, continue: boolean } = { autoplay: true, continue: false }) {
     const el: HTMLAudioElement | HTMLVideoElement | null = output.value === "audio" ? audioEl.value : videoEl.value;
 
     if (!el) {
@@ -190,7 +190,9 @@ export const usePlayer = () => {
       isPlaying.value = true;
     }
 
-    seekTo(0);
+    if (!options.continue) {
+      seekTo(0);
+    }
   }
 
   function _setNavigatorMetadata(track: PlayerTrack) {
@@ -284,6 +286,30 @@ export const usePlayer = () => {
     return `${hours > 0 ? hours + ":" : ""}${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
   })
 
+  async function _duration() {
+    const el = output.value === "audio" ? audioEl.value : videoEl.value;
+
+    if (!el) {
+      return 0;
+    }
+
+    if (isNaN(el.duration)) {
+      await new Promise((resolve) => {
+        el.addEventListener("loadedmetadata", () => {
+          resolve(null);
+        })
+      })
+    }
+
+    return el.duration;
+  }
+
+  const duration = computed(() => {
+    return _duration().then((duration) => {
+      return duration;
+    })
+  })
+
   const trackIndex = computed(() => {
     return Math.abs(queue.value.findIndex((t) => t.id === track.value?.id) + 1);
   })
@@ -291,6 +317,10 @@ export const usePlayer = () => {
   const hasPrev = computed(() => trackIndex.value > 1)
 
   const hasNext = computed(() => trackIndex.value < queue.value.length)
+
+  const nextTracks = computed(() => {
+    return queue.value.slice(trackIndex.value);
+  })
 
   function onPlayback() {
     if (!audioEl.value?.paused) {
@@ -348,11 +378,38 @@ export const usePlayer = () => {
     next();
   }
 
-  onMounted(() => {
-    setupAudio();
-  })
+  // onMounted(() => {
+  //   setupAudio();
+  // })
 
-  onUnmounted(() => {
+  function onMount() {
+    setupAudio();
+  }
+
+  // onUnmounted(() => {
+  //   audioEl.value?.removeEventListener("timeupdate", onProgress);
+  //   audioEl.value?.removeEventListener("canplay", () => {
+  //     console.log("Audio is ready");
+  //   })
+  //   audioEl.value?.removeEventListener("error", () => {
+  //     console.error("Failed to play audio");
+  //   })
+  //   audioEl.value?.removeEventListener("loadeddata", () => {
+  //     console.log("loaded data");
+  //   })
+  //   audioEl.value?.removeEventListener("ended", onEnded);
+
+  //   audioEl.value?.pause();
+  //   audioEl.value?.remove();
+
+  //   navigator.mediaSession.setActionHandler("play", null);
+  //   navigator.mediaSession.setActionHandler("pause", null);
+  //   navigator.mediaSession.setActionHandler("previoustrack", null);
+  //   navigator.mediaSession.setActionHandler("nexttrack", null);
+  //   navigator.mediaSession.setActionHandler("seekto", null)
+  // })
+
+  function onUnmount() {
     audioEl.value?.removeEventListener("timeupdate", onProgress);
     audioEl.value?.removeEventListener("canplay", () => {
       console.log("Audio is ready");
@@ -373,7 +430,7 @@ export const usePlayer = () => {
     navigator.mediaSession.setActionHandler("previoustrack", null);
     navigator.mediaSession.setActionHandler("nexttrack", null);
     navigator.mediaSession.setActionHandler("seekto", null)
-  })
+  }
 
   return {
     isReady,
@@ -395,6 +452,10 @@ export const usePlayer = () => {
     attachVideo,
     toggleOutput,
     setupVideo,
-    queue
+    queue,
+    duration,
+    onMount,
+    onUnmount,
+    nextTracks
   }
 }

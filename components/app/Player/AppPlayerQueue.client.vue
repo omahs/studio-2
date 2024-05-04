@@ -1,48 +1,73 @@
 <template>
   <v-responsive class="player-queue" v-show="showQueue && track">
 
-    <v-card flat title="Listening to..." append-icon="mdi-close" class="rounded-xl">
+    <v-card flat title="Now playing" class="rounded-xl pb-2">
       <template #append>
         <v-btn icon="mdi-close" color="white" variant="text" @click="toggleQueue" />
       </template>
+
       <v-row class="d-flex" align="center" justify="space-around" no-gutters>
         <v-col cols="auto">
           <NuxtImg v-show="output === 'audio'" :src="track?.cover" width="287" fit="cover" class="rounded-xl" />
-          <!--<video ref="audioEl" controls preload="auto" playsinline width="287" rounded-xl />-->
-          <div v-show="output === 'video'" ref="playerVideo" class="rounded-xl" />
+          <div v-show="output === 'video'" ref="playerVideo" class="rounded-xl"
+            :style="{ width: '287px', height: '287px' }" />
         </v-col>
       </v-row>
 
-      <v-card-text>
-        <div class="text-h5"
-          :style="{ maxWidth: '300px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }">{{
-    track?.title
-  }}</div>
-        <div class="text-surface-variant text-h6"
-          :style="{ maxWidth: '300px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }">{{
-    track?.artist
-  }}</div>
-        <v-btn size="small" class="mt-2" color="white" :prepend-icon="output === 'video' ? 'mdi-music' : 'mdi-video'"
-          @click="toggleOutput">Switch to {{ output === 'video' ? 'audio' : 'video' }}</v-btn>
+      <v-card-text class="pt-1">
+        <div class="text-h6 player-queue__title-info">{{ track?.title }}</div>
+        <div class="text-surface-variant text-body-1 player-queue__title-info">{{ track?.artist }}</div>
       </v-card-text>
+
+      <v-row no-gutters class="px-4" align="center" justify="space-between">
+        <v-col :style="{ width: '240px' }" cols="auto">
+          <v-slider v-model="progress" hide-details @update:model-value="seekTo" />
+        </v-col>
+        <v-col cols="auto">
+          <span class="text-surface-variant text-subtitle-2">{{ time }}</span>
+        </v-col>
+      </v-row>
+
+      <v-row no-gutters justify="space-between" align="center" class="px-2">
+        <v-col cols="auto">
+          <v-btn :disabled="!hasPrev" color="white" icon="mdi-skip-previous" class="text-h6 mt-1 mx-1" variant="text"
+            @click="prev" />
+          <v-btn v-if="!isPlaying" color="white" icon="mdi-play" variant="text" class="text-h4 mx-2"
+            @click="togglePlay" />
+          <v-btn v-else variant="text" color="white" icon="mdi-pause" class="text-h4 mx-2" @click="togglePlay" />
+          <v-btn :disabled="!hasNext" color="white" icon="mdi-skip-next" class="text-h6 mt-1 mx-1" variant="text"
+            @click="next" />
+        </v-col>
+        <v-col cols="auto">
+          <v-tooltip :text="`Switch to ${output === 'video' ? 'audio' : 'video'}`" location="top">
+            <template v-slot:activator="{ props }">
+              <v-btn v-bind="props" color="white" size="small" class="mt-1"
+                :icon="output === 'video' ? 'mdi-television' : 'mdi-music'" variant="tonal" @click="toggleOutput" />
+            </template>
+          </v-tooltip>
+        </v-col>
+      </v-row>
     </v-card>
-    <v-card v-if="queue.length" flat>
+
+    <v-card v-if="nextTracks.length" flat>
       <v-card-title class="d-flex justify-space-between align-center pr-0 text-body-1 text-surface-variant">
-        Prossimi brani
+        Next tracks
       </v-card-title>
       <v-card-text>
         <v-responsive :max-height="300" style="overflow-y: auto;">
-          <v-row v-for="track in queue" :key="track.id" no-gutters class="mb-2">
-            <v-col cols="auto">
-              <NuxtImg :src="track?.cover" width="56" fit="cover" class="rounded-md" />
-            </v-col>
-            <v-col class="pl-3">
-              <div class="text-subtitle-1"
-                :style="{ maxWidth: '180px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }">{{
-    track.title }}</div>
-              <div class="text-surface-variant">{{ track.artist }}</div>
-            </v-col>
-          </v-row>
+          <v-list density="compact">
+            <v-list-item v-for="track in nextTracks" :key="track.id" class="px-0" @click="play(track)">
+              <template #prepend>
+                <NuxtImg :src="track?.cover" width="56" fit="cover" class="rounded-md mr-2" />
+              </template>
+              <template #title>
+                {{ track?.title }}
+              </template>
+              <template #subtitle>
+                {{ track?.artist }}
+              </template>
+            </v-list-item>
+          </v-list>
         </v-responsive>
       </v-card-text>
     </v-card>
@@ -52,7 +77,25 @@
 </template>
 
 <script lang="ts" setup>
-const { track, showQueue, toggleQueue, attachVideo, toggleOutput, output, setupVideo, queue } = usePlayer()
+const {
+  track,
+  showQueue,
+  toggleQueue,
+  toggleOutput,
+  output,
+  setupVideo,
+  progress,
+  seekTo,
+  isPlaying,
+  hasPrev,
+  hasNext,
+  next,
+  prev,
+  togglePlay,
+  time,
+  play,
+  nextTracks
+} = usePlayer()
 
 const playerVideo = ref<HTMLElement>()
 
@@ -67,7 +110,7 @@ onMounted(async () => {
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: #272727;
+  background-color: #212121;
   color: #fff;
   height: 100%;
   width: 330px;
@@ -82,5 +125,12 @@ onMounted(async () => {
 .v-toolbar--player-queue {
   right: 300px !important;
   width: calc(100% - 586px) !important;
+}
+
+.player-queue__title-info {
+  max-width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 </style>

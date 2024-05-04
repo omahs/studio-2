@@ -94,5 +94,13 @@ useHead({
   ]
 })
 
-const { showQueue } = usePlayer()
+const { showQueue, onMount, onUnmount } = usePlayer()
+
+onMounted(() => {
+  onMount()
+})
+
+onUnmounted(() => {
+  onUnmount()
+})
 </script>
