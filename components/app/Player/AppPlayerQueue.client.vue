@@ -8,8 +8,9 @@
 
       <v-row class="d-flex" align="center" justify="space-around" no-gutters>
         <v-col cols="auto">
-          <NuxtImg v-show="output === 'audio'" :src="track?.cover" width="287" fit="cover" class="rounded-xl" />
-          <div v-show="output === 'video'" ref="playerVideo" class="rounded-xl"
+          <NuxtImg v-show="output === 'audio' || forceAudioOutput" :src="track?.cover" width="287" fit="cover"
+            class="rounded-xl" />
+          <div v-show="output === 'video' && !forceAudioOutput" ref="playerVideo" class="rounded-xl"
             :style="{ width: '287px', height: '287px' }" />
         </v-col>
       </v-row>
@@ -44,7 +45,7 @@
         <v-col cols="auto">
           <v-tooltip :text="`Switch to ${output === 'video' ? 'audio' : 'video'}`" location="top">
             <template v-slot:activator="{ props }">
-              <v-btn v-bind="props" color="white" size="small" class="mt-1"
+              <v-btn :disabled="disableToggleOutput" v-bind="props" color="white" size="small" class="mt-1"
                 :icon="output === 'video' ? 'mdi-television' : 'mdi-music'" variant="tonal" @click="toggleOutput" />
             </template>
           </v-tooltip>
@@ -98,7 +99,9 @@ const {
   time,
   play,
   nextTracks,
-  isLoading
+  isLoading,
+  disableToggleOutput,
+  forceAudioOutput
 } = usePlayer()
 
 const playerVideo = ref<HTMLElement>()

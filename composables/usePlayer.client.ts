@@ -1,3 +1,5 @@
+import { fa } from "vuetify/iconsets/fa-svg";
+
 interface PlayerTrack {
   id: string;
   title: string;
@@ -15,7 +17,7 @@ export const usePlayer = () => {
 
   const output = useState<"audio" | "video">("output", () => "audio");
 
-  //const forceAudioOutput = useState<boolean>("forceAudioOutput", () => false);
+  const forceAudioOutput = useState<boolean>("forceAudioOutput", () => false);
 
   const isReady = useState<boolean>("isReady", () => false);
   const isPlaying = useState<boolean>("isPlaying", () => false);
@@ -85,11 +87,15 @@ export const usePlayer = () => {
   }
 
   function toggleOutput() {
-    output.value = output.value === "audio" ? "video" : "audio";
-
     if (!track.value) {
       return;
     }
+
+    if (!track.value.sources.video) {
+      return;
+    }
+
+    output.value = output.value === "audio" ? "video" : "audio";
 
     if (output.value === "audio") {
       if (videoEl.value) {
@@ -183,6 +189,8 @@ export const usePlayer = () => {
     addTracks(tracks);
 
     track.value = tracks[0];
+
+    // TODO: move this to a separate function
     isPlaying.value = true;
 
     _setNavigatorMetadata(track.value);
@@ -190,26 +198,42 @@ export const usePlayer = () => {
     _play(track.value)
   }
 
-  async function _play(track: PlayerTrack, options: { autoplay: boolean, continue: boolean } = { autoplay: true, continue: false }) {
-    const el: HTMLAudioElement | HTMLVideoElement | null = output.value === "audio" ? audioEl.value : videoEl.value;
+  async function _play(_track: PlayerTrack, options: { autoplay: boolean, continue: boolean } = { autoplay: true, continue: false }) {
+    track.value = _track;
 
-    if (!el) {
-      throw new Error(`${output.value} element is not ready`);
+    console.log('has video?', !!track.value.sources.video)
+
+    if (track.value.sources.video) {
+      forceAudioOutput.value = false;
+    } else {
+      forceAudioOutput.value = true;
     }
 
-    console.log(`Playing ${output.value}`)
+    console.log('force audio output', forceAudioOutput.value)
+
+    const el = _getEl();
+
+    //console.log(`Playing ${output.value}`)
 
     el.crossOrigin = "anonymous";
     el.autoplay = options.autoplay;
 
-    if (output.value === "audio") {
-      el.src = track.sources.audio;
+    if (output.value === "audio" || (output.value === "video" && forceAudioOutput.value)) {
+      el.src = _track.sources.audio;
+
+      if (output.value === "video" && forceAudioOutput.value) {
+        videoEl.value?.pause();
+      }
     } else {
-      if (!track.sources.video) {
+      if (!_track.sources.video) {
         throw new Error("Video source is not available");
       }
 
-      el.src = track.sources.video;
+      if (!forceAudioOutput.value) {
+        audioEl.value?.pause();
+      }
+
+      el.src = _track.sources.video;
       el.className = "rounded-xl"
 
       if (el instanceof HTMLVideoElement) {
@@ -241,21 +265,24 @@ export const usePlayer = () => {
   }
 
   function pause() {
-    const el = output.value === "audio" ? audioEl.value : videoEl.value;
-    if (!el) {
-      return;
-    }
+    const el = _getEl();
 
     el.pause();
 
     isPlaying.value = false;
   }
 
-  function togglePlay() {
-    const el = output.value === "audio" ? audioEl.value : videoEl.value;
+  function _getEl() {
+    const el = output.value === "audio" || (output.value === "video" && forceAudioOutput.value) ? audioEl.value : videoEl.value;
     if (!el) {
-      return;
+      throw new Error(`${output.value} element is not ready`);
     }
+
+    return el;
+  }
+
+  function togglePlay() {
+    const el = _getEl()
 
     if (isPlaying.value) {
       pause();
@@ -271,18 +298,10 @@ export const usePlayer = () => {
     const index = trackIndex.value + 1;
 
     if (index <= queue.value.length) {
+      isLoading.value = true;
       const nextIndex = index - 1;
 
-      // TODO: improve this
-      if (output.value === "video") {
-        if (queue.value[nextIndex].sources.video) {
-          play(queue.value[nextIndex].id);
-        } else {
-          toggleOutput();
-        }
-      }
-
-      play(queue.value[nextIndex].id);
+      _play(queue.value[nextIndex]);
     }
   }
 
@@ -292,26 +311,15 @@ export const usePlayer = () => {
     const index = trackIndex.value - 1;
 
     if (index >= 0) {
+      isLoading.value = true;
       const prevIndex = index - 1;
 
-      if (output.value === "video") {
-        if (queue.value[prevIndex].sources.video) {
-          play(queue.value[prevIndex].id);
-        } else {
-          toggleOutput();
-        }
-      }
-
-      play(queue.value[prevIndex].id);
+      _play(queue.value[prevIndex]);
     }
   }
 
   function seekTo(value: number | MediaSessionActionDetails) {
-    const el = output.value === "audio" ? audioEl.value : videoEl.value;
-
-    if (!el) {
-      return;
-    }
+    const el = _getEl();
 
     if (typeof value === "number") {
       if (isNaN(el.duration)) {
@@ -339,11 +347,7 @@ export const usePlayer = () => {
   })
 
   async function _duration() {
-    const el = output.value === "audio" ? audioEl.value : videoEl.value;
-
-    if (!el) {
-      return 0;
-    }
+    const el = _getEl();
 
     if (isNaN(el.duration)) {
       await new Promise((resolve) => {
@@ -374,6 +378,10 @@ export const usePlayer = () => {
     return queue.value.slice(trackIndex.value);
   })
 
+  const disableToggleOutput = computed(() => {
+    return !track.value || !track.value.sources.video;
+  })
+
   function onPlayback() {
     if (!audioEl.value?.paused) {
       audioEl.value?.pause();
@@ -385,11 +393,7 @@ export const usePlayer = () => {
   }
 
   function onProgress() {
-    const el = output.value === "audio" ? audioEl.value : videoEl.value;
-
-    if (!el) {
-      return;
-    }
+    const el = _getEl();
 
     isBuffering.value = el.buffered.length === 0 || el.readyState < 4
 
@@ -420,10 +424,7 @@ export const usePlayer = () => {
   }
 
   function onEnded() {
-    const el = output.value === "audio" ? audioEl.value : videoEl.value;
-    if (!el) {
-      return;
-    }
+    const el = _getEl();
 
     el.currentTime = 0;
     isPlaying.value = false;
@@ -509,6 +510,8 @@ export const usePlayer = () => {
     onMount,
     onUnmount,
     nextTracks,
-    isLoading
+    isLoading,
+    disableToggleOutput,
+    forceAudioOutput
   }
 }
