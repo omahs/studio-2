@@ -18,12 +18,12 @@
                 <v-col cols="10" md="8" class="mx-auto">
 
                   <v-row>
-                    <v-col cols="12" md="4">
+                    <v-col cols="auto" xs="12">
                       <NuxtLink :to="`/preview/${drop.id}`" class="text-decoration-none text-white">
                         <NuxtImg class="rounded-xl" :src="drop.image" width="280" height="280" format="webp" />
                       </NuxtLink>
                     </v-col>
-                    <v-col cols="12" md="8" class="my-auto">
+                    <v-col xs="12" class="my-auto">
                       <v-row>
                         <v-col class="text-h5 px-md-4">
                           <NuxtLink :to="`/preview/${drop.id}`" class="text-decoration-none text-white">
