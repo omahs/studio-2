@@ -30,13 +30,16 @@
 
       <v-row no-gutters justify="space-between" align="center" class="px-2">
         <v-col cols="auto">
-          <v-btn :disabled="!hasPrev" color="white" icon="mdi-skip-previous" class="text-h6 mt-1 mx-1" variant="text"
-            @click="prev" />
-          <v-btn v-if="!isPlaying" color="white" icon="mdi-play" variant="text" class="text-h4 mx-2"
+          <v-btn :disabled="!hasPrev || isLoading" color="white" icon="mdi-skip-previous" class="text-h6 mt-1 mx-1"
+            variant="text" @click="prev" />
+          <v-btn v-if="!isPlaying && !isLoading" color="white" icon="mdi-play" variant="text" class="text-h4 mx-2"
             @click="togglePlay" />
-          <v-btn v-else variant="text" color="white" icon="mdi-pause" class="text-h4 mx-2" @click="togglePlay" />
-          <v-btn :disabled="!hasNext" color="white" icon="mdi-skip-next" class="text-h6 mt-1 mx-1" variant="text"
-            @click="next" />
+          <v-btn v-else-if="isPlaying && !isLoading" variant="text" color="white" icon="mdi-pause" class="text-h4 mx-2"
+            @click="togglePlay" />
+          <v-progress-circular v-if="isLoading" class="mx-2" size="48" color="primary"
+            indeterminate></v-progress-circular>
+          <v-btn :disabled="!hasNext || isLoading" color="white" icon="mdi-skip-next" class="text-h6 mt-1 mx-1"
+            variant="text" @click="next" />
         </v-col>
         <v-col cols="auto">
           <v-tooltip :text="`Switch to ${output === 'video' ? 'audio' : 'video'}`" location="top">
@@ -94,7 +97,8 @@ const {
   togglePlay,
   time,
   play,
-  nextTracks
+  nextTracks,
+  isLoading
 } = usePlayer()
 
 const playerVideo = ref<HTMLElement>()

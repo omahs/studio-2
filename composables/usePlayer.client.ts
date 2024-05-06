@@ -15,8 +15,11 @@ export const usePlayer = () => {
 
   const output = useState<"audio" | "video">("output", () => "audio");
 
+  //const forceAudioOutput = useState<boolean>("forceAudioOutput", () => false);
+
   const isReady = useState<boolean>("isReady", () => false);
   const isPlaying = useState<boolean>("isPlaying", () => false);
+  const isLoading = useState<boolean>("isLoading", () => false);
   const isBuffering = useState<boolean>("buffering", () => false);
 
   const queue = useState<PlayerTrack[]>("queue", () => []);
@@ -112,7 +115,8 @@ export const usePlayer = () => {
     target.addEventListener("timeupdate", onProgress);
 
     target.addEventListener("canplay", () => {
-      console.log(`${output.value} is ready`);
+      isLoading.value = false;
+      console.log(`${output.value} can play`);
     })
 
     target.addEventListener("error", () => {
@@ -125,6 +129,22 @@ export const usePlayer = () => {
       if (progress.value > 0) {
         target.currentTime = (progress.value * target.duration) / 100;
       }
+
+      isLoading.value = false;
+    })
+
+    target.addEventListener("loadstart", () => {
+      isLoading.value = true;
+      console.log(`load start - ${output.value}`)
+    })
+
+    target.addEventListener("waiting", () => {
+      isLoading.value = true;
+      console.log(`waiting - ${output.value}`)
+    })
+
+    target.addEventListener("stalled", () => {
+      console.log(`stalled - ${output.value}`)
     })
 
     target.addEventListener("ended", onEnded);
@@ -488,6 +508,7 @@ export const usePlayer = () => {
     duration,
     onMount,
     onUnmount,
-    nextTracks
+    nextTracks,
+    isLoading
   }
 }
