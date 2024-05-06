@@ -252,6 +252,8 @@ export const usePlayer = () => {
 
     console.log('autoplay', options.autoplay)
 
+    umTrackEvent('play', { track: _track.id });
+
     if (options.autoplay) {
       await el.play();
       isPlaying.value = true;
