@@ -2,7 +2,7 @@
   <v-layout ref="app">
     <app-drawer />
     <app-bar :show-logo="false" />
-    <v-main :class="{ 'v-main--player-queue': showQueue }">
+    <v-main :class="{ 'v-main--player-queue': showQueue && track?.id !== undefined && !mobile }">
       <AppAlertConfirmEmail />
       <slot />
     </v-main>
@@ -12,6 +12,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useDisplay } from "vuetify";
+
+const { mobile } = useDisplay()
+
 useHead({
   htmlAttrs: {
     lang: 'en',
@@ -94,7 +98,7 @@ useHead({
   ]
 })
 
-const { showQueue, onMount, onUnmount } = usePlayer()
+const { showQueue, onMount, onUnmount, track } = usePlayer()
 
 onMounted(() => {
   onMount()

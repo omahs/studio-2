@@ -1,5 +1,3 @@
-import { fa } from "vuetify/iconsets/fa-svg";
-
 interface PlayerTrack {
   id: string;
   title: string;
@@ -32,7 +30,7 @@ export const usePlayer = () => {
 
   const currentTime = useState<number>("currentTime", () => 0);
 
-  const showQueue = useState<boolean>("showQueue", () => false);
+  const showQueue = useState<boolean>("showQueue", () => true);
 
   function setupAudio() {
     audioEl.value = new Audio();
