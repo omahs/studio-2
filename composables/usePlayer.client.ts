@@ -1,3 +1,5 @@
+import { get } from "@vueuse/core";
+
 interface PlayerTrack {
   id: string;
   title: string;
@@ -168,14 +170,13 @@ export const usePlayer = () => {
     )
   }
 
-  //function play(...tracks: PlayerTrack[]) {
-  async function play(...nfts: string[]) {
-    let tracks = await $fetch<PlayerTrack[]>(`https://media-api.bitsong.studio/nfts/stream-info?ids=${nfts.join(",")}`);
+  async function _fetchTracksInfo(nfts: string[]) {
+    const tracks = await $fetch<PlayerTrack[]>(`https://media-api.bitsong.studio/nfts/stream-info?ids=${nfts.join(",")}`);
     if (!tracks.length) {
-      return;
+      throw new Error("Failed to fetch tracks info");
     }
 
-    tracks = tracks.map((track) => ({
+    return tracks.map((track) => ({
       ...track,
       cover: useIpfsLink(track.cover),
       sources: {
@@ -183,7 +184,11 @@ export const usePlayer = () => {
         video: track.sources.video ? useIpfsLink(track.sources.video) : undefined
       }
     }));
+  }
 
+  //function play(...tracks: PlayerTrack[]) {
+  async function play(...nfts: string[]) {
+    const tracks = await _fetchTracksInfo(nfts);
     addTracks(tracks);
 
     track.value = tracks[0];
@@ -194,6 +199,11 @@ export const usePlayer = () => {
     _setNavigatorMetadata(track.value);
 
     _play(track.value)
+
+    if (queue.value.length === 1) {
+      const moreTracks = getAllTracks().map((track) => track.nftAddress).filter((nft) => !nfts.includes(nft));
+      addTracks(await _fetchTracksInfo(moreTracks));
+    }
   }
 
   async function _play(_track: PlayerTrack, options: { autoplay: boolean, continue: boolean } = { autoplay: true, continue: false }) {
@@ -300,6 +310,8 @@ export const usePlayer = () => {
       const nextIndex = index - 1;
 
       _play(queue.value[nextIndex]);
+    } else {
+      _play(queue.value[0]);
     }
   }
 

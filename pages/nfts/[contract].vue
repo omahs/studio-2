@@ -5,10 +5,19 @@
         <v-row>
           <v-col cols="12" md="8" class="text-center pb-0">
             <div>
-              <video
+              <!--<video
 v-if="data?.animation_url" class="mx-auto rounded-xl media__content" controls playsinline
-                :poster="nftImage" :src="useIpfsLink(data?.animation_url)" />
-              <v-img v-else class="mx-auto rounded-xl w-75" :src="nftImage" />
+                :poster="nftImage" :src="useIpfsLink(data?.animation_url)" />-->
+              <v-img class="mx-auto rounded-xl w-75" :src="nftImage" @click="play(contractAddress)">
+
+                <div class="d-flex align-center justify-center fill-height">
+                  <v-btn v-if="!isPlaying && !isLoading || track.id !== contractAddress" size="100" color="white"
+                    icon="mdi-play" variant="text" class="text-h2 mx-2" @click="togglePlay" />
+                  <v-btn v-else-if="isPlaying && !isLoading && track.id === contractAddress" size="100" variant="text"
+                    color="white" icon="mdi-pause" class="text-h2 mx-2" @click="togglePlay" />
+                </div>
+
+              </v-img>
             </div>
           </v-col>
 
@@ -27,8 +36,7 @@ v-if="data?.animation_url" class="mx-auto rounded-xl media__content" controls pl
             <v-row>
               <v-col cols="12" class="px-0">
                 <ClientOnly>
-                  <AppNftMarketplace
-v-if="data?.marketplace_address" :marketplace-address="data?.marketplace_address"
+                  <AppNftMarketplace v-if="data?.marketplace_address" :marketplace-address="data?.marketplace_address"
                     :nft-address="data.id" :title="data?.name" :image="data?.image!" :last-price="prices.last"
                     @open-dialog="openMarketplaceDialog" />
                 </ClientOnly>
@@ -42,16 +50,15 @@ v-if="data?.marketplace_address" :marketplace-address="data?.marketplace_address
                     <v-col>
                       <v-card-title>
                         Share and Earn {{ (((Number(data?.seller_fee_bps) / 10000) *
-                        (Number(data?.referral_fee_bps) / 10000)) *
-                        100).toFixed(2) }} %
+                (Number(data?.referral_fee_bps) / 10000)) *
+                100).toFixed(2) }} %
                       </v-card-title>
                       <v-card-subtitle>
                         Earn the referral fee by sharing this NFT
                       </v-card-subtitle>
                     </v-col>
                     <v-col class="text-right">
-                      <v-btn
-color="text-surface-variant" class="mt-3" variant="plain" icon="mdi-share"
+                      <v-btn color="text-surface-variant" class="mt-3" variant="plain" icon="mdi-share"
                         @click="openShareDialog" />
                     </v-col>
                   </v-row>
@@ -96,8 +103,7 @@ color="text-surface-variant" class="mt-3" variant="plain" icon="mdi-share"
                   Royalties Address
                 </div>
                 <div>
-                  <NuxtLink
-:to="`https://mintscan.io/bitsong/address/${data?.payment_address}`" target="_blank"
+                  <NuxtLink :to="`https://mintscan.io/bitsong/address/${data?.payment_address}`" target="_blank"
                     class="text-decoration-none text-white">
                     {{ formatShortAddress(data?.payment_address, 8) }}
                   </NuxtLink>
@@ -109,8 +115,7 @@ color="text-surface-variant" class="mt-3" variant="plain" icon="mdi-share"
                   Marketplace Address
                 </div>
                 <div>
-                  <NuxtLink
-:to="`https://mintscan.io/bitsong/address/${data?.marketplace_address}`" target="_blank"
+                  <NuxtLink :to="`https://mintscan.io/bitsong/address/${data?.marketplace_address}`" target="_blank"
                     class="text-decoration-none text-white">
                     {{ formatShortAddress(data?.marketplace_address!, 8) }}
                   </NuxtLink>
@@ -132,7 +137,7 @@ color="text-surface-variant" class="mt-3" variant="plain" icon="mdi-share"
                 </div>
                 <div>
                   {{ (((Number(data?.seller_fee_bps) / 10000) * (Number(data?.referral_fee_bps) / 10000)) *
-                  100).toFixed(2) }} %
+                100).toFixed(2) }} %
                 </div>
               </v-col>
 
@@ -176,8 +181,7 @@ color="text-surface-variant" class="mt-3" variant="plain" icon="mdi-share"
             </v-tabs>
 
 
-            <div
-v-if="selectedTab === 1" class="md__content mt-4"
+            <div v-if="selectedTab === 1" class="md__content mt-4"
               v-html="marked.parse(data?.metadata.description || '')" />
 
 
@@ -196,23 +200,21 @@ v-if="selectedTab === 1" class="md__content mt-4"
                       {{ formatShortAddress(activity.sender, 8) }}
                     </nuxt-link>
 
-                    <span
-:class="{
-                      'text-green': activity.side === 'buy',
-                      'text-red': activity.side === 'sell',
-                    }">
+                    <span :class="{
+                'text-green': activity.side === 'buy',
+                'text-red': activity.side === 'sell',
+              }">
                       &nbsp;{{ activity.side === "buy" ? "minted" : "burned" }}&nbsp;
                     </span>
 
                     <span class="text-white">#{{
-                      activity.token_id
-                      }}</span>
+                activity.token_id
+              }}</span>
                     for
-                    <span
-:class="{
-                          'text-green': activity.side === 'buy',
-                          'text-red': activity.side === 'sell',
-                        }">
+                    <span :class="{
+                  'text-green': activity.side === 'buy',
+                  'text-red': activity.side === 'sell',
+                }">
                       {{ formatCoinAmount(useFromMicroAmount(activity.total_price)) }}
                       <span class="text-subtitle-2">BTSG</span>
                     </span>
@@ -303,6 +305,8 @@ import { cosmwasm } from '@bitsongjs/telescope'
 import { toUtf8 } from '@cosmjs/encoding'
 
 // const { referral } = useReferral()
+
+const { play, isPlaying, isLoading, track, togglePlay } = usePlayer()
 
 const img = useImage();
 
