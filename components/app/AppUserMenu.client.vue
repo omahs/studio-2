@@ -37,6 +37,10 @@
           <v-list-item append-icon="mdi-bank" to="/me/assets">
             <v-list-item-title>My Assets</v-list-item-title>
           </v-list-item>
+          <!-- Upload your music -->
+          <v-list-item append-icon="mdi-upload" @click="openPrivateUpload">
+            <v-list-item-title>Upload Music</v-list-item-title>
+          </v-list-item>
         </v-list>
         <v-card-actions>
           <v-btn prepend-icon="mdi-logout" block rounded="pill" variant="outlined" color="primary"
@@ -49,6 +53,8 @@
 
 <script setup lang="ts">
 import defaultImage from "@/assets/images/default.png";
+import { useFileDialog } from '@vueuse/core'
+
 const { address, accountName } = useChain("bitsong")
 const { disconnect, connected } = useConnect();
 
@@ -56,14 +62,9 @@ const menu = ref(false);
 const user = await useUser();
 const { formattedBalance, loading, fetchBalance: _fecthBalance } = useUserBalance();
 
-// const userBalance = ref<number>(0);
-//const loadingBalance = ref(false);
-
 useWalletEvents("keystorechange", () => {
   disconnect()
 });
-
-//const client = await useQueryClient("bitsong")
 
 async function fetchBalance() {
   await _fecthBalance(address)
@@ -73,20 +74,7 @@ watch(connected, async (val) => {
   if (val) {
     await fetchBalance()
   }
-}
-)
-
-// async function fetchBalance() {
-//   loadingBalance.value = true
-//   try {
-//     const balance = await client.getBalance(address.value!, "ubtsg")
-//     userBalance.value = parseInt(balance.amount)
-//   } catch (e) {
-//     console.error(e)
-//   } finally {
-//     loadingBalance.value = false
-//   }
-// }
+})
 
 const avatar = computed(() => {
   if (user.value?.avatar) return useIpfsLink(user.value.avatar)
@@ -98,10 +86,6 @@ const name = computed(() => {
   return formatShortAddress(toValue(address), 6)
 })
 
-// const balance = computed(() => {
-//   if (userBalance.value) return `${useFromMicroAmount(userBalance.value)} BTSG`
-//   return "0 BTSG"
-// })
 
 onMounted(async () => {
   if (connected.value) {
@@ -110,4 +94,23 @@ onMounted(async () => {
 })
 
 const canUpload = computed(() => useUserState().value?.beta_features !== undefined && useUserState().value?.beta_features?.includes("upload"))
+
+// Private uploads
+const { files, open, reset, onChange } = useFileDialog({
+  // TODO: accept only mp3, wav, m4a, flac, ogg, wma
+  accept: 'audio/*',
+})
+
+function openPrivateUpload() {
+  reset()
+  open()
+}
+
+onChange((files) => {
+  if (!files) return
+
+  for (const file of files) {
+    console.log(file.name, file.size, file.type)
+  }
+})
 </script>
