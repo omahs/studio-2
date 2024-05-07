@@ -31,6 +31,7 @@
 </template>
 
 <script lang="ts" setup>
+import type { NuxtError } from '#app';
 import { useFileDialog, useDropZone } from '@vueuse/core'
 
 const emits = defineEmits<{
@@ -82,8 +83,7 @@ async function upload(file: File) {
     emits("done");
   } catch (e) {
     loading.value = false
-    error((e as Error).message)
-    console.error((e as Error).message)
+    error((e as NuxtError).statusMessage || 'An error occurred')
   }
 }
 

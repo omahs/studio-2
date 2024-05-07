@@ -191,7 +191,7 @@ model track_marketplace {
 }
 
 model music_nfts {
-  id               String  @id @unique
+  id               String   @id @unique
   title            String
   titleLocale      String
   artwork          String
@@ -201,25 +201,25 @@ model music_nfts {
   duration         Int
   version          String?
   genre            String
-  liveRecording    Boolean @default(false)
+  liveRecording    Boolean  @default(false)
   pLine            String?
   cLine            String?
   country          String
-  previousRelease  Boolean @default(false)
+  previousRelease  Boolean  @default(false)
   isrc             String?
   iswc             String?
   license          String
-  previewStartTime Int?    @default(0)
-  previewDuration  Int?    @default(15000)
+  previewStartTime Int?     @default(0)
+  previewDuration  Int?     @default(15000)
   lyrics           String?
   lyricsLocale     String?
-  explicit         String? @default("Clean")
+  explicit         String?  @default("Clean")
   label            String?
+  featured         Boolean? @default(false)
 
   artists            music_nft_artists[]
   authors_publishers music_nft_authors_publishers[]
-
-  featured Boolean? @default(false)
+  files              music_nft_files[]
 
   @@schema("public")
 }
@@ -247,6 +247,31 @@ model music_nft_authors_publishers {
 
   @@index([nft_id])
   @@index([address])
+  @@schema("public")
+}
+
+enum music_nft_file_type {
+  Audio
+  Video
+  Artwork
+
+  @@schema("public")
+}
+
+model music_nft_files {
+  id         String              @id @unique
+  nft_id     String
+  file_type  music_nft_file_type
+  cid        String // ipfs://..., ar://..., s3://..., https://...
+  music_nft  music_nfts          @relation(fields: [nft_id], references: [id])
+  name       String
+  size       Int
+  mimetype   String
+  created_at DateTime            @default(now())
+  updated_at DateTime            @default(now()) @updatedAt
+
+  @@index([nft_id])
+  @@index([cid])
   @@schema("public")
 }
 
