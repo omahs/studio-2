@@ -8,7 +8,7 @@
     </v-row>
 
     <v-row justify="center" class="mt-12">
-      <v-col cols="12" md="7">
+      <v-col cols="12" lg="11" xl="7">
         <v-card :variant="isOverDropZone ? 'teal' : 'flat'" ref="dropZoneRef" :loading="loading" :disabled="loading"
           height="300" class="d-flex align-center justify-center flex-column"
           :style="{ border: '1px dashed rgb(139 139 139)' }" @click.stop="open">

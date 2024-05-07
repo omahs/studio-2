@@ -8,7 +8,7 @@
     </v-row>
 
     <v-row justify="center" class="mt-12">
-      <v-col cols="12" md="7">
+      <v-col cols="12" xl="7" lg="10">
         <v-row justify="space-around">
           <v-date-picker v-if="date" v-model="date" :min="minDate" show-adjacent-months color="primary"
             class="date-picker"></v-date-picker>

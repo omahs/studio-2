@@ -8,7 +8,7 @@
     </v-row>
 
     <v-row justify="center" class="mt-12">
-      <v-col cols="12" md="7">
+      <v-col cols="12" xl="7" lg="10">
         <v-container>
           <v-row no-gutters justify="center" align="center">
             <v-col cols="12" md="6">

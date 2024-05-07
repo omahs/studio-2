@@ -8,7 +8,7 @@
     </v-row>
 
     <v-row justify="center" class="mt-12">
-      <v-col cols="12" md="3">
+      <v-col cols="12" lg="5" xl="3">
         <v-card :variant="isOverDropZone ? 'teal' : 'flat'" ref="dropZoneRef" :loading="loading" :disabled="loading"
           height="300" class="d-flex align-center justify-center flex-column"
           :style="{ border: '1px dashed rgb(139 139 139)' }" @click.stop="open">
@@ -20,7 +20,7 @@
           </v-card-subtitle>
         </v-card>
       </v-col>
-      <v-col cols="12" md="4" class="align-center d-flex">
+      <v-col cols="12" lg="6" xl="4" class="align-center d-flex">
         <div>
           <v-card-title class="text-h5">Track Artwork</v-card-title>
           <v-card-subtitle>

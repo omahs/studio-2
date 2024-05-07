@@ -8,7 +8,7 @@
     </v-row>
 
     <v-row justify="center" class="mt-12">
-      <v-col cols="12" md="2">
+      <v-col cols="12" xl="2" lg="3">
         <v-card class="d-flex flex-column pa-4">
           <video class="w-100 mb-6" controls :poster="modelValue.artwork">
             <source :src="modelValue.audio" :type="modelValue.audio_mime_type" />
@@ -29,7 +29,7 @@
 
         </v-card>
       </v-col>
-      <v-col cols="12" md="5">
+      <v-col cols="12" xl="5" lg="7">
         <v-window v-model="currentStep" :touch="false">
           <v-window-item :key="0">
             <UploadTrackInfoGeneral :track-id="trackId" v-model="modelValue" @done="onTrackInfoGeneralDone" />
@@ -39,8 +39,8 @@
               @done="onTrackInfoDescriptionDone" @back="currentStep = 0" />
           </v-window-item>
           <v-window-item :key="2">
-            <UploadTrackInfoAdditionalData :track-id="trackId" v-model="modelValue.additionalData" @done="currentStep = 3"
-              @back="currentStep = 1" />
+            <UploadTrackInfoAdditionalData :track-id="trackId" v-model="modelValue.additionalData"
+              @done="currentStep = 3" @back="currentStep = 1" />
           </v-window-item>
           <v-window-item :key="3">
             <UploadTrackInfoLyrics :track-id="trackId" v-model="modelValue.lyrics" @done="currentStep = 4"

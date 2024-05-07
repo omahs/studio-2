@@ -9,7 +9,7 @@
     </v-row>
 
     <v-row justify="center" class="mt-12">
-      <v-col cols="12" md="7">
+      <v-col cols="12" xl="7" lg="10">
         <v-card v-for="(r, index) in modelValue" :key="index" class="mb-8">
           <v-container>
             <v-row align="center">

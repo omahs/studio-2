@@ -10,7 +10,7 @@
       </v-row>
 
       <v-row justify="center" class="mt-md-12 mt-2">
-        <v-col cols="12" md="2">
+        <v-col cols="12" xl="2" lg="3">
           <v-card class="d-flex flex-column pa-4">
             <v-img cover gradient="to bottom, rgba(0,0,0,.10), rgba(0,0,0,.7)"
               :src="img(track!.artwork, { width: 250, height: 250, fit: 'cover' })" height="230" width="100%">
@@ -24,7 +24,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" xl="4" lg="5">
           <v-row no-gutters align="center">
             <v-col>
               <v-btn @click.stop="navigateTo('/me/tracks')">Return to My Tracks</v-btn>
