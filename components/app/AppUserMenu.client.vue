@@ -95,22 +95,5 @@ onMounted(async () => {
 
 const canUpload = computed(() => useUserState().value?.beta_features !== undefined && useUserState().value?.beta_features?.includes("upload"))
 
-// Private uploads
-const { files, open, reset, onChange } = useFileDialog({
-  // TODO: accept only mp3, wav, m4a, flac, ogg, wma
-  accept: 'audio/*',
-})
-
-function openPrivateUpload() {
-  reset()
-  open()
-}
-
-onChange((files) => {
-  if (!files) return
-
-  for (const file of files) {
-    console.log(file.name, file.size, file.type)
-  }
-})
+const { open: openPrivateUpload } = usePrivateUploads()
 </script>

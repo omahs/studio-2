@@ -36,10 +36,11 @@ model User {
 
   hidden Boolean @default(false)
 
-  auth_session UserSession[]
-  key          UserKey[]
-  tracks       tracks[]
-  nftview      nftview[]
+  auth_session    UserSession[]
+  key             UserKey[]
+  tracks          tracks[]
+  nftview         nftview[]
+  private_uploads private_uploads[]
 
   @@schema("web3auth")
 }
@@ -420,5 +421,33 @@ view nftactivityview {
   sender              String
   timestamp           DateTime
 
+  @@schema("public")
+}
+
+enum private_uploads_status {
+  Pending
+  Ready
+  Failed
+
+  @@schema("public")
+}
+
+model private_uploads {
+  id          String   @id @unique
+  user_id     String
+  name        String?
+  duration    Int
+  size        Int
+  mimetype    String
+  artwork_cid String?
+  audio_cid   String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+
+  status private_uploads_status
+
+  user User @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
   @@schema("public")
 }

@@ -8,8 +8,8 @@
 
       <v-row class="d-flex" align="center" justify="space-around" no-gutters>
         <v-col cols="auto">
-          <NuxtImg v-show="output === 'audio' || forceAudioOutput" :src="track?.cover" width="287" fit="cover"
-            class="rounded-xl" />
+          <NuxtImg v-show="output === 'audio' || forceAudioOutput" :src="track?.cover || `/images/default.png`"
+            width="287" fit="cover" class="rounded-xl" />
           <div v-show="output === 'video' && !forceAudioOutput" ref="playerVideo" class="rounded-xl"
             :style="{ width: '287px', height: '287px' }" />
         </v-col>
@@ -62,7 +62,7 @@
           <v-list density="compact">
             <v-list-item v-for="track in nextTracks" :key="track.id" class="px-0" @click="play(track.id)">
               <template #prepend>
-                <NuxtImg :src="track?.cover" width="56" fit="cover" class="rounded-md mr-2" />
+                <NuxtImg :src="track?.cover || `/images/default.png`" width="56" fit="cover" class="rounded-lg mr-2" />
               </template>
               <template #title>
                 {{ track?.title }}

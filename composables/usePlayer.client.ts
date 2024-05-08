@@ -1,5 +1,3 @@
-import { get } from "@vueuse/core";
-
 interface PlayerTrack {
   id: string;
   title: string;
@@ -186,9 +184,40 @@ export const usePlayer = () => {
     }));
   }
 
+  async function _fetchTracksInfoPrivate(ids: string[]) {
+    const tracks = await $fetch<PlayerTrack[]>(`/media-api/me/private-uploads/stream-info?ids=${ids.join(",")}`, {
+      headers: {
+        'Authorization': `Bearer ${useUserState().value?.sid}`
+      },
+    });
+    if (!tracks.length) {
+      throw new Error("Failed to fetch tracks info");
+    }
+
+    return tracks.map((track) => ({
+      ...track,
+      cover: track.cover,
+      sources: {
+        audio: `/media-api/me/private-uploads/media/${track.sources.audio}`,
+      }
+    }));
+  }
+
   //function play(...tracks: PlayerTrack[]) {
   async function play(...nfts: string[]) {
-    const tracks = await _fetchTracksInfo(nfts);
+    let tracks: PlayerTrack[] = [];
+
+    const bitsongTracks = nfts.filter((nft) => nft.startsWith("bitsong1"));
+    const privateTracks = nfts.filter((nft) => nft.startsWith("private:"));
+
+    if (bitsongTracks.length) {
+      tracks = await _fetchTracksInfo(bitsongTracks);
+    }
+
+    if (privateTracks.length) {
+      tracks = tracks.concat(await _fetchTracksInfoPrivate(privateTracks));
+    }
+
     addTracks(tracks);
 
     track.value = tracks[0];
@@ -201,8 +230,23 @@ export const usePlayer = () => {
     _play(track.value)
 
     if (queue.value.length === 1) {
-      const moreTracks = getAllTracks().map((track) => track.nftAddress).filter((nft) => !nfts.includes(nft));
-      addTracks(await _fetchTracksInfo(moreTracks));
+      if (nfts[0].startsWith("bitsong1")) {
+        const moreTracks = getAllTracks().map((track) => track.nftAddress).filter((nft) => !nfts.includes(nft));
+        addTracks(await _fetchTracksInfo(moreTracks));
+      } else if (nfts[0].startsWith("private:")) {
+        const moreTracks = await $fetch<PlayerTrack[]>(`/media-api/me/private-uploads/more?id=${nfts[0]}`, {
+          headers: {
+            'Authorization': `Bearer ${useUserState().value?.sid}`
+          },
+        })
+        addTracks(moreTracks.map((track) => ({
+          ...track,
+          cover: track.cover,
+          sources: {
+            audio: `/media-api/me/private-uploads/media/${track.sources.audio}`,
+          }
+        })));
+      }
     }
   }
 
