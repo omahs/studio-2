@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'distant',
+  title: 'Distant',
+  artists: ["HXRT"],
+  description: "'Distant' by HXRT via N43 Records",
+  creator: "https://bitsong.studio/u/bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmeE5fRZTesaB3CU4Wd4HcfAGQ9hpPYt4NVYEWW5LDrUjV",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmRmEsDuZKehEdVGwD5h7KYWjoTLQGvvHJXMK3L6FMzV7c",
+  startTime: 1715266800,
+  genre: "Pop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.013162,
+  nftAddress: "bitsong12uf778e0k37gu9sa6k52fz8xgmeldhhvehy6aya37228zezenyqspnfkj4",
+  marketplaceAddress: "bitsong1zw0wwunryuq5zaex6pcdphz5pxua5aevk4nqqz42hkc3xt0fcgyq09jt0z"
+}, {
   id: 'vaelocity-matching-3-worlds',
   title: 'Vaelocity - Matching 3 Worlds',
   artists: ["Vaelocity"],
