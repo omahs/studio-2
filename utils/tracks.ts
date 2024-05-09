@@ -22,7 +22,7 @@ const tracks: Track[] = [{
   title: 'Distant',
   artists: ["HXRT"],
   description: "'Distant' by HXRT via N43 Records",
-  creator: "https://bitsong.studio/u/bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
+  creator: "bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
   sellerFeeBps: 500,
   referralFeeBps: 100,
   previewUrl: "https://media-api.bitsong.studio/ipfs/QmeE5fRZTesaB3CU4Wd4HcfAGQ9hpPYt4NVYEWW5LDrUjV",
