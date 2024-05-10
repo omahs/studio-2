@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'this-is-julian',
+  title: 'Vaelocity & Julian Vaelen - This Is Julian',
+  artists: ["Vaelocity"],
+  description: "Utilities: \n• The first 10 holders of \"This Is Julian\" will receive an NFT airdrop of the 5th song on the album \"Purpose Of Life\" (release on March 17); \n• The first 2 holders of \"This Is Julian\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the next NFT \"Purpose Of Life\" (release on March 17); \n• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"This Is Julian\"; \n• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmY46XxXsYCRa22zxL1ALLSBgNHxb5QMCJXS6gcA2B73mx",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1715360400,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.004212,
+  nftAddress: "bitsong1llryyj2rravjhnpvenny2qynq5vlsakf2kzks5z5hgl49z9gptusp2jjpw",
+  marketplaceAddress: "bitsong1dy7sjes0vh4cn62twhwfj98cmxdmyz4keacpgngw04rv23ypgptqg0rx6q"
+}, {
   id: 'distant',
   title: 'Distant',
   artists: ["HXRT"],
