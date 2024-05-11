@@ -7,6 +7,7 @@ export default defineNuxtPlugin(() => {
     api_host: '/ingest',
     ui_host: `https://eu.posthog.com`,
     capture_pageview: false, // we add manual pageview capturing below
+    capture_pageleave: true,
     loaded: (posthog) => {
       if (import.meta.env.MODE === 'development') posthog.debug();
     }
