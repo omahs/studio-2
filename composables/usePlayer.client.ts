@@ -171,7 +171,8 @@ export const usePlayer = () => {
   }
 
   async function _fetchTracksInfo(nfts: string[]) {
-    const tracks = await $fetch<PlayerTrack[]>(`https://media-api.bitsong.studio/nfts/stream-info?ids=${nfts.join(",")}`);
+    const { mediaApiDirect } = useRuntimeConfig().public
+    const tracks = await $fetch<PlayerTrack[]>(`${mediaApiDirect}/nfts/stream-info?ids=${nfts.join(",")}`);
     if (!tracks.length) {
       throw new Error("Failed to fetch tracks info");
     }
