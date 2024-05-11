@@ -32,6 +32,17 @@ export const usePlayer = () => {
 
   const showQueue = useState<boolean>("showQueue", () => true);
 
+  const playTime = useState<number>("playTime", () => 0);
+  const previousTime = useState<number>("previousTime", () => 0);
+  const seekedTime = useState<number>("seekedTime", () => 0);
+  const lastCheckpointTime = useState<number>("lastCheckpointTime", () => 0);
+
+  function _resetPlayCounters() {
+    playTime.value = 0;
+    previousTime.value = 0;
+    seekedTime.value = 0;
+  }
+
   function setupAudio() {
     audioEl.value = new Audio();
 
@@ -251,8 +262,6 @@ export const usePlayer = () => {
 
     console.log('autoplay', options.autoplay)
 
-    useAppEvent('play', { track: _track.id, autoplay: options.autoplay, continue: options.continue });
-
     if (options.autoplay) {
       await el.play();
       isPlaying.value = true;
@@ -261,6 +270,8 @@ export const usePlayer = () => {
     if (!options.continue) {
       seekTo(0);
     }
+
+    useAppEvent('player-play', { track: _track.id, autoplay: options.autoplay, continue: options.continue });
   }
 
   function _setNavigatorMetadata(track: PlayerTrack) {
@@ -275,10 +286,10 @@ export const usePlayer = () => {
 
   function pause() {
     const el = _getEl();
-
     el.pause();
-
     isPlaying.value = false;
+
+    useAppEvent('player-pause', { track: track.value?.id });
   }
 
   function _getEl() {
@@ -299,6 +310,8 @@ export const usePlayer = () => {
       el.play();
       isPlaying.value = true;
     }
+
+    useAppEvent('player-toggle-play', { track: track.value?.id })
   }
 
   function next() {
@@ -314,6 +327,10 @@ export const usePlayer = () => {
     } else {
       _play(queue.value[0]);
     }
+
+    _resetPlayCounters()
+
+    useAppEvent('player-next', { track: track.value?.id });
   }
 
   function prev() {
@@ -327,22 +344,30 @@ export const usePlayer = () => {
 
       _play(queue.value[prevIndex]);
     }
+
+    _resetPlayCounters()
+
+    useAppEvent('player-prev', { track: track.value?.id });
   }
 
   function seekTo(value: number | MediaSessionActionDetails) {
     const el = _getEl();
 
+    let targetTime;
     if (typeof value === "number") {
-      if (isNaN(el.duration)) {
-        el.currentTime = 0;
-      } else {
-        el.currentTime = value * el.duration / 100;
-      }
+      targetTime = isNaN(el.duration) ? 0 : (value * el.duration / 100);
     } else {
-      if (value.seekTime) {
-        el.currentTime = value.seekTime;
-      }
+      targetTime = value.seekTime || el.currentTime;
     }
+
+    // Log seeked time
+    const diff = Math.abs(el.currentTime - targetTime);
+    seekedTime.value += diff;
+    previousTime.value = targetTime;
+
+    el.currentTime = targetTime;
+
+    useAppEvent('player-seek-to', { track: track.value?.id, time: targetTime });
   }
 
   function toggleQueue() {
@@ -423,6 +448,26 @@ export const usePlayer = () => {
       progress.value = _progress;
 
       currentTime.value = el.currentTime;
+
+      const timeDiff = el.currentTime - previousTime.value;
+      if (timeDiff >= 0 && timeDiff <= 1) { // Assume max step of 1 sec for normal playback
+        playTime.value += timeDiff;
+      }
+      previousTime.value = el.currentTime;
+
+      const _checkpointTime = 30; // 30 seconds
+      const _playTimeRounded = Math.floor(playTime.value);
+
+      console.log(`Play time: ${_playTimeRounded} seconds`);
+
+      if (_playTimeRounded % _checkpointTime === 0 && lastCheckpointTime.value < Date.now() - _checkpointTime * 1000) {
+        lastCheckpointTime.value = Date.now();
+
+        if (_playTimeRounded > 0) {
+          console.log(`Sending player-checkpoint event at ${playTime.value} seconds`);
+          useAppEvent('player-checkpoint', { track: track.value?.id, time: _playTimeRounded });
+        }
+      }
 
       if ("mediaSession" in navigator) {
         navigator.mediaSession.setPositionState({
