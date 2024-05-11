@@ -1,15 +1,14 @@
 <template>
   <div>
-    <v-btn v-if="!data && !complete" :size="size" block variant="tonal" prepend-icon="mdi-bell" @click.stop="openDialog">
+    <v-btn v-if="!data && !complete" :size="size" block variant="tonal" prepend-icon="mdi-bell"
+      @click.stop="openDialog">
       GET NOTIFIED
     </v-btn>
-    <v-btn
-v-if="(data?.drop_id || complete) && connected" :size="size" :loading="loading" block variant="text"
+    <v-btn v-if="(data?.drop_id || complete) && connected" :size="size" :loading="loading" block variant="text"
       prepend-icon="mdi-check" @click.stop="deleteNotification">
       TURN OFF ALERT
     </v-btn>
-    <AppDropNotificationDialog
-v-model="dialog" :drop-id="dropId" :title="title" :subtitle="subtitle"
+    <AppDropNotificationDialog v-model="dialog" :drop-id="dropId" :title="title" :subtitle="subtitle"
       :start-time="startTime" :image="image" @complete="complete = true" />
     <AppConnectDialog v-model="appConnectDialog" />
   </div>
@@ -53,12 +52,12 @@ watch(connected, (value) => {
 function openDialog() {
   if (!connected.value) {
     appConnectDialog.value = true;
-    umTrackEvent('open-drop-notification', { dropId: props.dropId, connected: false });
+    useAppEvent('open-drop-notification', { dropId: props.dropId, connected: false });
     return;
   }
 
   dialog.value = true;
-  umTrackEvent('open-drop-notification', { dropId: props.dropId, connected: true });
+  useAppEvent('open-drop-notification', { dropId: props.dropId, connected: true });
 }
 
 async function deleteNotification() {
@@ -70,7 +69,7 @@ async function deleteNotification() {
     })
     complete.value = false;
 
-    umTrackEvent('disable-drop-notification', { dropId: props.dropId });
+    useAppEvent('disable-drop-notification', { dropId: props.dropId });
 
     await refresh();
   } catch (e) {

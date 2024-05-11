@@ -1,12 +1,11 @@
 <template>
-  <v-dialog
-persistent width="585" :model-value="props.modelValue"
+  <v-dialog persistent width="585" :model-value="props.modelValue"
     @update:model-value="$emit('update:modelValue', $event)">
 
     <v-card :disabled="loading">
       <v-toolbar color="transparent">
         <v-toolbar-title> Get Notified </v-toolbar-title>
-        <v-spacer/>
+        <v-spacer />
         <v-btn icon @click="$emit('update:modelValue', false)">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -14,7 +13,7 @@ persistent width="585" :model-value="props.modelValue"
       <v-container fluid class="pt-0">
         <v-row class="d-flex">
           <v-col cols="3">
-            <v-img :src="image" cover/>
+            <v-img :src="image" cover />
           </v-col>
           <v-col col="auto">
             <div class="text-h5">{{ title }}</div>
@@ -30,7 +29,7 @@ persistent width="585" :model-value="props.modelValue"
         </v-row>
       </v-container>
       <v-card-text>
-        <v-text-field v-model="email" label="Email" variant="outlined"/>
+        <v-text-field v-model="email" label="Email" variant="outlined" />
       </v-card-text>
       <v-card-text v-if="errorMessage !== ''">
         <v-alert variant="outlined" type="error">
@@ -38,12 +37,11 @@ persistent width="585" :model-value="props.modelValue"
         </v-alert>
       </v-card-text>
       <v-card-actions class="justify-center px-6 py-3">
-        <v-spacer/>
+        <v-spacer />
         <v-btn class="w-25 pt-1" rounded="pill" color="grey-lighten-1" variant="text" @click.stop="handleClose">
           Cancel
         </v-btn>
-        <v-btn
-:loading="loading" class="w-25 pt-1" rounded="pill" color="primary" variant="flat"
+        <v-btn :loading="loading" class="w-25 pt-1" rounded="pill" color="primary" variant="flat"
           @click.stop="handleSave">
           Save
         </v-btn>
@@ -101,7 +99,7 @@ async function handleSave() {
 
     emits("complete");
     handleClose();
-    umTrackEvent('enable-drop-notification', { dropId: props.dropId });
+    useAppEvent('enable-drop-notification', { dropId: props.dropId });
   } catch (e) {
     console.log(e)
     errorMessage.value = e.data.message;

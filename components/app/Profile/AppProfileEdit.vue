@@ -1,37 +1,30 @@
 <template>
-  <v-dialog
-persistent width="585" :model-value="props.modelValue"
+  <v-dialog persistent width="585" :model-value="props.modelValue"
     @update:model-value="$emit('update:modelValue', $event)">
     <v-card :disabled="loading">
       <v-card variant="text">
         <v-img cover :src="cover" height="127" class="d-flex align-center text-center">
           <div>
-            <v-btn
-icon="mdi-camera" variant="plain"
-              @click.stop="coverUploader?.click(); umTrackEvent('select-cover')"/>
-            <v-btn icon="mdi-close" variant="plain" @click.stop="removeCover"/>
+            <v-btn icon="mdi-camera" variant="plain" @click.stop="onSelectCover" />
+            <v-btn icon="mdi-close" variant="plain" @click.stop="removeCover" />
           </div>
         </v-img>
 
         <div class="d-flex justify-space-between mx-4">
           <v-avatar v-if="!avatar" color="surface-variant" size="86" class="profile-avatar">
-            <v-btn
-icon="mdi-camera" variant="plain"
-              @click.stop="avatarUploader?.click(); umTrackEvent('select-avatar')"/>
+            <v-btn icon="mdi-camera" variant="plain" @click.stop="onSelectAvatar" />
           </v-avatar>
 
           <v-avatar v-else-if="newValues.avatar || avatar" size="86" class="profile-avatar">
             <v-img :src="avatar" cover height="86" width="86" class="align-center">
-              <v-btn
-icon="mdi-camera" variant="plain"
-                @click.stop="avatarUploader?.click(); umTrackEvent('select-avatar')"/>
+              <v-btn icon="mdi-camera" variant="plain" @click.stop="onSelectAvatar" />
             </v-img>
           </v-avatar>
         </div>
       </v-card>
       <v-card-text class="mt-4">
-        <v-text-field v-model="username" label="Username" variant="outlined"/>
-        <v-text-field v-model="email" label="Email" hint="Only visible to you" variant="outlined"/>
+        <v-text-field v-model="username" label="Username" variant="outlined" />
+        <v-text-field v-model="email" label="Email" hint="Only visible to you" variant="outlined" />
       </v-card-text>
       <v-card-text v-if="errorMessage !== ''">
         <v-alert variant="outlined" type="error">
@@ -39,12 +32,11 @@ icon="mdi-camera" variant="plain"
         </v-alert>
       </v-card-text>
       <v-card-actions class="justify-center px-6 py-3">
-        <v-spacer/>
+        <v-spacer />
         <v-btn class="w-25 pt-1" rounded="pill" color="grey-lighten-1" variant="text" @click.stop="handleClose">
           Cancel
         </v-btn>
-        <v-btn
-:loading="loading" class="w-25 pt-1" rounded="pill" color="primary" variant="flat"
+        <v-btn :loading="loading" class="w-25 pt-1" rounded="pill" color="primary" variant="flat"
           @click.stop="handleEditProfile">
           Save
         </v-btn>
@@ -66,6 +58,16 @@ const loading = ref(false);
 const coverUploader = ref<HTMLInputElement>();
 
 const errorMessage = ref("");
+
+function onSelectCover() {
+  coverUploader.value?.click();
+  useAppEvent('select-cover')
+}
+
+function onSelectAvatar() {
+  avatarUploader.value?.click();
+  useAppEvent('select-avatar')
+}
 
 const avatar = computed(() => {
   if (newValues.avatar) return newValues.avatar
@@ -140,14 +142,14 @@ const handleClose = () => {
     emits("update:modelValue", false);
   }
 
-  umTrackEvent('close-edit-profile')
+  useAppEvent('close-edit-profile')
 };
 
 const onDiscardChanges = (value: boolean) => {
   if (value) {
     emits("update:modelValue", false);
     resetState();
-    umTrackEvent('discard-profile-changes')
+    useAppEvent('discard-profile-changes')
   }
 };
 
@@ -266,7 +268,7 @@ const coverUpload = async () => {
 
 const removeCover = async () => {
   newValues.cover = null
-  umTrackEvent('remove-cover')
+  useAppEvent('remove-cover')
 }
 
 function base64ToFile(base64String: string, filename: string): File {
@@ -328,11 +330,11 @@ const handleEditProfile = async () => {
 
     emits("update:modelValue", false);
     resetState();
-    umTrackEvent('save-profile')
+    useAppEvent('save-profile')
   } catch (e) {
     // @ts-expect-error - e is untyped
     errorMessage.value = e.data.message
-    umTrackEvent('save-profile-error')
+    useAppEvent('save-profile-error')
   } finally {
     loading.value = false
   }

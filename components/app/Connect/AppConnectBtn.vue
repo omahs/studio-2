@@ -12,6 +12,6 @@ const dialog = ref(false);
 
 function onClick() {
   dialog.value = true;
-  umTrackEvent('connect-button');
+  useAppEvent('connect-button');
 }
 </script>

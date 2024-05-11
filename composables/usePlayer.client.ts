@@ -1,5 +1,3 @@
-import { get } from "@vueuse/core";
-
 interface PlayerTrack {
   id: string;
   title: string;
@@ -253,7 +251,7 @@ export const usePlayer = () => {
 
     console.log('autoplay', options.autoplay)
 
-    umTrackEvent('play', { track: _track.id });
+    useAppEvent('play', { track: _track.id, autoplay: options.autoplay, continue: options.continue });
 
     if (options.autoplay) {
       await el.play();

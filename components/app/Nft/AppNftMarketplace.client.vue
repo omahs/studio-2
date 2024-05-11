@@ -3,23 +3,23 @@
     <v-row>
       <v-col class="text-center">
         <div class="text-grey text-body-2">Buy Price</div>
-        <v-skeleton-loader v-if="loading" class="mx-auto" type="text"/>
-        <div v-else>{{ formatCoinAmount(buyPrice.totalPrice) }}<br ><span class="text-subtitle-2">BTSG</span>
+        <v-skeleton-loader v-if="loading" class="mx-auto" type="text" />
+        <div v-else>{{ formatCoinAmount(buyPrice.totalPrice) }}<br><span class="text-subtitle-2">BTSG</span>
         </div>
       </v-col>
 
       <v-col class="text-center">
         <div class="text-grey text-body-2">Last Price</div>
-        <v-skeleton-loader v-if="!lastPrice || lastPrice === 0" class="mx-auto" type="text"/>
+        <v-skeleton-loader v-if="!lastPrice || lastPrice === 0" class="mx-auto" type="text" />
         <div v-else class="text-grey">
-          {{ formatCoinAmount(useFromMicroAmount(lastPrice ?? 0)) }}<br ><span class="text-subtitle-2">BTSG</span>
+          {{ formatCoinAmount(useFromMicroAmount(lastPrice ?? 0)) }}<br><span class="text-subtitle-2">BTSG</span>
         </div>
       </v-col>
 
       <v-col class="text-center">
         <div class="text-grey text-body-2">Sell Price</div>
-        <v-skeleton-loader v-if="loading" class="mx-auto" type="text"/>
-        <div v-else>{{ formatCoinAmount(sellPrice.totalPrice) }}<br ><span class="text-subtitle-2">BTSG</span>
+        <v-skeleton-loader v-if="loading" class="mx-auto" type="text" />
+        <div v-else>{{ formatCoinAmount(sellPrice.totalPrice) }}<br><span class="text-subtitle-2">BTSG</span>
         </div>
       </v-col>
     </v-row>
@@ -36,13 +36,11 @@
     </v-row>
   </v-container>
 
-  <AppNftCurveDialog
-v-if="loaded" v-model="marketplaceDialog" :side="marketplaceSide" :title="title" :image="image"
+  <AppNftCurveDialog v-if="loaded" v-model="marketplaceDialog" :side="marketplaceSide" :title="title" :image="image"
     :contract-config="contractConfig" />
 </template>
 
 <script setup lang="ts">
-
 const { error } = useNotify()
 const { connected } = useConnect();
 
@@ -130,13 +128,13 @@ async function fetchConfigAndSupply() {
 function openBuyDialog() {
   marketplaceSide.value = 'buy'
   marketplaceDialog.value = true
-  umTrackEvent('open-buy-dialog')
+  useAppEvent('open-buy-dialog')
 }
 
 function openSellDialog() {
   marketplaceSide.value = 'sell'
   marketplaceDialog.value = true
-  umTrackEvent('open-sell-dialog')
+  useAppEvent('open-sell-dialog')
 }
 
 let interval: string | number | NodeJS.Timeout | undefined;
