@@ -458,13 +458,13 @@ export const usePlayer = () => {
       const _checkpointTime = 30; // 30 seconds
       const _playTimeRounded = Math.floor(playTime.value);
 
-      console.log(`Play time: ${_playTimeRounded} seconds`);
+      // console.log(`Play time: ${_playTimeRounded} seconds`);
 
       if (_playTimeRounded % _checkpointTime === 0 && lastCheckpointTime.value < Date.now() - _checkpointTime * 1000) {
         lastCheckpointTime.value = Date.now();
 
         if (_playTimeRounded > 0) {
-          console.log(`Sending player-checkpoint event at ${playTime.value} seconds`);
+          // console.log(`Sending player-checkpoint event at ${playTime.value} seconds`);
           useAppEvent('player-checkpoint', { track: track.value?.id, time: _playTimeRounded });
         }
       }
