@@ -96,7 +96,7 @@ const { data: track, refresh } = await useFetch(`${useRuntimeConfig().public.med
 })
 
 watch(track, (newVal) => {
-  if (newVal?.artwork_ipfs_cid && newVal?.audio_ipfs_cid) {
+  if (newVal?.artwork_ipfs_cid && newVal?.audio_ipfs_cid && newVal?.metadata_ipfs_cid) {
     currentStep.value = 1
   }
 
