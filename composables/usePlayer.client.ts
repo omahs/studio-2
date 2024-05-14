@@ -197,8 +197,8 @@ export const usePlayer = () => {
   }
 
   async function _fetchTracksInfoPrivate(ids: string[]) {
-    const { mediaApi } = useRuntimeConfig().public
-    const tracks = await $fetch<PlayerTrack[]>(`${mediaApi}/me/private-uploads/stream-info?ids=${ids.join(",")}`, {
+    const { mediaApiDirect, mediaApi } = useRuntimeConfig().public
+    const tracks = await $fetch<PlayerTrack[]>(`${mediaApiDirect}/me/private-uploads/stream-info?ids=${ids.join(",")}`, {
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`
       },
@@ -211,7 +211,7 @@ export const usePlayer = () => {
       ...track,
       cover: track.cover,
       sources: {
-        audio: `${mediaApi}/me/private-uploads/media/${track.sources.audio}`,
+        audio: `${mediaApi}/ipfs/${track.sources.audio}`,
       }
     }));
   }
