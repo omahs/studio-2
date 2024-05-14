@@ -25,8 +25,8 @@ export const trackUpdateSchema = z
       required_error: 'Description is required',
     }).min(1, {
       message: 'Description must be at least 1 character',
-    }).max(1000, {
-      message: 'Description must be at most 1000 characters',
+    }).max(3500, {
+      message: 'Description must be at most 3500 characters',
     })
       .transform((val) => val.trim())
       .optional(),
