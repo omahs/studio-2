@@ -67,8 +67,8 @@ export const useNavigationDrawer = () => {
         title: "Private Uploads",
         icon: "mdi-music",
         to: "/private-uploads",
-        onlyLoggedIn: false,
-        onlyAdmin: false,
+        onlyLoggedIn: true,
+        onlyAdmin: true,
         exact: true,
       }
     ];

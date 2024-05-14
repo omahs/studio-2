@@ -364,15 +364,23 @@ view nfttokenview {
 }
 
 model storage_ipfs {
-  id         String   @id @unique
-  owner      String
+  id         String                @id @unique
   name       String?
-  size       Int
-  mimetype   String
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now()) @updatedAt
+  size       Int                   @default(0)
+  mimetype   String?
+  created_at DateTime              @default(now())
+  updated_at DateTime              @default(now()) @updatedAt
+  owners     storage_ipfs_owners[]
 
-  @@index([owner])
+  @@schema("public")
+}
+
+model storage_ipfs_owners {
+  ipfs_id String
+  owner   String
+  file    storage_ipfs @relation(fields: [ipfs_id], references: [id])
+
+  @@id([ipfs_id, owner])
   @@schema("public")
 }
 

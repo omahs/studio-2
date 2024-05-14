@@ -37,10 +37,6 @@
           <v-list-item append-icon="mdi-bank" to="/me/assets">
             <v-list-item-title>My Assets</v-list-item-title>
           </v-list-item>
-          <!-- Upload your music -->
-          <v-list-item append-icon="mdi-upload" @click="openPrivateUpload">
-            <v-list-item-title>Upload Music</v-list-item-title>
-          </v-list-item>
         </v-list>
         <v-card-actions>
           <v-btn prepend-icon="mdi-logout" block rounded="pill" variant="outlined" color="primary"
@@ -92,8 +88,4 @@ onMounted(async () => {
     await fetchBalance()
   }
 })
-
-const canUpload = computed(() => useUserState().value?.beta_features !== undefined && useUserState().value?.beta_features?.includes("upload"))
-
-const { open: openPrivateUpload } = usePrivateUploads()
 </script>
