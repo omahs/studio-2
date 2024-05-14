@@ -6,7 +6,7 @@
     ">
         <v-row align="center" no-gutters>
           <v-col cols="auto">
-            <NuxtImg :src="track?.cover" height="56" width="56" />
+            <NuxtImg :src="track?.cover || `/images/default.png`" class="rounded-lg" height="56" width="56" />
           </v-col>
           <v-col class="pl-3">
             <div class="player__title-info">{{ track.title }}</div>

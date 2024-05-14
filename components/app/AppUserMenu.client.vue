@@ -49,6 +49,7 @@
 
 <script setup lang="ts">
 import defaultImage from "@/assets/images/default.png";
+import { useFileDialog } from '@vueuse/core'
 
 const { address, accountName } = useChain("bitsong")
 const { disconnect, connected } = useConnect();
@@ -87,6 +88,4 @@ onMounted(async () => {
     await fetchBalance()
   }
 })
-
-const canUpload = user.value?.beta_features !== undefined && user.value?.beta_features.includes('upload')
 </script>

@@ -62,6 +62,14 @@ export const useNavigationDrawer = () => {
         onlyLoggedIn: true,
         onlyAdmin: true,
         exact: true,
+      },
+      {
+        title: "Private Uploads",
+        icon: "mdi-music",
+        to: "/private-uploads",
+        onlyLoggedIn: true,
+        onlyAdmin: true,
+        exact: true,
       }
     ];
   });
