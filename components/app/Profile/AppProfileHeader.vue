@@ -1,15 +1,14 @@
 <template>
   <v-card variant="text" rounded="lg">
-    <v-img cover :src="cover" :aspect-ratio="4 / 1"/>
+    <v-img cover :src="cover" :aspect-ratio="4 / 1" />
     <div class="d-flex justify-space-between mx-4">
-      <v-avatar v-if="!avatar" color="surface-variant" size="125" class="profile-avatar"/>
+      <v-avatar v-if="!avatar" color="surface-variant" size="125" class="profile-avatar" />
       <v-avatar v-else size="125" class="profile-avatar">
-        <v-img :src="avatar" cover :alt="address" :aspect-ratio="1 / 1"/>
+        <v-img :src="avatar" cover :alt="address" :aspect-ratio="1 / 1" />
       </v-avatar>
 
-      <v-btn
-v-if="canEdit" rounded="pill" class="mt-4" variant="outlined"
-        @click.stop="editProfileDialog = true; umTrackEvent('open-edit-profile')">
+      <v-btn v-if="canEdit" rounded="pill" class="mt-4" variant="outlined"
+        @click.stop="editProfileDialog = true; useAppEvent('open-edit-profile')">
         Edit Profile
       </v-btn>
     </div>

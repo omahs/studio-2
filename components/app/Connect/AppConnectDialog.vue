@@ -3,10 +3,9 @@
     <v-card>
       <v-card-title>Connect Wallet</v-card-title>
       <v-list class="mb-1">
-        <v-list-item
-v-for="wallet in wallets" :key="wallet.options.name" class="mx-2 pa-2"
+        <v-list-item v-for="wallet in wallets" :key="wallet.options.name" class="mx-2 pa-2"
           :prepend-avatar="`/images/wallets/${wallet.options.name}.png`" :title="wallet.options.prettyName"
-          @click.stop="open(wallet.options.name); umTrackEvent('connect-wallet', { provider: wallet.options.name })">
+          @click.stop="open(wallet.options.name); useAppEvent('connect-wallet', { provider: wallet.options.name });">
           <template v-if="wallet.injected" #subtitle>
             Connect with {{ wallet.options.prettyName }}
           </template>
@@ -14,9 +13,8 @@ v-for="wallet in wallets" :key="wallet.options.name" class="mx-2 pa-2"
             Install {{ wallet.options.prettyName }}
           </template>
           <template #append>
-            <v-progress-circular
-v-if="status === 'WAITING' && selectedWallet === wallet.options.name" indeterminate
-              color="primary" size="22" width="3"/>
+            <v-progress-circular v-if="status === 'WAITING' && selectedWallet === wallet.options.name" indeterminate
+              color="primary" size="22" width="3" />
           </template>
         </v-list-item>
       </v-list>

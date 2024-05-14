@@ -34,9 +34,12 @@ export default defineNuxtConfig({
         privacy: 'https://bitsong.io/privacy'
       },
       ipfsGateway: 'https://media-api.bitsong.studio/ipfs/{cid}',
+      //ipfsGateway: 'http://localhost:3001/media-api/ipfs/{cid}',
       umamiHost: '',
       umamiId: '',
       mediaApiDirect: '/media-api',
+      posthogPublicKey: '',
+      posthogHost: '',
     },
   },
   css: [
@@ -86,7 +89,9 @@ export default defineNuxtConfig({
         proxy: {
           to: `${import.meta.env.NUXT_MEDIA_API || 'http://localhost:3000'}/**`,
         }
-      }
+      },
+      '/ingest/static/**': { proxy: `${import.meta.env.NUXT_PUBLIC_POSTHOG_HOST}/static/**` },
+      '/ingest/**': { proxy: `${import.meta.env.NUXT_PUBLIC_POSTHOG_HOST}/**` },
     }
   },
   vueEmail: {

@@ -7,7 +7,148 @@ settings:
 overrides:
   sharp: 0.32.6
 
-importers:
+dependencies:
+  '@aws-sdk/client-s3':
+    specifier: ^3.501.0
+    version: 3.565.0(@aws-sdk/client-sso-oidc@3.565.0)(@aws-sdk/client-sts@3.565.0)
+  '@aws-sdk/client-ses':
+    specifier: ^3.490.0
+    version: 3.565.0(@aws-sdk/client-sso-oidc@3.565.0)(@aws-sdk/client-sts@3.565.0)
+  '@aws-sdk/lib-storage':
+    specifier: ^3.501.0
+    version: 3.565.0(@aws-sdk/client-s3@3.565.0)
+  '@aws-sdk/s3-request-presigner':
+    specifier: ^3.501.0
+    version: 3.565.0
+  '@bitsongjs/metadata':
+    specifier: ^0.2.1
+    version: 0.2.1
+  '@bitsongjs/telescope':
+    specifier: 3.0.0-dev.23
+    version: 3.0.0-dev.23
+  '@chenfengyuan/vue-countdown':
+    specifier: '2'
+    version: 2.1.2(vue@3.4.26)
+  '@fortawesome/fontawesome-free':
+    specifier: ^6.5.1
+    version: 6.5.2
+  '@fortawesome/free-brands-svg-icons':
+    specifier: ^6.5.1
+    version: 6.5.2
+  '@lucia-auth/adapter-prisma':
+    specifier: ^3.0.2
+    version: 3.0.2(@prisma/client@5.13.0)(lucia@2.7.7)
+  '@mdi/font':
+    specifier: ^7.3.67
+    version: 7.4.47
+  '@nabla-studio/chain-registry':
+    specifier: ^0.4.0
+    version: 0.4.0
+  '@pinata/sdk':
+    specifier: ^2.1.0
+    version: 2.1.0
+  '@pinia/nuxt':
+    specifier: ^0.5.1
+    version: 0.5.1(typescript@5.4.5)(vue@3.4.26)
+  '@quirks/core':
+    specifier: ^0.8.5
+    version: 0.8.5(@cosmjs/amino@0.31.3)(@cosmjs/proto-signing@0.31.3)(@cosmjs/stargate@0.31.3)(@walletconnect/types@2.12.2)(@walletconnect/universal-provider@2.12.2)(base64-js@1.5.1)(cosmjs-types@0.8.0)(eventemitter3@5.0.1)(long@5.2.3)(pino-pretty@10.3.1)
+  '@quirks/nuxt':
+    specifier: ^0.1.19
+    version: 0.1.30(@cosmjs/amino@0.31.3)(@cosmjs/cosmwasm-stargate@0.31.3)(@cosmjs/proto-signing@0.31.3)(@cosmjs/stargate@0.31.3)(@nuxt/kit@3.11.2)(@nuxt/schema@3.11.2)(@walletconnect/types@2.12.2)(@walletconnect/universal-provider@2.12.2)(base64-js@1.5.1)(cosmjs-types@0.8.0)(eventemitter3@5.0.1)(long@5.2.3)(nuxt@3.11.2)(pino-pretty@10.3.1)(vue@3.4.26)(zustand-vue@1.0.0-beta.20)(zustand@4.5.2)
+  '@quirks/store':
+    specifier: ^0.10.0
+    version: 0.10.2(@cosmjs/amino@0.31.3)(@cosmjs/cosmwasm-stargate@0.31.3)(@cosmjs/proto-signing@0.31.3)(@cosmjs/stargate@0.31.3)(@walletconnect/types@2.12.2)(@walletconnect/universal-provider@2.12.2)(base64-js@1.5.1)(cosmjs-types@0.8.0)(eventemitter3@5.0.1)(long@5.2.3)(pino-pretty@10.3.1)(zustand@4.5.2)
+  '@quirks/vue':
+    specifier: ^0.4.6
+    version: 0.4.9(@cosmjs/amino@0.31.3)(@cosmjs/cosmwasm-stargate@0.31.3)(@cosmjs/proto-signing@0.31.3)(@cosmjs/stargate@0.31.3)(@walletconnect/types@2.12.2)(@walletconnect/universal-provider@2.12.2)(base64-js@1.5.1)(cosmjs-types@0.8.0)(eventemitter3@5.0.1)(long@5.2.3)(pino-pretty@10.3.1)(vue@3.4.26)(zustand-vue@1.0.0-beta.20)(zustand@4.5.2)
+  '@quirks/wallets':
+    specifier: ^0.7.4
+    version: 0.7.5(@cosmjs/amino@0.31.3)(@cosmjs/proto-signing@0.31.3)(@cosmjs/stargate@0.31.3)(@cosmostation/extension-client@0.1.15)(@keplr-wallet/types@0.12.83)(@walletconnect/types@2.12.2)(@walletconnect/universal-provider@2.12.2)(base64-js@1.5.1)(cosmjs-types@0.8.0)(eventemitter3@5.0.1)(long@5.2.3)(pino-pretty@10.3.1)(semver@7.6.0)
+  '@tanstack/vue-query':
+    specifier: ^5.20.5
+    version: 5.32.1(vue@3.4.26)
+  '@trpc/client':
+    specifier: ^10.45.0
+    version: 10.45.2(@trpc/server@10.45.2)
+  '@trpc/server':
+    specifier: ^10.45.0
+    version: 10.45.2
+  '@vueuse/core':
+    specifier: ^10.7.0
+    version: 10.9.0(vue@3.4.26)
+  '@vueuse/nuxt':
+    specifier: ^10.7.0
+    version: 10.9.0(nuxt@3.11.2)(vue@3.4.26)
+  bignumber.js:
+    specifier: ^9.1.2
+    version: 9.1.2
+  cosmjs-types:
+    specifier: ^0.8.0
+    version: 0.8.0
+  file-type:
+    specifier: ^19.0.0
+    version: 19.0.0
+  formidable:
+    specifier: ^3.5.1
+    version: 3.5.1
+  h3-formidable:
+    specifier: ^1.0.0
+    version: 1.0.0(h3@1.11.1)
+  iso-3166-1:
+    specifier: ^2.1.1
+    version: 2.1.1
+  iso-639-1:
+    specifier: ^3.1.0
+    version: 3.1.2
+  lucia:
+    specifier: ^2.7.5
+    version: 2.7.7
+  marked:
+    specifier: ^11.1.1
+    version: 11.2.0
+  nanoid:
+    specifier: ^5.0.5
+    version: 5.0.7
+  nft.storage:
+    specifier: ^7.1.1
+    version: 7.1.1(node-fetch@3.3.2)
+  nuxt-gtag:
+    specifier: ^1.1.2
+    version: 1.2.1
+  nuxt-umami:
+    specifier: ^2.5.7
+    version: 2.6.1
+  pinia:
+    specifier: ^2.1.7
+    version: 2.1.7(typescript@5.4.5)(vue@3.4.26)
+  posthog-js:
+    specifier: ^1.131.4
+    version: 1.131.4
+  sharp:
+    specifier: 0.32.6
+    version: 0.32.6
+  superjson:
+    specifier: ^2.2.1
+    version: 2.2.1
+  swiper:
+    specifier: ^11.0.5
+    version: 11.1.1
+  trpc-nuxt:
+    specifier: ^0.10.17
+    version: 0.10.21(@trpc/client@10.45.2)(@trpc/server@10.45.2)(ofetch@1.3.4)
+  uuid:
+    specifier: ^9.0.1
+    version: 9.0.1
+  vue-json-pretty:
+    specifier: ^2.3.0
+    version: 2.4.0(vue@3.4.26)
+  vue-toastification:
+    specifier: 2.0.0-rc.5
+    version: 2.0.0-rc.5(vue@3.4.26)
+  zod:
+    specifier: ^3.22.4
+    version: 3.23.5
 
   .:
     dependencies:
@@ -12377,7 +12518,13 @@ snapshots:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.3.3
 
-  fflate@0.7.4: {}
+  /fflate@0.4.8:
+    resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
+    dev: false
+
+  /fflate@0.7.4:
+    resolution: {integrity: sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==}
+    dev: true
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -14721,7 +14868,21 @@ snapshots:
       picocolors: 1.0.0
       source-map-js: 1.2.0
 
-  prebuild-install@7.1.2:
+  /posthog-js@1.131.4:
+    resolution: {integrity: sha512-pKa1p6Q9jRU6s+xSluqGifODMncWTXRaeQw7yVet5U+0U56P0srdMO8NpzllIgDjYL9WLgUjDInucOBw5Cl/tA==}
+    dependencies:
+      fflate: 0.4.8
+      preact: 10.21.0
+    dev: false
+
+  /preact@10.21.0:
+    resolution: {integrity: sha512-aQAIxtzWEwH8ou+OovWVSVNlFImL7xUCwJX3YMqA3U8iKCNC34999fFOnWjYNsylgfPgMexpbk7WYOLtKr/mxg==}
+    dev: false
+
+  /prebuild-install@7.1.2:
+    resolution: {integrity: sha512-UnNke3IQb6sgarcZIDU3gbMeTp/9SSU1DAIkil7PrqG1vZlBtY5msYccSKSHDqa3hNg436IXK+SNImReuA1wEQ==}
+    engines: {node: '>=10'}
+    hasBin: true
     dependencies:
       detect-libc: 2.0.3
       expand-template: 2.0.3

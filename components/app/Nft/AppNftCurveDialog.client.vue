@@ -1,11 +1,10 @@
 <template>
-  <v-dialog
-persistent width="466" :model-value="props.modelValue"
+  <v-dialog persistent width="466" :model-value="props.modelValue"
     @update:model-value="$emit('update:modelValue', $event)">
     <v-card :disabled="loading">
       <v-toolbar color="transparent">
         <v-toolbar-title> {{ side === 'buy' ? 'Buy' : 'Sell' }} {{ title }} </v-toolbar-title>
-        <v-spacer/>
+        <v-spacer />
         <v-btn icon @click="$emit('update:modelValue', false)">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -14,7 +13,7 @@ persistent width="466" :model-value="props.modelValue"
       <v-container fluid>
         <v-row class="d-flex">
           <v-col cols="3">
-            <v-img v-if="image" :src="useIpfsLink(image)"/>
+            <v-img v-if="image" :src="useIpfsLink(image)" />
           </v-col>
           <v-col col="auto">
             <div class="text-h5">{{ title }}</div>
@@ -30,17 +29,15 @@ persistent width="466" :model-value="props.modelValue"
             <v-container fluid>
               <v-row align="center">
                 <v-col class="text-center">
-                  <v-btn
-:disabled="amount <= 1" variant="text" color="white" icon="mdi-chevron-left"
-                    @click="decrease"/>
+                  <v-btn :disabled="amount <= 1" variant="text" color="white" icon="mdi-chevron-left"
+                    @click="decrease" />
                 </v-col>
                 <v-col class="text-center">
-                  <v-text-field v-model="amount" variant="solo-filled" hide-details/>
+                  <v-text-field v-model="amount" variant="solo-filled" hide-details />
                 </v-col>
                 <v-col class="text-center">
-                  <v-btn
-:disabled="!canIncrement" variant="text" color="white" icon="mdi-chevron-right"
-                    @click="increase"/>
+                  <v-btn :disabled="!canIncrement" variant="text" color="white" icon="mdi-chevron-right"
+                    @click="increase" />
                 </v-col>
               </v-row>
             </v-container>
@@ -85,7 +82,7 @@ persistent width="466" :model-value="props.modelValue"
 
         <v-row no-gutters class="mt-1">
           <v-col>
-            <v-divider/>
+            <v-divider />
           </v-col>
         </v-row>
 
@@ -114,8 +111,9 @@ persistent width="466" :model-value="props.modelValue"
           </v-col>
           <v-col cols="auto">
             <div>
-              <v-btn :style="{ textTransform: 'none' }" color="surface-variant" variant="tonal" @click.stop="multiply">x{{
-                sideMultiplier }}</v-btn>
+              <v-btn :style="{ textTransform: 'none' }" color="surface-variant" variant="tonal"
+                @click.stop="multiply">x{{
+    sideMultiplier }}</v-btn>
             </div>
           </v-col>
         </v-row>
@@ -124,8 +122,8 @@ persistent width="466" :model-value="props.modelValue"
           <v-col>
             <v-alert icon="mdi-alert" color="red">
               Your bid is {{ bidDiffPerc.toFixed(2) }}% {{
-                side === 'buy' ? 'higher' : 'lower'
-              }} than the {{ side === 'buy' ? 'min.' : 'max.' }} bid
+    side === 'buy' ? 'higher' : 'lower'
+  }} than the {{ side === 'buy' ? 'min.' : 'max.' }} bid
             </v-alert>
           </v-col>
         </v-row>
@@ -136,8 +134,7 @@ persistent width="466" :model-value="props.modelValue"
               <v-alert v-if="!canBuy" color="red" icon="mdi-alert">
                 You don't have enough BTSG to buy this Music NFT
               </v-alert>
-              <v-btn
-v-else :disabled="bidDiffPerc > 250" color="green" block rounded="xl" size="large"
+              <v-btn v-else :disabled="bidDiffPerc > 250" color="green" block rounded="xl" size="large"
                 :loading="loading" @click.stop="onBuy">
                 Buy
               </v-btn>
@@ -147,13 +144,11 @@ v-else :disabled="bidDiffPerc > 250" color="green" block rounded="xl" size="larg
                 You don't have enough Music NFTs to sell
               </v-alert>
               <div v-else>
-                <v-btn
-v-if="isAllowedToSell" color="red" block rounded="xl" size="large" :disabled="!canSell"
+                <v-btn v-if="isAllowedToSell" color="red" block rounded="xl" size="large" :disabled="!canSell"
                   :loading="loading" @click.stop="onSell">
                   Sell
                 </v-btn>
-                <v-btn
-v-else-if="!isAllowedToSell" variant="text" color="red" block rounded="xl" size="large"
+                <v-btn v-else-if="!isAllowedToSell" variant="text" color="red" block rounded="xl" size="large"
                   :loading="loading" @click.stop="onAllow">
                   Authorize Sell
                 </v-btn>
@@ -375,11 +370,11 @@ async function onBuy() {
     await fetchBalance(address)
 
     success("Transaction success")
-    umTrackEvent('buy-nft', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
+    useAppEvent('buy-nft', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
   } catch (e) {
     // TODO: this metod is just temporary, we need to handle the error properly
     error(parseCosmosError(e as Error))
-    umTrackEvent('buy-nft-error', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
+    useAppEvent('buy-nft-error', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
   } finally {
     await fetchConfig();
     loading.value = false;
@@ -421,10 +416,10 @@ async function onSell() {
     await fetchBalance(address)
 
     success("Transaction success")
-    umTrackEvent('sell-nft', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
+    useAppEvent('sell-nft', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
   } catch (e) {
     error(parseCosmosError(e as Error))
-    umTrackEvent('sell-nft-error', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
+    useAppEvent('sell-nft-error', { nftAddress: contractConfig.value.nftAddress, amount: toValue(amount), maxBid: toValue(yourBid) })
   } finally {
     await fetchConfig();
     loading.value = false;
@@ -456,10 +451,10 @@ async function onAllow() {
     await fetchBalance(address)
 
     success("Transaction success")
-    umTrackEvent('allow-sell-nft', { nftAddress: contractConfig.value.nftAddress })
+    useAppEvent('allow-sell-nft', { nftAddress: contractConfig.value.nftAddress })
   } catch (e) {
     error((e as Error).message)
-    umTrackEvent('allow-sell-nft-error', { nftAddress: contractConfig.value.nftAddress })
+    useAppEvent('allow-sell-nft-error', { nftAddress: contractConfig.value.nftAddress })
   } finally {
     await fetchConfig();
     loading.value = false;

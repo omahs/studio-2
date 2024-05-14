@@ -50,7 +50,9 @@ ${new Date().toUTCString()}`;
     }
 
     if (data.value) {
-      umTrackEvent('logout')
+      useAppEvent('logout', {
+        address: user.value?.address,
+      })
       user.value = null
     }
     window.location.reload()
@@ -87,7 +89,10 @@ ${new Date().toUTCString()}`;
         }),
       })
 
-      umTrackEvent('login')
+      useAppEvent('login', {
+        address: address,
+        beta_features: loginState.user.beta_features
+      })
 
       return {
         sid: loginState.sessionId,

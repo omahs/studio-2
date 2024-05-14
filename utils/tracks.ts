@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'this-is-julian',
+  title: 'Vaelocity & Julian Vaelen - This Is Julian',
+  artists: ["Vaelocity"],
+  description: "Utilities: \n• The first 10 holders of \"This Is Julian\" will receive an NFT airdrop of the 5th song on the album \"Purpose Of Life\" (release on March 17); \n• The first 2 holders of \"This Is Julian\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the next NFT \"Purpose Of Life\" (release on March 17); \n• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"This Is Julian\"; \n• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmY46XxXsYCRa22zxL1ALLSBgNHxb5QMCJXS6gcA2B73mx",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1715360400,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.004212,
+  nftAddress: "bitsong1llryyj2rravjhnpvenny2qynq5vlsakf2kzks5z5hgl49z9gptusp2jjpw",
+  marketplaceAddress: "bitsong1dy7sjes0vh4cn62twhwfj98cmxdmyz4keacpgngw04rv23ypgptqg0rx6q"
+}, {
+  id: 'distant',
+  title: 'Distant',
+  artists: ["HXRT"],
+  description: "'Distant' by HXRT via N43 Records",
+  creator: "bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmeE5fRZTesaB3CU4Wd4HcfAGQ9hpPYt4NVYEWW5LDrUjV",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmRmEsDuZKehEdVGwD5h7KYWjoTLQGvvHJXMK3L6FMzV7c",
+  startTime: 1715266800,
+  genre: "Pop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.013162,
+  nftAddress: "bitsong12uf778e0k37gu9sa6k52fz8xgmeldhhvehy6aya37228zezenyqspnfkj4",
+  marketplaceAddress: "bitsong1zw0wwunryuq5zaex6pcdphz5pxua5aevk4nqqz42hkc3xt0fcgyq09jt0z"
+}, {
   id: 'vaelocity-matching-3-worlds',
   title: 'Vaelocity - Matching 3 Worlds',
   artists: ["Vaelocity"],
