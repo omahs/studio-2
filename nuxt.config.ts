@@ -37,6 +37,7 @@ export default defineNuxtConfig({
       //ipfsGateway: 'http://localhost:3001/media-api/ipfs/{cid}',
       umamiHost: '',
       umamiId: '',
+      mediaApi: '',
       mediaApiDirect: '/media-api',
       posthogPublicKey: '',
       posthogHost: '',
@@ -87,7 +88,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/media-api/**': {
         proxy: {
-          to: `${import.meta.env.NUXT_MEDIA_API || 'http://localhost:3000'}/**`,
+          to: `${import.meta.env.NUXT_PUBLIC_MEDIA_API || 'http://localhost:3000'}/**`,
         }
       },
       '/ingest/static/**': { proxy: `${import.meta.env.NUXT_PUBLIC_POSTHOG_HOST}/static/**` },

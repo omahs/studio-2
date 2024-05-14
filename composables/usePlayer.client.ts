@@ -180,8 +180,8 @@ export const usePlayer = () => {
   }
 
   async function _fetchTracksInfo(nfts: string[]) {
-    const { mediaApiDirect } = useRuntimeConfig().public
-    const tracks = await $fetch<PlayerTrack[]>(`${mediaApiDirect}/nfts/stream-info?ids=${nfts.join(",")}`);
+    const { mediaApi } = useRuntimeConfig().public
+    const tracks = await $fetch<PlayerTrack[]>(`${mediaApi}/nfts/stream-info?ids=${nfts.join(",")}`);
     if (!tracks.length) {
       throw new Error("Failed to fetch tracks info");
     }
@@ -197,7 +197,8 @@ export const usePlayer = () => {
   }
 
   async function _fetchTracksInfoPrivate(ids: string[]) {
-    const tracks = await $fetch<PlayerTrack[]>(`/media-api/me/private-uploads/stream-info?ids=${ids.join(",")}`, {
+    const { mediaApi } = useRuntimeConfig().public
+    const tracks = await $fetch<PlayerTrack[]>(`${mediaApi}/me/private-uploads/stream-info?ids=${ids.join(",")}`, {
       headers: {
         'Authorization': `Bearer ${useUserState().value?.sid}`
       },
@@ -210,7 +211,7 @@ export const usePlayer = () => {
       ...track,
       cover: track.cover,
       sources: {
-        audio: `/media-api/me/private-uploads/media/${track.sources.audio}`,
+        audio: `${mediaApi}/me/private-uploads/media/${track.sources.audio}`,
       }
     }));
   }
