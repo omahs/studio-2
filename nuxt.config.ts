@@ -33,7 +33,6 @@ export default defineNuxtConfig({
         tos: 'https://bitsong.io/tos',
         privacy: 'https://bitsong.io/privacy'
       },
-      //ipfsGateway: 'https://yellow-hilarious-jay-665.mypinata.cloud/ipfs/{cid}',
       ipfsGateway: 'https://media-api.bitsong.studio/ipfs/{cid}',
       //ipfsGateway: 'http://localhost:3001/media-api/ipfs/{cid}',
       umamiHost: '',
