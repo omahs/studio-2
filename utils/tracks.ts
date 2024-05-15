@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'love-coaster-ride',
+  title: 'Love Coaster Ride',
+  artists: ["Jusky & Torrex"],
+  description: "Love Coaster Ride stands as a groundbreaking Dance Pop masterpiece by Jusky and  Torrrex. This track not only showcases Jusky & Torrex's exceptional talent in the realm of Dance Pop music, but it also pioneers a new era in the music industry by embracing the world of non-fungible tokens (NFTs).  “Love Coaster Ride” transcends conventional boundaries, not just in its musical brilliance but also in its approach to distribution, making it a must-have for both deep house enthusiasts and NFT collectors alike.",
+  creator: "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmY46XxXsYCRa22zxL1ALLSBgNHxb5QMCJXS6gcA2B73mx",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1715875200,
+  genre: "Pop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong1w73dekjygm4wwx6d8j6e4ymywzalhys77pw5a4z0gp023yu3a89sruucqk",
+  marketplaceAddress: "bitsong10quspu039866w4n6v8feqd90llrmt0k8fyg9fa9d8xrsxhcd7lts27wu46"
+}, {
+  id: 'gone-away-again',
+  title: 'Gone Away Again',
+  artists: ["DJ SAVA", "ADRIANA ONCI"],
+  description: "\"Gone Away Again\" unveils the latest masterpiece from the dynamic duo of DJ Sava and Adriana Onci, poised to make its exclusive debut as a music NFT on BitSong Studio on May 15th, 2024. DJ Sava, a legendary figure in the Romanian music scene, boasts an illustrious career spanning over two decades, marked by a string of chart-topping hits and groundbreaking collaborations with top-tier artists. With a penchant for crafting infectious dance anthems and soul-stirring compositions, DJ Sava has cemented his reputation as a trailblazer in the realm of electronic music, captivating audiences worldwide with his distinct sound and unparalleled creativity.\n\nIn \"Gone Away Again,\" DJ Sava and Adriana Onci bring you an amazing musical ride that'll hit you right in the feels. With Adriana's heartfelt vocals and DJ Sava's killer beats, this song takes you on a journey through all the feels – from pure bliss to deep contemplation. You'll vibe to the rhythm, get lost in the melody, and feel every emotion like it's your own. \"Gone Away Again\" isn't just a song; it's a testament to these artists' talent and passion, giving you a taste of their epic musical chemistry.\n\nThis track marks a significant milestone for DJ Sava, as he ventures into the world of music NFTs for the first time. Known for his innovative approach to music production and distribution, DJ Sava sees this digital opportunity as a natural extension of his creative journey. Just as he has pushed boundaries and explored new avenues in his music over the last two decades, DJ Sava embraces the chance to innovate in the digital realm with BitSong Studio.\n\nBENEFITS FOR HOLDERS\nRoyalties Inclusion: Holders of \"Gone Away Again\" NFTs will enjoy the opportunity to earn royalties from the song's future streaming and sales, ensuring ongoing returns on their investment.\n\nVIP Entries: NFT holders will receive exclusive VIP access to DJ Sava's live performances, concerts, and events, allowing them to experience his electrifying music firsthand.\n\nMeet & Greet: Holders will have the chance to attend intimate meet & greet sessions with DJ Sava and Adriana Onci, providing a unique opportunity to connect with the artists and receive personalized memorabilia.\n\nPrivate DJ Sets: Exclusive private DJ sets will be organized for NFT holders, offering an immersive music experience in an intimate setting curated by DJ Sava himself.\n\nAirdrops: Holders can anticipate airdrops of future releases and exclusive content from DJ Sava and Adriana Onci, ensuring they stay connected to the latest developments in their musical journey.\n\nMerchandise Discounts: NFT holders will enjoy special discounts on merchandise related to \"Gone Away Again\" and other releases by DJ Sava and Adriana Onci, enhancing their collector's experience.\n\nCommunity Engagement: Holders will gain access to an exclusive community of music enthusiasts and collectors, fostering opportunities for networking, collaboration, and shared experiences within the BitSong ecosystem.\n\nEarly Access: NFT holders will receive early access to new releases and announcements from DJ Sava and Adriana Onci, granting them insider status and priority access to limited-edition content and offerings.\n\nSpecial Wishes: Whether it's your birthday or that of your beloved ones, you can receive a private or public 'Happy Birthday' video message from the artist.",
+  creator: "bitsong135rnhr7t37nq6q4u26vmk5ejvj47kl4ps5nuew",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmbJLWGyizDFKyFYaSdtHU64wpnFXyJP2Ue5DK1zUpMVow",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmQEFDedPMgNMLnMQGGngjVrMFZcHAZbeaET6tFNRq6x2L",
+  startTime: 1715788800,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.02106,
+  nftAddress: "bitsong194drr5fq7gs5647u3wxrndn23vxvtgknyhd2jlqp5363nj4lhqssmrgjum",
+  marketplaceAddress: "bitsong1fgwwfunavcmfkskypeuzpqk4g99p55q2p5e6wvh088axczhs3ydqsjjur2"
+}, {
   id: 'this-is-julian',
   title: 'Vaelocity & Julian Vaelen - This Is Julian',
   artists: ["Vaelocity"],
