@@ -25,7 +25,7 @@ const tracks: Track[] = [{
   creator: "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
   sellerFeeBps: 500,
   referralFeeBps: 100,
-  previewUrl: "https://media-api.bitsong.studio/ipfs/QmbJLWGyizDFKyFYaSdtHU64wpnFXyJP2Ue5DK1zUpMVow",
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmQYUyXQCiCuXVytDVTy7T1XR9Yziw56Ddevz5YiYvtbdx",
   artworkUrl: "https://media-api.bitsong.studio/ipfs/QmZw3XSFgxUdWTsQFZbVnYuc6M77HbsadBTrxD2qR4VWT7",
   startTime: 1715875200,
   genre: "Pop",
