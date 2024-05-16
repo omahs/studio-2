@@ -41,6 +41,7 @@ export default defineNuxtConfig({
       mediaApiDirect: '/media-api',
       posthogPublicKey: '',
       posthogHost: '',
+      walletconnectProjectId: '',
     },
   },
   css: [
