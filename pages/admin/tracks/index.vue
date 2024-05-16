@@ -28,19 +28,19 @@
                       Filter
                     </v-btn>
                   </template>
-                  <v-list>
-                    <v-list-item>
-                      <v-list-item-title>Newest</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item>
-                      <v-list-item-title>Oldest</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item>
-                      <v-list-item-title>Recently Edited</v-list-item-title>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </v-col>-->
+<v-list>
+  <v-list-item>
+    <v-list-item-title>Newest</v-list-item-title>
+  </v-list-item>
+  <v-list-item>
+    <v-list-item-title>Oldest</v-list-item-title>
+  </v-list-item>
+  <v-list-item>
+    <v-list-item-title>Recently Edited</v-list-item-title>
+  </v-list-item>
+</v-list>
+</v-menu>
+</v-col>-->
               <v-col class="ml-auto" cols="auto">
                 <v-menu>
                   <template v-slot:activator="{ props }">
@@ -49,10 +49,12 @@
                     </v-btn>
                   </template>
                   <v-list>
-                    <v-list-item :append-icon="orderBy === 'Newest' ? 'mdi-check' : ''" @click.stop="orderBy = 'Newest'">
+                    <v-list-item :append-icon="orderBy === 'Newest' ? 'mdi-check' : ''"
+                      @click.stop="orderBy = 'Newest'">
                       <v-list-item-title>Newest</v-list-item-title>
                     </v-list-item>
-                    <v-list-item :append-icon="orderBy === 'Oldest' ? 'mdi-check' : ''" @click.stop="orderBy = 'Oldest'">
+                    <v-list-item :append-icon="orderBy === 'Oldest' ? 'mdi-check' : ''"
+                      @click.stop="orderBy = 'Oldest'">
                       <v-list-item-title>Oldest</v-list-item-title>
                     </v-list-item>
                   </v-list>
@@ -87,10 +89,10 @@
                         <div class="ml-2">
                           <div class="text-body-1">{{ track.title || '-' }}</div>
                           <div class="text-subtitle-2 text-surface-variant">{{ track.artists.map(artist =>
-                            artist.name).join(', ') || '-' }}
+              artist.name).join(', ') || '-' }}
                           </div>
                           <div class="text-subtitle-2 text-surface-variant">{{ track.genre || '-' }} | {{
-                            useTrackDuration(track.duration) }}</div>
+              useTrackDuration(track.duration) }}</div>
                         </div>
                       </div>
                     </td>
@@ -200,7 +202,7 @@ const queryFn = async () => {
   })
 }
 
-const { isLoading, isPending, isFetching, isError, data, error, refetch, suspense } = useQuery({
+const { isLoading, isPending, isFetching, data, refetch, suspense } = useQuery({
   queryKey: ['admin', 'tracks', page, status, orderBy],
   queryFn,
   placeholderData: keepPreviousData
@@ -235,9 +237,7 @@ const recordsTotal = computed(() => {
     return tracksCount.value.toMint
   }
 
-  if (status.value === 'Draft') {
-    return tracksCount.value.draft
-  }
+  return tracksCount.value.draft
 })
 
 onMounted(async () => {
@@ -254,8 +254,16 @@ async function onDeleteTrack(trackId: string) {
     //start()
     isDeleting.value = true
 
-    await $studio.admin.tracks.delete.mutate({
-      id: trackId
+    // await $studio.admin.tracks.delete.mutate({
+    //   id: trackId
+    // })
+
+    const { mediaApi } = useRuntimeConfig().public
+    await $fetch(`${mediaApi}/admin/tracks/${trackId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${useUserState().value?.sid}`
+      }
     })
 
     success('Track deleted successfully')
