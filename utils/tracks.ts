@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'vaelocity-the-purpose-of-life',
+  title: 'Vaelocity - The Purpose Of Life',
+  artists: ["Vaelocity"],
+  description: "Utilities: \n• The first 10 holders of \"The Purpose Of Life\" will receive an NFT airdrop of the 5th song on the album \"Pain Of Letting Go\" (release on March 24); \n• The first 2 holders of \"The Purpose Of Life\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the next NFT \"Pain Of Letting Go\" (release on March 24);\n• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"The Purpose Of Life\"; \n• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmT7tj8UyzxfiGyCN7bwVtG4heLFAKSM5z3QNsmzJbNztU",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1715958000,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong1jpq3ccqd5kdvxrnltzj29s2rwvzsvzrevzy29j2z968xk0zvnwrswt7ssd",
+  marketplaceAddress: "bitsong16lcu6sqqjhhv3fhlurcjsm866sanenqqsad665szwg3eg03u96vs6akvts"
+}, {
   id: 'love-coaster-ride',
   title: 'Love Coaster Ride',
   artists: ["Jusky & Torrex"],
