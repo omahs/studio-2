@@ -1,5 +1,5 @@
 import {
-  bitsong,
+  bitsong as bitsongConfig,
   bitsongAssetList,
   osmosis,
   osmosisAssetList,
@@ -7,23 +7,23 @@ import {
 import type { Config } from "@quirks/store";
 import { keplrExtension, leapExtension, keplrMobile, leapMobile } from "@quirks/wallets";
 
-// const bitsong = {
-//   ...bitsongConfig,
-//   apis: {
-//     rpc: [
-//       {
-//         address: "https://rpc.explorebitsong.com",
-//         provider: "bitsong-team"
-//       }
-//     ],
-//     rest: [
-//       {
-//         address: "https://lcd.explorebitsong.com",
-//         provider: "bitsong-team"
-//       },
-//     ]
-//   },
-// }
+const bitsong = {
+  ...bitsongConfig,
+  apis: {
+    rpc: [
+      {
+        address: "https://rpc.explorebitsong.com",
+        provider: "bitsong-team"
+      }
+    ],
+    rest: [
+      {
+        address: "https://lcd.explorebitsong.com",
+        provider: "bitsong-team"
+      },
+    ]
+  },
+}
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { walletconnectProjectId } = useRuntimeConfig().public;
