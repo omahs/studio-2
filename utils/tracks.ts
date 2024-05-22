@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'in-da-club',
+  title: 'In Da Club',
+  artists: ["Dino Brown", "Adam Clay"],
+  description: ".. And they did it again!!! Ready to set the dance floor on fire with their new joint 'In da Club'! Dino Brown and Adam Clay bringing the heat with infectious beats and killer vibes!",
+  creator: "bitsong18h2flt7dhzqlnatmqlufkknm9e2g9hy60l2h6n",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmcZtMopLvv62MxdbGDi4d7948B1pqjvBT42oEfQb6XssW",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/Qmc5HksUWiLpqZp2tbvQCGJ6ss6uBXsSdVXCskb4zMKLuz",
+  startTime: 1716480000,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong12xlcpc2vj6yydhdxkj440v0g3wz523sch8fre6f9r2s2y660zlwq9yc77j",
+  marketplaceAddress: "bitsong1qpgtamnrwn8xs4c5ckum8hu0a7anvwn4fwp6kcfllmqk52ayy75qux4mlr"
+}, {
   id: 'the-queen-of-the-night',
   title: 'The Queen Of The Night',
   artists: ["Joe Berte' & Felipe C Feat Jadelle"],
