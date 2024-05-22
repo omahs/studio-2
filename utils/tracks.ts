@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'the-queen-of-the-night',
+  title: 'The Queen Of The Night',
+  artists: ["Joe Berte' & Felipe C Feat Jadelle"],
+  description: "\"The Queen of the Night\" is a captivating track that perfectly encapsulates the essence of sultry summer nights. The song features a seductive vocal performance by the lead singer, who lyrically explores the theme of fleeting romances and the allure of being desired. Her sensual voice conveys the intoxicating thrill of capturing someone's attention, making every listener feel the intensity of such passionate encounters.\n\nInterwoven between her verses are melodic riffs of accordion and saxophone, adding a rich, summery flavor to the composition. These instrumental breaks evoke the vibrant and carefree atmosphere of beachside discos, where the heat of the night mingles with the rhythm of the music. \"The Queen of the Night\" is an anthem for those spontaneous summer loves that burn bright under the moonlit sky, leaving unforgettable memories of nights spent dancing and connecting in the most electric of ways.",
+  creator: "bitsong13ddj7ak2f8x6vetv67hrufsnz0ghr3e0s8c24u",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmS61x87fJotXr2GfHpG8g9m5ty2zQXD17x7cpiLnzx7eB",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmZt1aKaajYsMSBQwcQfjE59mNQa3pa7hofuXn52EePJoN",
+  startTime: 1716480000,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.005265,
+  nftAddress: "bitsong1pyppcutvfq3wsg2xx8zhnsfvdxjnnw4fk33r7jtwzhax9nemmxqq0hs4j9",
+  marketplaceAddress: "bitsong1jhqag5ty5at3sganlw25g5pdx38vslwu8pwynsyhz9gzx7r3vhjsyrqv2a"
+}, {
   id: 'vaelocity-the-purpose-of-life',
   title: 'Vaelocity - The Purpose Of Life',
   artists: ["Vaelocity"],
