@@ -27,7 +27,7 @@ const tracks: Track[] = [{
   referralFeeBps: 100,
   previewUrl: "https://media-api.bitsong.studio/ipfs/QmS61x87fJotXr2GfHpG8g9m5ty2zQXD17x7cpiLnzx7eB",
   artworkUrl: "https://media-api.bitsong.studio/ipfs/QmZt1aKaajYsMSBQwcQfjE59mNQa3pa7hofuXn52EePJoN",
-  startTime: 1716480000,
+  startTime: 1716393600,
   genre: "Dance",
   explicit: "Clean",
   license: "All Rights Reserved",
