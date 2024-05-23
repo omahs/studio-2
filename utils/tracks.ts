@@ -19,6 +19,23 @@ interface Track {
 
 const tracks: Track[] = [{
   id: 'in-da-club',
+  title: 'Vaelocity - Pain Of Letting Go',
+  artists: ["Vaelocity"],
+  description: "To be filled in",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmNanXa9hs35dMnzBqgAfvmSvaXkDzvWGZ8By6gh3msrtP",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1716566400,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.005238,
+  nftAddress: "bitsong19gjs3a0pttjsg4mdj20vqtxkucv65wedttxgulv0kgjp52zlv95s6xnkhj",
+  marketplaceAddress: "bitsong175232yuat84jr5yx74mtz243egyyp904l9n69fvdzzkplhru5juqn3cfcx"
+}, {
+  id: 'in-da-club',
   title: 'In Da Club',
   artists: ["Dino Brown", "Adam Clay"],
   description: ".. And they did it again!!! Ready to set the dance floor on fire with their new joint 'In da Club'! Dino Brown and Adam Clay bringing the heat with infectious beats and killer vibes!",
