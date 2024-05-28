@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'toxic-relationship',
+  title: 'Toxic Relationship',
+  artists: ["Florin Dumbraveanu"],
+  description: "Introducing \"Toxic Relationship,\" the latest deep house track by Florin Dumbraveanu, exclusively available on BitSong Studio.\n\nThis is the fourth drop in Florin's exciting Saga series. With its deep, rhythmic beats and signature style, \"Toxic Relationship\" is the perfect soundtrack for a sophisticated champagne aperitif evening. \n\nThe track’s pulsating rhythms and immersive melodies create an atmosphere of elegance and relaxation, making it an ideal choice for any stylish gathering.\n\nFOR COLLECTORS:\n\n10 lucky Collectors of \"Closer\", my previous release, will receive an airdrop of \"Toxic Relationship\". It's my little way of saying thank you for your support\n\nTwo Collectors of \"Toxic Relationship\" (min.50 copies collected) will have a 10% share (5% each) in the royalties set of one of my upcoming releases. Your support means the world to me!\n\nAre you an artist? Let's collaborate! I'm offering the chance to feature your unreleased tune and launch it together as an NFT and on DSPs with my record label, 404 Deep Records.\n\nAs if that wasn't enough, one lucky collector (minimum 100 copies collected) will win a physical vinyl of \"Closer\" through a random drawing.",
+  creator: "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmQ8b5N5MmckGTXRkSgGkhV4iYAfqsoVsKQaj4uFS2tkMf",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmQsU9V64akv4a9FGAnEsEkjhJXPKHj9TKvsETUsQARyMD",
+  startTime: 1716998400,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.005265,
+  nftAddress: "bitsong1fkwhch9yx9adf06z0earyuwv0028h8ps5yth7k6wj9wssudxw0gqmc87al",
+  marketplaceAddress: "bitsong139djw4keg5vu2x2cwucapkxp4efst286rf0n9gh3cv3ptm65c80smesapr"
+}, {
+  id: 'always-run-away',
+  title: 'Always Run Away',
+  artists: ["BlackJack"],
+  description: "3rd MUSIC NFT of BlackJack's web3 SAGA is here!\n\"Always Run Away\" is a new and exclusive production by BlackJack, produced in BlackJack Records Studios which will be released exclusively on BitSong Studio as music NFT for 3 weeks, and then on all magazines.\n\nThe melodic beats, combined with soothing vocals, create an atmosphere of relaxation and joy, transporting listeners to a serene beach setting where the worries of everyday life melt away. This track is perfect for those moments when you want to escape reality and immerse yourself in the bliss of a carefree summer day. Whether you're driving along a coastal road, lounging by the pool, or dancing under the stars, \"Always Run Away\" will be your soundtrack for making new memories and cherishing old ones.\n\nBENEFITS:\n\n- Airdrops of \"Anything I Do\" and \"Cubana\" NFTs to 10 holders randomly\n- Collect at least 50 copies and you'll be included in our royalties set for next NFT Drop\n- Collect at least 100 copies and we'll produce a dedicated song for you or one of your beloved ones\n- Holders can participate in remix competitions or even have a chance to collaborate with BlackJack on future projects.\n- Earn $BJKS FanTokens for holding the NFT, which can be redeemed for various perks and experiences.",
+  creator: "bitsong1w35ntzzkf7dugwlq5a6lhrrp2lkq6yamxk42he",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmfFw6eSWDVrqBzBnmW3tqyYDadUtRFjX2xWVSX6gSDyVh",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmSmtpejZRZxJd6DWVf34UW1K2nXw5ziRRDU6vVaXYWZm8",
+  startTime: 1716566400,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01404,
+  nftAddress: "bitsong1p7rwluy6yqzreqqq6htaxcksuaweclntw9ur4mtw9r5xe96qq7eqv9hmqa",
+  marketplaceAddress: "bitsong1js4a75rvrk8lwpvz8s8lghdpah7yxa4qltxvmdy8ymn4keqmq76shxkg48"
+}, {
   id: 'in-da-club',
   title: 'In Da Club',
   artists: ["Dino Brown", "Adam Clay"],
