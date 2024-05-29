@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'pain-of-letting-go',
+  title: 'Vaelocity - Pain Of Letting Go',
+  artists: ["Vaelocity"],
+  description: "Utilities: \n• The first 10 holders of \"Pain Of Letting Go\" will receive an NFT airdrop of the 7th song on the album \"Timeless\" (release on June 7th); \n• The first 2 holders of \"Pain Of Letting Go\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the next NFT \"Timeless\" (release on June 7th); \n• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"Pain Of Letting Go\"; \n• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmPRZjXDikRTapDjZTUS5L4w743b6nxePbBccUCeRbn32k",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmeVHRTsrh1kehh7Yz2pXPSdKhipE4X7kbeBhzjAYG1Q3H",
+  startTime: 1717171200,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.005086,
+  nftAddress: "bitsong1tzydkkj7e2mkfjen0kftf8majm30ajqka03h9pmqf2p8kx80ntvs9dyvqd",
+  marketplaceAddress: "bitsong14nnqv4z0dnvwtqcg9xghxkk8wryhrg4mgfw6pdksdgwd0l80q9tqxwr90w"
+}, {
   id: 'toxic-relationship',
   title: 'Toxic Relationship',
   artists: ["Florin Dumbraveanu"],
