@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'dumski',
+  title: 'DUMSKI',
+  artists: ["Makasi & Richie Loop"],
+  description: "Dive into the infectious rhythms of Makasi and Richie Loop's latest collaboration – a Tribal House anthem with an African-inspired twist. Pulsating percussion and vibrant beats create a dynamic track that beckons you to the dancefloor. Get ready to move to the eclectic fusion of sounds!",
+  creator: "bitsong1rzc9wpzh8sfjlxvarnsh7svvh4myfyd4ej2r5a",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmXEwmq5AKbiyzoF986UbKhqGpH4f5bE7wNw4FbVAD7jH1",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmZdPyFQVhp6mm4MvtesW9bEw9GpsCTRuoY87bH5fUZVHi",
+  startTime: 1717603200,
+  genre: "Electronic",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01053,
+  nftAddress: "bitsong14wsunfs8nr80tyw826f8kfvx3kr5ljty7ej0jxrpwxe4t8qy5yus42e9qy",
+  marketplaceAddress: "bitsong12c8pg7fzrvy5wxjmsxqyga8a9xtwlwdws20n4p5m8s3sgjuxusss6q20ml"
+}, {
   id: 'bora-bora',
   title: 'Bora Bora',
   artists: ["DJ SAVA", "ADRIANA ONCI"],
