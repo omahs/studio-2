@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'timeless',
+  title: 'Vaelocity - Timeless',
+  artists: ["Vaelocity"],
+  description: "Utilities: \n• The first 10 holders of \"Timeless\" will receive an NFT airdrop of the first NFT \"Definition Of Love\";\n• The first 2 holders of \"Timeless\" with min.30 copies collected will have a 10% share (5% each) in the royalties set of the NFT \"Definition Of Love\"; \n• Vaelocity is also a Mastering Engineer, so he's offering a free master of 1 song to the first 5 holders who has collected 100 copies of \"Timeless\"; \n• After the 7 radio edit NFTs are dropped, he will drop the 7 extended edits in one DJ set (= one NFT). All holders of a radio edit NFT will get a free airdrop.",
+  creator: "bitsong10wdt3z6v9kz6lmufsz8uyc557y5z9sez8spgz5",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmaZvm5tMoizJ776biad5JVWXnavAFJBBRn4myT15N5tZJ",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmPMtgmySWW7LnBkx6X8ZB5kkdLu6UNYJGhA6TCLM2LYmo",
+  startTime: 1717776000,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.005265,
+  nftAddress: "bitsong1lwlq3cxq4pcjnwgy8vyl8m55dqprxtuvxuwy3rvgly5a8qlz0mqs2mf76k",
+  marketplaceAddress: "bitsong103tfz07jnpgtzagzhsexmszfypzm68sryja5nyqpcjjljhd3q8uq9q35a0"
+}, {
   id: 'dumski',
   title: 'DUMSKI',
   artists: ["Makasi & Richie Loop"],
