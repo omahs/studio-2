@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'high-instrumental',
+  title: 'HIGH - Instrumental',
+  artists: ["HXRT"],
+  description: "The official instrumental version of 'HIGH' by HXRT.\nvia N43 Records",
+  creator: "bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmdJZGBfwsv5EMe96C8oqHoEt4kXwEVfdnZFUnciiN63gR",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmVk5hmF6KFE6gAgrfwmf5QFM5yJLbVButohmqs5BuqcTM",
+  startTime: 1718726400,
+  genre: "Pop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.013162,
+  nftAddress: "bitsong1gwcd4sue79pnkccu4ekmgnl4aaavj2q8dkwn6nc59mrsyt0q8weqlthq3m",
+  marketplaceAddress: "bitsong1d8v3x9nfs5006ppqx0949jczu09ykaqwgpqwfp7zn5mc4fw2qzuqjm336h"
+}, {
+  id: 'all-in-instrumental',
+  title: 'All In - Instrumental',
+  artists: ["HXRT"],
+  description: "The official instrumental version of 'All In' by HXRT.\nvia N43 Records",
+  creator: "bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmSkHsBqdG6nF9qmjbubotbGBWGn4kHmbH9yiyzKVLP4LL",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmTf7q5mQLmQE4iGnS3eazu6corap9cH52jLxMXZ7omTNX",
+  startTime: 1718380800,
+  genre: "Pop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.013162,
+  nftAddress: "bitsong1dj9uare8z9qnyw9g2ce2v3789qxpx44a4swx44uyp6ez2asxn48sx85kqw",
+  marketplaceAddress: "bitsong1r5xpdgnph60adj52klsdnaaaktcvp2cjymkan8kmeyq9u40a398sd0va8z"
+}, {
   id: 'timeless',
   title: 'Vaelocity - Timeless',
   artists: ["Vaelocity"],
