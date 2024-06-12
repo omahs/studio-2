@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'temptation',
+  title: 'Temptation',
+  artists: ["Robb Revolution"],
+  description: "Get ready to be swept off your feet by \"Temptation,\" the electrifying electro-house track by the legendary Italian DJ and producer Stylus Robb, performing under his dynamic alias, Robb Revolution. This track leaves you breathless with its relentless, tight rhythm that commands you to move, ensuring no one is left standing still on the dancefloor. The hypnotic synth hook is irresistibly captivating, locking your ears to the speakers and your body to the beat. \"Temptation\" is an exhilarating journey into the heart of the dance music experience, showcasing RobbRevolution's masterful production skills and innate ability to create an unforgettable sonic landscape.",
+  creator: "bitsong13ddj7ak2f8x6vetv67hrufsnz0ghr3e0s8c24u",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmehyrGB1LSuBaonBcn1etbBwCT9FCojNENpUCooQLWNtZ",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmZSzC3fCwEHm3HXv7YLvUmCRnEFHEVxAnwB4LtbdbgwFv",
+  startTime: 1718294400,
+  genre: "House",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.00702,
+  nftAddress: "bitsong1suxkl383m4vqgl4u9hua0vvegqf8ykz94ghqeqzq70rhd3jgawpsd3qnaw",
+  marketplaceAddress: "bitsong1wqfd0xm54ths4zl6tct2n03yrwzq2a5azrmhgafdvymdtege4qdsltrk5t"
+}, {
   id: 'high-instrumental',
   title: 'HIGH - Instrumental',
   artists: ["HXRT"],
