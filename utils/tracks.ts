@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'i-dont-wanna-lose-you',
+  title: 'I Don\'t Wanna Lose You',
+  artists: ["ROXANA NEMES"],
+  description: "I'm thrilled to share that my latest single, \"I Don't Wanna Lose You,\" is coming out exclusively as a Music NFT on BitSong Studio. This track is a special one for me because it's my first venture into the dance music genre, and I can't wait for you all to hear it.\n\n\"I Don't Wanna Lose You\" features my heartfelt vocals, and it represents a big change in my music style and career. For the first time, I'm stepping into the exciting world of Web3 by releasing this single as a Music NFT. This new approach allows me to connect with you, my amazing fans, in a whole new way.\n\nJoin me on BitSong Studio for this groundbreaking release and be part of my journey into the future of music. Let's make history together with \"I Don't Wanna Lose You\"!\n\nBENEFITS FOR HOLDERS:\n\n- Meet and Greets\n- Special Personalised video Wishes by Roxana Nemes\n- Merchandising gifts \n- Future NFT Airdrops\n- Exclusive access to New releases\nand more....",
+  creator: "bitsong182cl0z5whgj38f85m7d4pmzx5pa33xwy6uuy59",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmU7SAmoHRDofQn6vWoENeMfNZs8WLgJeJ7g2EqojdEXwd",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmTXMqvEGkfYkeRWuWh61GABn9yJPB3P4to6Cw6tNtgon3",
+  startTime: 1719334800,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01404,
+  nftAddress: "bitsong1awqn30f48uq8dllspecmjrlmcegmv2l0w5l43nnj4l75rkcpwp5surrd5v",
+  marketplaceAddress: "bitsong1wpnn8m66etupyaswut9n5twdtqavtfs3lxlshhgvm8k99ugfqegsw5xmnj"
+}, {
   id: 'que-pasa',
   title: 'QUE PASA',
   artists: ["Caitlyn"],
