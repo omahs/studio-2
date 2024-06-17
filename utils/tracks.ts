@@ -22,7 +22,7 @@ const tracks: Track[] = [{
   title: 'QUE PASA',
   artists: ["Caitlyn"],
   description: "Get ready to move to the beat of \"Que Pasa\" by Caitlyn, produced by BlackJack Records, launching as an exclusive music NFT on BitSong Studio on June 19. This electrifying dance track features vibrant Hispanic rhythms, seamlessly blending Spanish and English lyrics. Caitlyn's stunning vocals bring the song to life, delivering an irresistible energy that will make you want to hit the dance floor.\n\n\"Que Pasa\" captures the essence of a summer fiesta, combining pulsating beats with catchy melodies that promise to captivate listeners worldwide. The unique fusion of cultural influences and languages showcases Caitlyn's versatility and artistic flair, making this track a standout in the dance music scene.\n\nAs a music NFT on BitSong Studio, fans will have the chance to own a piece of this groundbreaking release, unlocking exclusive experiences and benefits. Don’t miss out on this opportunity to be part of the future of music and celebrate the launch of \"Que Pasa\" in the innovative Web3 music ecosystem.",
-  creator: "https://bitsong.studio/u/bitsong1w35ntzzkf7dugwlq5a6lhrrp2lkq6yamxk42he",
+  creator: "bitsong1w35ntzzkf7dugwlq5a6lhrrp2lkq6yamxk42he",
   sellerFeeBps: 500,
   referralFeeBps: 50,
   previewUrl: "https://media-api.bitsong.studio/ipfs/QmV9SasVZEoAoXCr8XRC1h9h99ALw3NQBnoQYaYHWyxqfw",
