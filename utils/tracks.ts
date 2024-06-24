@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'kaku',
+  title: 'KAKU',
+  artists: ["BlackJack", "Magic Phase"],
+  description: "I'm thrilled to announce the release of my latest music NFT, \"KAKU\" an electrifying African house track created in collaboration with Magic Phase. This exclusive drop will be available on BitSong Studio as music NFT, and I can't wait for you all to experience it.\n\nEmbracing African House Music\nAfrican house music has always been close to my heart. It's a genre that combines vibrant rhythms, soulful melodies, and rich cultural influences. The energy and spirit of African house music are truly unmatched, bringing people together on the dance floor with its infectious beats and uplifting vibes. By producing \"KAKU,\" we wanted to pay homage to these roots while showcasing the universal appeal of this incredible genre.\n\nDiving Deeper into Web3 Music\n\"KAKU\" marks my fourth music NFT release, and each one feels like a step further into the future of music. I'm passionate about Web3 and the possibilities it offers for artists and fans alike. By leveraging blockchain technology, we're able to create a unique and immersive experience for everyone involved.\n\nBENEFITS FOR HOLDERS:\n\n- Meet and Greets\n- Collaboration opportunities for independent artists\n- Merchandising gifts\n- Future NFT Airdrops\n- Exclusive access to New releases and more....",
+  creator: "bitsong1w35ntzzkf7dugwlq5a6lhrrp2lkq6yamxk42he",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmUvCXbRagsdujM2JjpvhDX8fAwwy1hmGtXoMkv1u4mmCD",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmYVFN1YRAPVoUkjdWSFZaG4vpBhBYTbDKQr7JeEYJ4EYB",
+  startTime: 1719939600,
+  genre: "House",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.007521,
+  nftAddress: "bitsong19ex92paut4qnkqcjhmzl43fw08dplruuknp3t48f4ueysprlm8psmmzsj3",
+  marketplaceAddress: "bitsong1uryehuyr69x7qrkqcuh2ccnkphkhgmsj9fek5dv9ql234m8vmxdqlded94"
+}, {
   id: 'i-dont-wanna-lose-you',
   title: 'I Don\'t Wanna Lose You',
   artists: ["ROXANA NEMES"],
