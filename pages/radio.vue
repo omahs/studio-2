@@ -1,15 +1,38 @@
 <template>
   <app-page>
-    <template #title>
-      Radio
-    </template>
     <template #body>
-      <v-btn v-for="radio in radios" :key="radio.id" @click="play(radio.id)">{{ radio.title }}</v-btn>
+      <v-alert class="my-2">This page is under construction, come back soon!</v-alert>
+      <v-container fluid>
+        <v-row>
+          <v-col>
+            <div class="text-md-h4 text-h5 font-weight-bold text-surface-variant align-center d-flex">
+              Italia
+            </div>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col style="cursor: pointer;" v-for="radio in radios" :key="radio.id" cols="auto" @click="play(radio.id)">
+            <v-card rounded="lg" width="230" color="black">
+              <v-img :transition="false" height="230" width="230"
+                :src="img(radio.cover, { width: 230, height: 230, fit: 'cover', format: 'webp' })"
+                gradient="to bottom, rgba(0,0,0,.07), rgba(0,0,0,.2)"> </v-img>
+              <v-card-subtitle class="mt-2 text-caption text-white">
+                {{ radio.artist }}
+              </v-card-subtitle>
+              <v-card-title class="mt-n2">
+                {{ radio.title }}
+              </v-card-title>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </template>
   </app-page>
 </template>
 
 <script lang="ts" setup>
+const img = useImage();
+
 interface PlayerTrack {
   id: string;
   title: string;

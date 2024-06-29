@@ -3,7 +3,7 @@
     <div class="d-flex pt-3 pb-1 pl-4">
       <div>
         <NuxtLink to="/">
-          <app-logo/>
+          <app-logo />
         </NuxtLink>
       </div>
       <div class="ml-3 text-h5 d-flex align-center mr-2">
@@ -23,6 +23,9 @@
           <v-list-item-title class="text-body-1">
             {{ item.title }}
           </v-list-item-title>
+          <template v-if="item.badge" #append>
+            <v-badge :color="item.badge?.color" :content="item.badge?.content" inline></v-badge>
+          </template>
         </v-list-item>
       </div>
     </v-list>
@@ -31,18 +34,16 @@
     <template #append>
       <ClientOnly>
         <div class="d-flex flex-columns justify-center align-center">
-          <a
-v-for="social in socials" :key="social.href" :href="social.href" target="_blank"
+          <a v-for="social in socials" :key="social.href" :href="social.href" target="_blank"
             class="text-surface-variant drawer-icon">
-            <font-awesome-icon :icon="social.icon"/>
+            <font-awesome-icon :icon="social.icon" />
           </a>
         </div>
         <div class="d-flex flex-columns justify-center align-center mb-5">
-          <a
-class="v-btn v-theme--mainnetTheme text-surface-variant v-btn--density-default rounded-xl v-btn--size-default v-btn--variant-tonal"
+          <a class="v-btn v-theme--mainnetTheme text-surface-variant v-btn--density-default rounded-xl v-btn--size-default v-btn--variant-tonal"
             href="https://github.com/bitsongofficial/studio" target="_blank">
-            <span class="v-btn__overlay"/>
-            <span class="v-btn__underlay"/>
+            <span class="v-btn__overlay" />
+            <span class="v-btn__underlay" />
             <v-icon>mdi-github</v-icon>
             <span class="mx-2 text-caption">{{ repo?.stargazers_count }}</span>
           </a>
