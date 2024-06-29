@@ -70,6 +70,14 @@ export const useNavigationDrawer = () => {
         onlyLoggedIn: true,
         onlyAdmin: true,
         exact: true,
+      },
+      {
+        title: "Radio",
+        icon: "mdi-music",
+        to: "/radio",
+        onlyLoggedIn: false,
+        onlyAdmin: false,
+        exact: true,
       }
     ];
   });

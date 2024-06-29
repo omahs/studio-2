@@ -95,6 +95,9 @@ dependencies:
   h3-formidable:
     specifier: ^1.0.0
     version: 1.0.0(h3@1.11.1)
+  hls.js:
+    specifier: ^1.5.11
+    version: 1.5.11
   iso-3166-1:
     specifier: ^2.1.1
     version: 2.1.1
@@ -8585,6 +8588,10 @@ packages:
   /hexoid@1.0.0:
     resolution: {integrity: sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==}
     engines: {node: '>=8'}
+    dev: false
+
+  /hls.js@1.5.11:
+    resolution: {integrity: sha512-q3We1izi2+qkOO+TvZdHv+dx6aFzdtk3xc1/Qesrvto4thLTT/x/1FK85c5h1qZE4MmMBNgKg+MIW8nxQfxwBw==}
     dev: false
 
   /hmac-drbg@1.0.1:

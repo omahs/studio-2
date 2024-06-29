@@ -1,3 +1,5 @@
+import Hls from 'hls.js';
+
 interface PlayerTrack {
   id: string;
   title: string;
@@ -12,6 +14,8 @@ interface PlayerTrack {
 export const usePlayer = () => {
   const audioEl = useState<HTMLAudioElement | null>("audioEl", () => null);
   const videoEl = useState<HTMLVideoElement | null>("videoEl", () => null);
+
+  const hls = useState<Hls | null>("hls", () => null);
 
   const output = useState<"audio" | "video">("output", () => "audio");
 
@@ -263,6 +267,10 @@ export const usePlayer = () => {
     }
   }
 
+  async function playRadio(track: PlayerTrack) {
+    _play(track);
+  }
+
   async function _play(_track: PlayerTrack, options: { autoplay: boolean, continue: boolean } = { autoplay: true, continue: false }) {
     track.value = _track;
 
@@ -277,6 +285,19 @@ export const usePlayer = () => {
     console.log('force audio output', forceAudioOutput.value)
 
     const el = _getEl();
+
+    if (track.value.sources.audio.endsWith(".m3u8")) {
+      hls.value = new Hls();
+      hls.value.loadSource(track.value.sources.audio);
+      hls.value.attachMedia(el);
+
+      hls.value.on(Hls.Events.MANIFEST_PARSED, () => {
+        console.log('manifest parsed')
+        el.play();
+      })
+
+      return
+    }
 
     //console.log(`Playing ${output.value}`)
 
@@ -599,6 +620,7 @@ export const usePlayer = () => {
     showQueue,
     output,
     play,
+    playRadio,
     pause,
     togglePlay,
     next,
