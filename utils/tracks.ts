@@ -18,6 +18,40 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'magical-place',
+  title: 'MAGICAL PLACE',
+  artists: ["Dj Sava, Iova"],
+  description: "Step into a \"Magical Place\" with DJ Sava and IOVA's latest creation, skillfully remixed by DJ Dark & MD DJ. This deep house masterpiece combines hypnotic rhythms with soulful vocals, creating a track that is both deeply atmospheric and irresistibly danceable. The enchanting remix elevates the original song, making it a must-have for deep house aficionados and music NFT collectors.\n\nBENEFITS FOR COLLECTORS\n\nExclusive Ownership:\n\nAs a collector of the \"Magical Place\" NFT, you will own a unique digital asset that is exclusive to BitSong Studio and cannot be duplicated.\n\nDirect Artist Support:\n\nCollecting this NFT directly supports DJ Sava, IOVA, DJ Dark, and MD DJ, empowering them to continue producing innovative and high-quality music.\n\nLimited Edition Perks:\n\nGain access to exclusive content such as behind-the-scenes footage, unreleased tracks, Vinyl signed by DJ SAVA, and special remixes available only to NFT holders.\n\nFuture Utilities:\n\nEnjoy potential future utilities of the NFT, such as VIP concert tickets, merchandise discounts, and early access to upcoming releases.\n\nInvestment Potential:\n\nOwning this NFT not only offers a remarkable musical experience but also serves as a valuable digital asset that can appreciate over time as the popularity of the artists and the platform grows.",
+  creator: "bitsong135rnhr7t37nq6q4u26vmk5ejvj47kl4ps5nuew",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmRCCUVaB1EYQP7pesHxj5p9PhDSEsoyxxHUxycUwbzsv4",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmfLD2rrrX4tKBTeJwB955MPykTnJgudMmiGdmJFKogxts",
+  startTime: 1720544400,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.013162,
+  nftAddress: "bitsong1ljt67lmcw6zghp6khuvfzkyex0alw7gedartlpctqat9ezazgyes93t5zj",
+  marketplaceAddress: "bitsong18y6e3ysfhznd0y6r0dra6jy0cvqev9t2lxczhfckputhj8a8pe3qru6wxy"
+}, {
+  id: 'lucky-uh-la-la',
+  title: 'LUCKY (UH LA LA)',
+  artists: ["BlackJack", "Rawanne"],
+  description: "Immerse yourself in the vibrant rhythms of \"Lucky (Uh La La),\" where BlackJack's masterful production meets Rawanne's stunning vocal performance. \n\nThis dance/deep house track takes you on a sonic journey, fusing modern beats with exotic oriental elements to create a truly distinctive sound. The infectious chorus and dynamic arrangement make this song an instant favorite for dance music enthusiasts and collectors of unique musical art.\n\nAdvantages for Collectors:\n\nExclusive Ownership\n\nAs a collector of the \"Lucky (Uh La La)\" NFT, you will own a piece of musical history, with exclusive rights to the digital asset that cannot be replicated.\n\nDirect Artist Support\n\nBy purchasing this NFT, you directly support BlackJack and Rawanne, enabling them to continue creating innovative and boundary-pushing music.\n\nLimited Edition Perks\n\nEnjoy access to limited edition content, such as behind-the-scenes footage, unreleased tracks, and exclusive remixes that are only available to NFT holders.\n\nFuture Utilities\n\nBenefit from potential future utilities of the NFT, such as VIP concert tickets, merchandise discounts, and access to upcoming releases before the general public.\n\nInvestment Potential\n\nOwning this NFT not only provides an immersive musical experience but also serves as a valuable digital asset that can appreciate over time as the popularity of the artists and the platform grows.",
+  creator: "bitsong1w35ntzzkf7dugwlq5a6lhrrp2lkq6yamxk42he",
+  sellerFeeBps: 500,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmeXnEq9FM2tMfGyfhCbTUwyNuTFFpwmnx7qsYAAUAVCBX",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmYHwAFNfdLN4cZN2JsuSUWitPzEegrVD96pTE1exeqga8",
+  startTime: 1720544400,
+  genre: "Dance",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01404,
+  nftAddress: "bitsong1xakcgkaj434wtz9rqk99r0u4885sfk2axqly4hcrqprmxdchxpnq66085q",
+  marketplaceAddress: "bitsong19rrj2v57dkusrdd88l0962ac60gvuvyhj2kye9l057wkd0s00awqxf0l9k"
+}, {
   id: 'kaku',
   title: 'KAKU',
   artists: ["BlackJack", "Magic Phase"],
