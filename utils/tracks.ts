@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'distant-instrumental',
+  title: 'Distant - Instrumental',
+  artists: ["HXRT"],
+  description: "The official instrumental version of 'Distant' by HXRT. via N43 Records",
+  creator: "bitsong1l73znegcrcwsmrzs3zr8twtdmvhxcrvcx0dmez",
+  sellerFeeBps: 500,
+  referralFeeBps: 100,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/Qmd75BKDjhmok3Nzb4PLsPqPmJjbw542CZeeVJ21ZXKdXD",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmUGXctRX8eVKL8h1AytSz9i8rtj34u24mCRXGmTMPUkeP",
+  startTime: 1720800000,
+  genre: "Pop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.013162,
+  nftAddress: "bitsong1w4zjknknh9r8mctwegnvxvt3tetvhu2pu55gq9vys0z4uutv6n8qa029u0",
+  marketplaceAddress: "bitsong1lqzvjmry72zwcnhdgxh9jsvmqd0zp6fdzgy6cxsklm7y0cc4vckshgalfe"
+}, {
   id: 'emotions',
   title: 'Emotions',
   artists: ["Cray C"],
