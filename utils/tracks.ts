@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'god-help-me',
+  title: 'God help me',
+  artists: ["ANXELS"],
+  description: "\"God Help me\" is the 9th Single from the upcoming ANXELS collective album \"The Landing\" .Michael Haze brings a energetic performance to this UK drill beat produced by K1LL3r-K . \nANXELS is a collective of musicians ,producers ,vocalist and artist from all around the world to build a brand that crosses multiple music genres and mediums .We Produce music ,videos ,web3 content and provide tools to help build grow Crypto projects on multiple blockchains .",
+  creator: "bitsong1vjsdwdamatn4m798ulmf68qck5uepn0dl8t4h7",
+  sellerFeeBps: 300,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmUKmHWckxSADe4i87xHCkz48sAmqhUrZwLF1ZpSSTUxnC",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmQquYHGKn78Q3i1wqh87n3syZeFBku2qF9QtDcFdkMRSf",
+  startTime: 1721671200,
+  genre: "Hip-Hop",
+  explicit: "Clean",
+  license: "All Rights Reserved",
+  initialPrice: 0.01033,
+  nftAddress: "bitsong1mf4kk8kvvq4t7sj5wqvg363zpg9y6wj0jh8s0skesxk8kcczkuuqgsess6",
+  marketplaceAddress: "bitsong1ekj8yuzf24s2sx6erwfxxzkrg40c9ekltc6t69kcdvf08hqyuguqm7dsmz"
+}, {
   id: 'someone',
   title: 'Someone',
   artists: ["ARYA"],
