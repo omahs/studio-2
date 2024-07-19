@@ -6,8 +6,7 @@ export default defineNuxtRouteMiddleware(async () => {
 
   if (data.value?.user) {
     user.value = {
-      ...data.value.user,
-      sid: data.value.sid
+      ...data.value.user
     };
   }
 });

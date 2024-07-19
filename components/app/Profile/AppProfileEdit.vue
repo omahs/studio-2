@@ -43,16 +43,76 @@
       </v-card-actions>
     </v-card>
     <AppProfileEditDiscard v-model="discardAlert" @discard-changes="onDiscardChanges" />
-    <input ref="avatarUploader" accept="image/*" class="d-none" type="file" @change="avatarUpload">
     <input ref="coverUploader" accept="image/*" class="d-none" type="file" @change="coverUpload">
+
+    <v-dialog v-model="showAvatarResizer" width="550" height="600">
+      <v-card width="550" height="600">
+        <v-card-text>
+          <cropper class="fill-height" ref="avatarCropper" :src="newValues.avatar" :stencil-props="{ aspectRatio: 1 }"
+            :canvas="{
+    minHeight: 400,
+    minWidth: 400
+  }" :auto-zoom="false" />
+        </v-card-text>
+        <v-card-actions class="mb-2 mr-2">
+          <v-btn class="w-25 pt-1" rounded="pill" color="grey-lighten-1" variant="text"
+            @click.stop="cancelAvatarResizer">
+            Cancel
+          </v-btn>
+          <v-btn @click="cropAvatar" class="w-25 pt-1" rounded="pill" color="primary" variant="flat">
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="showCoverResizer" width="550" height="600">
+      <v-card width="550" height="600">
+        <v-card-text>
+          <cropper class="fill-height" ref="coverCropper" :src="newValues.cover"
+            :stencil-props="{ aspectRatio: 229 / 50 }" :canvas="{
+    minHeight: 300,
+    minWidth: 1374
+  }" :auto-zoom="false" />
+        </v-card-text>
+        <v-card-actions class="mb-2 mr-2">
+          <v-btn class="w-25 pt-1" rounded="pill" color="grey-lighten-1" variant="text"
+            @click.stop="cancelCoverResizer">
+            Cancel
+          </v-btn>
+          <v-btn @click="cropCover" class="w-25 pt-1" rounded="pill" color="primary" variant="flat">
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </v-dialog>
 </template>
 
 <script lang="ts" setup>
+import { Cropper } from 'vue-advanced-cropper';
+import 'vue-advanced-cropper/dist/style.css'
+import { useFileDialog } from '@vueuse/core'
 import defaultCover from "~/assets/images/default-cover.png";
 
+const { open: openAvatarDialog, onChange: onChangeAvatar, reset: avatarReset } = useFileDialog({
+  accept: 'image/jpg, image/jpeg, image/png',
+  multiple: false,
+})
+
+const { open: openCoverDialog, onChange: onChangeCover, reset: coverReset } = useFileDialog({
+  accept: 'image/jpg, image/jpeg, image/png',
+  multiple: false,
+})
+
+const avatarCropper = ref<typeof Cropper | null>(null)
+const coverCropper = ref<typeof Cropper | null>(null)
+
+const showAvatarResizer = ref(false)
+const showCoverResizer = ref(false)
+
 const discardAlert = ref(false);
-const avatarUploader = ref<HTMLInputElement>();
 const loading = ref(false);
 
 const coverUploader = ref<HTMLInputElement>();
@@ -60,12 +120,12 @@ const coverUploader = ref<HTMLInputElement>();
 const errorMessage = ref("");
 
 function onSelectCover() {
-  coverUploader.value?.click();
+  openCoverDialog()
   useAppEvent('select-cover')
 }
 
 function onSelectAvatar() {
-  avatarUploader.value?.click();
+  openAvatarDialog()
   useAppEvent('select-avatar')
 }
 
@@ -92,6 +152,36 @@ const resetState = () => {
   newValues.username = undefined
   newValues.email = undefined
   errorMessage.value = ''
+}
+
+function cancelAvatarResizer() {
+  avatarReset()
+  newValues.avatar = undefined
+  showAvatarResizer.value = false
+}
+
+function cancelCoverResizer() {
+  coverReset()
+  newValues.cover = undefined
+  showCoverResizer.value = false
+}
+
+function cropAvatar() {
+  if (!avatarCropper.value) return
+
+  const { canvas } = avatarCropper.value.getResult()
+  newValues.avatar = canvas.toDataURL()
+  showAvatarResizer.value = false
+  avatarReset()
+}
+
+function cropCover() {
+  if (!coverCropper.value) return
+
+  const { canvas } = coverCropper.value.getResult()
+  newValues.cover = canvas.toDataURL()
+  showCoverResizer.value = false
+  coverReset()
 }
 
 interface Props {
@@ -207,34 +297,41 @@ const validateImage = (file: File, opts: ImageValidator) => {
   });
 };
 
-const avatarUpload = async () => {
-  errorMessage.value = ''
-
-  const file = toValue(avatarUploader)?.files?.[0]
-  if (!file) {
+onChangeAvatar(async (files) => {
+  if (!files || files.length === 0) {
     return
   }
 
+  const file = files[0]
   const reader = new FileReader()
-  reader.readAsDataURL(file)
   reader.onload = (e) => {
     if (!e.target) {
       return
     }
 
-    validateImage(file, {
-      maxFileSize: 10 * 1024 * 1024,
-      formatsAllowed: ["image/jpeg", "image/png"],
-      minWidth: 400,
-      minHeight: 400,
-    }).then(() => {
-      newValues.avatar = e.target?.result as string
-    }).catch((e) => {
-      newValues.avatar = undefined
-      errorMessage.value = e
-    })
+    newValues.avatar = e.target?.result as string
+    showAvatarResizer.value = true
   }
-}
+  reader.readAsDataURL(file)
+})
+
+onChangeCover(async (files) => {
+  if (!files || files.length === 0) {
+    return
+  }
+
+  const file = files[0]
+  const reader = new FileReader()
+  reader.onload = (e) => {
+    if (!e.target) {
+      return
+    }
+
+    newValues.cover = e.target?.result as string
+    showCoverResizer.value = true
+  }
+  reader.readAsDataURL(file)
+})
 
 const coverUpload = async () => {
   errorMessage.value = ''
@@ -301,20 +398,41 @@ const handleEditProfile = async () => {
     const emailVal = toValue(email)
 
     const formData = new FormData()
+
     if (avatar !== undefined) {
+      const formData = new FormData()
+
       if (avatar === null) {
         formData.append('avatar', '')
       } else {
         formData.append('avatar', avatar ? base64ToFile(avatar, 'avatar') : '')
       }
+
+      await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/me/avatar`, {
+        method: 'PUT',
+        body: formData,
+        headers: {
+          'Authorization': `Bearer ${useUserState().value?.sid}`
+        }
+      })
     }
 
     if (cover !== undefined) {
+      const formData = new FormData()
+
       if (cover === null) {
         formData.append('cover', '')
       } else {
         formData.append('cover', cover ? base64ToFile(cover, 'cover') : '')
       }
+
+      await $fetch(`${useRuntimeConfig().public.mediaApiDirect}/me/cover`, {
+        method: 'PUT',
+        body: formData,
+        headers: {
+          'Authorization': `Bearer ${useUserState().value?.sid}`
+        }
+      })
     }
 
     if (usernameVal) formData.append('username', usernameVal)
@@ -326,7 +444,10 @@ const handleEditProfile = async () => {
     })
 
     const user = useUserState();
-    user.value = data.user
+    user.value = {
+      ...data.user,
+      sid: data.sid
+    }
 
     emits("update:modelValue", false);
     resetState();

@@ -3,7 +3,9 @@
     <app-drawer />
     <app-bar :show-logo="false" />
     <v-main :class="{ 'v-main--player-queue': showQueue && track?.id !== undefined && !mobile }">
-      <AppAlertConfirmEmail />
+      <ClientOnly>
+        <AppAlertConfirmEmail />
+      </ClientOnly>
       <slot />
     </v-main>
     <AppPlayerQueue />

@@ -1,7 +1,5 @@
 import { ZodError } from 'zod';
 import { userUpdateProfileSchema } from '~/server/schema/updateProfile';
-import pinataSDK from '@pinata/sdk'
-import { Readable } from 'stream';
 import { v4 as uuidv4 } from 'uuid';
 import { sendEmailVerification } from '~/server/utils/email';
 import prisma from '~/server/utils/db'
@@ -24,13 +22,11 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const avatar = data.find((item) => item.name === 'avatar')
-  const cover = data.find((item) => item.name === 'cover')
   const username = data.find((item) => item.name === 'username')?.data.toString().toLowerCase()
   const email = data.find((item) => item.name === 'email')?.data.toString().toLowerCase()
 
   try {
-    await userUpdateProfileSchema.parseAsync({ avatar, cover, username, email })
+    await userUpdateProfileSchema.parseAsync({ username, email })
   } catch (e) {
     if (e instanceof ZodError) {
       throw createError({
@@ -75,34 +71,6 @@ export default defineEventHandler(async (event) => {
     username
   }
 
-  const pinata = new pinataSDK(useRuntimeConfig().pinataApiKey, useRuntimeConfig().pinataApiSecret);
-
-  if (avatar !== undefined) {
-    if (avatar.data.toString() === null || avatar.data.toString() === '') {
-      attrs.avatar = null
-    } else {
-      const avatarStream = new Readable();
-      avatarStream.push(avatar.data);
-      avatarStream.push(null);
-
-      const pinataRes = await pinata.pinFileToIPFS(avatarStream, { pinataMetadata: { name: `${user.address}_avatar` } })
-      attrs.avatar = pinataRes.IpfsHash
-    }
-  }
-
-  if (cover !== undefined) {
-    if (cover.data.toString() === null || cover.data.toString() === '') {
-      attrs.cover = null
-    } else {
-      const coverStream = new Readable();
-      coverStream.push(cover.data);
-      coverStream.push(null);
-
-      const pinataRes = await pinata.pinFileToIPFS(coverStream, { pinataMetadata: { name: `${user.avatar}_cover` } })
-      attrs.cover = pinataRes.IpfsHash
-    }
-  }
-
   // Send email confirmation
   if (email !== user.email) {
     const email_verification_token = uuidv4()
@@ -132,8 +100,18 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
+    const session = await auth.handleRequest(event).validate();
+    if (!session) {
+      throw createError({
+        message: 'Unauthorized',
+        status: 401
+      });
+    }
+
     const updatedUser = await auth.updateUserAttributes(user.userId, attrs)
+
     return {
+      sid: session.sessionId,
       user: updatedUser
     }
   } catch (error) {
