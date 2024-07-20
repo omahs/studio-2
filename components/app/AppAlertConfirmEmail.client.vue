@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar v-if="user !== null && user !== O && showAlert" color="red" density="compact">
+  <v-app-bar v-if="showAlert" color="red" density="compact">
     <v-list-item>
       Please confirm your email address {{ user?.email_to_verify }}
       <v-btn v-if="canResendEmail" :loading="status === 'pending'" class="ml-2" variant="outlined" size="small"
@@ -14,7 +14,7 @@
 const user = useUserState()
 
 const showAlert = computed(() => {
-  return user.value && !user.value.email_verified && user.value.email_to_verify !== null
+  return user.value && user.value.address && !user.value.email_verified && user.value.email_to_verify !== null
 })
 
 const canResendEmail = computed(() => {
