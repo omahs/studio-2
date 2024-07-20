@@ -88,5 +88,5 @@ onMounted(async () => {
   }
 })
 
-const canUpload = user.value?.beta_features !== undefined && user.value?.beta_features.includes('upload')
+const canUpload = computed(() => user.value?.beta_features !== undefined && user.value?.beta_features.includes('upload'))
 </script>
