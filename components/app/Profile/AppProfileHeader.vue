@@ -13,27 +13,62 @@
       </v-btn>
     </div>
   </v-card>
-  <v-card variant="text" class="mt-2">
-    <v-card-title class="text-h4">
-      <div class="d-flex align-center">
-        <div v-if="username" class="text-h4">{{ username }}</div>
-        <div v-else class="text-h4">
+
+  <v-container fluid>
+    <v-row align="center">
+      <v-col cols="12" lg="6">
+        <div class="text-h4">
+          <div v-if="username" class="text-h4">{{ username }}</div>
+          <div v-else class="text-h4">
+            {{ formatShortAddress(address, 12) }}
+            <AppCopyBtn :text="address" />
+          </div>
+        </div>
+        <div v-if="username" class="text-h5 text-surface-variant" :style="{ lineHeight: '1.5rem' }">
           {{ formatShortAddress(address, 12) }}
           <AppCopyBtn :text="address" />
         </div>
-      </div>
-    </v-card-title>
-    <v-card-subtitle v-if="username" class="text-h5" :style="{ lineHeight: '1.5rem' }">
-      {{ formatShortAddress(address, 12) }}
-      <AppCopyBtn :text="address" />
-    </v-card-subtitle>
-  </v-card>
+      </v-col>
+
+      <v-skeleton-loader v-if="isLoadingNfts || isPendingNfts || isFetchingNfts" width="200" class="mx-2"
+        type="list-item-two-line"></v-skeleton-loader>
+      <v-col v-else cols="6" lg="" class="text-lg-right">
+        <div class="text-caption text-surface-variant font-weight-bold text-uppercase"> NFTs Balance </div>
+        <div>
+          {{ formatNumber(nfts?.totalValue || 0) }} BTSG
+          <v-tooltip activator="parent" location="top center">{{ nfts?.totalValue || 0 }} BTSG</v-tooltip>
+        </div>
+      </v-col>
+
+      <v-skeleton-loader v-if="isLoading || isPending || isFetching" width="200" class="mx-2"
+        type="list-item-two-line"></v-skeleton-loader>
+      <v-col v-else cols="6" lg="" class="text-lg-right">
+        <div class="text-caption text-surface-variant font-weight-bold text-uppercase"> Total Mint </div>
+        <div>
+          {{ formatNumber(summary?.mint.volume || 0) }} BTSG
+          <v-tooltip activator="parent" location="top center">{{ summary?.mint.volume || 0 }} BTSG</v-tooltip>
+        </div>
+      </v-col>
+
+      <v-skeleton-loader v-if="isLoading || isPending || isFetching" width="200" class="mx-2"
+        type="list-item-two-line"></v-skeleton-loader>
+      <v-col v-else cols="6" lg="" class="text-lg-right">
+        <div class="text-caption text-surface-variant font-weight-bold text-uppercase"> Total Burn </div>
+        <div>
+          {{ formatNumber(summary?.burn.volume || 0) }} BTSG
+          <v-tooltip activator="parent" location="top center">{{ summary?.burn.volume || 0 }} BTSG</v-tooltip>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
+
   <AppProfileEdit v-model="editProfileDialog" :avatar="avatar" :cover="cover" :username="username" :email="email" />
 </template>
 
 <script setup lang="ts">
 import defaultCover from "~/assets/images/default-cover.png";
 import defaultImage from "~/assets/images/default.png";
+import { useQuery } from '@tanstack/vue-query'
 
 const user = useUserState()
 const canEdit = computed(() => user.value?.address === props.address)
@@ -64,6 +99,31 @@ const avatar = computed(() => {
 const cover = computed(() => {
   if (props.cover) return img(useIpfsLink(props.cover)!, { width: 1374, format: 'webp' })
   return defaultCover
+})
+
+const { isLoading, isPending, isFetching, data: summary } = useQuery({
+  queryKey: ['profile', props.address, 'summary'],
+  queryFn: async () => {
+    return await $fetch<{
+      mint: {
+        volume: number;
+      },
+      burn: {
+        volume: number;
+      },
+    }>(`${useRuntimeConfig().public.mediaApiDirect}/u/${props.address}/summary`)
+  },
+  staleTime: 1000 * 60, // 1 minutes,
+})
+
+const { isLoading: isLoadingNfts, isPending: isPendingNfts, isFetching: isFetchingNfts, data: nfts } = useQuery({
+  queryKey: ['profile', props.address, 'nfts'],
+  queryFn: async () => {
+    return await $fetch<{
+      totalValue: number;
+    }>(`${useRuntimeConfig().public.mediaApiDirect}/u/${props.address}/nfts`)
+  },
+  staleTime: 1000 * 60, // 1 minutes
 })
 </script>
 
