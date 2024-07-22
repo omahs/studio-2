@@ -97,17 +97,17 @@ interface NftsResponse {
 const { isFetching, data: nfts2 } = useQuery({
   queryKey: ['profile', user.value!.address, 'nfts'],
   queryFn: async () => {
-    const response = await $fetch<NftsResponse>(`${useRuntimeConfig().public.mediaApiDirect}/u/${user.value!.address}/nfts`)
-
-    return {
-      totalCount: response.totalCount,
-      totalValue: response.totalValue,
-      nfts: response.nfts.sort((a, b) => b.value - a.value)
-    }
+    return await $fetch<NftsResponse>(`${useRuntimeConfig().public.mediaApiDirect}/u/${user.value!.address}/nfts`)
   },
   staleTime: 1000 * 60 * 5, // 5 minutes,
+  select: (data) => {
+    return {
+      totalCount: data.totalCount,
+      totalValue: data.totalValue,
+      nfts: data.nfts.sort((a, b) => b.value - a.value)
+    }
+  }
 })
-
 const tokens = ref([])
 const showTokensDialog = computed(() => tokens.value.length > 0)
 
