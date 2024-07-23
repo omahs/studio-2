@@ -4,6 +4,13 @@ import { polyfillNode } from "esbuild-plugin-polyfill-node";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  app: {
+    head: {
+      link: [
+        { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' },
+      ]
+    }
+  },
   appConfig: {
     umami: {
       version: 2,
@@ -44,10 +51,10 @@ export default defineNuxtConfig({
       walletconnectProjectId: '',
     },
   },
-  css: [
-    '@mdi/font/css/materialdesignicons.css',
-    '@fortawesome/fontawesome-free/css/all.css'
-  ],
+  // css: [
+  //   '@mdi/font/css/materialdesignicons.css',
+  //   //'@fortawesome/fontawesome-free/css/all.css'
+  // ],
   build: {
     transpile: ['trpc-nuxt', 'vue-toastification', 'vuetify'],
   },

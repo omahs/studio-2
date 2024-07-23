@@ -1,12 +1,18 @@
+//import 'vuetify/styles';
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@mdi/font/css/materialdesignicons.css';
+
 import { createVuetify } from "vuetify";
 import type { ThemeDefinition } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
 import { md3 } from 'vuetify/blueprints'
-import { mdi } from "vuetify/iconsets/mdi";
+import { mdi, aliases } from "vuetify/iconsets/mdi";
+//import { aliases, fa } from 'vuetify/iconsets/fa'
+import { fa } from "vuetify/iconsets/fa-svg";
+//import { aliases as aliasesMdi, mdi } from 'vuetify/iconsets/mdi-svg'
 
-import { aliases, fa } from "vuetify/iconsets/fa-svg";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -62,8 +68,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       defaultSet: "mdi",
       aliases,
       sets: {
-        mdi,
         fa,
+        mdi
       },
     },
   });

@@ -29,9 +29,6 @@ dependencies:
   '@chenfengyuan/vue-countdown':
     specifier: '2'
     version: 2.1.2(vue@3.4.26)
-  '@fortawesome/fontawesome-free':
-    specifier: ^6.5.1
-    version: 6.5.2
   '@fortawesome/free-brands-svg-icons':
     specifier: ^6.5.1
     version: 6.5.2
@@ -163,6 +160,9 @@ dependencies:
     version: 3.23.5
 
 devDependencies:
+  '@fortawesome/fontawesome-free':
+    specifier: ^6.5.2
+    version: 6.5.2
   '@fortawesome/fontawesome-svg-core':
     specifier: ^6.5.1
     version: 6.5.2
@@ -222,7 +222,7 @@ devDependencies:
     version: 5.4.5
   vite-plugin-vuetify:
     specifier: ^1.0.2
-    version: 1.0.2(vite@5.2.10)(vue@3.4.26)(vuetify@3.6.1)
+    version: 1.0.2(vite@5.2.10)(vue@3.4.26)(vuetify@3.6.13)
   vue:
     specifier: ^3.3.10
     version: 3.4.26(typescript@5.4.5)
@@ -230,8 +230,8 @@ devDependencies:
     specifier: ^4.2.5
     version: 4.3.2(vue@3.4.26)
   vuetify:
-    specifier: ^3.5.5
-    version: 3.6.1(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26)
+    specifier: ^3.6.13
+    version: 3.6.13(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26)
 
 packages:
 
@@ -2075,7 +2075,7 @@ packages:
     resolution: {integrity: sha512-hRILoInAx8GNT5IMkrtIt9blOdrqHOnPBH+k70aWUAqPZPgopb9G5EQJFpaBx/S8zp2fC+mPW349Bziuk1o28Q==}
     engines: {node: '>=6'}
     requiresBuild: true
-    dev: false
+    dev: true
 
   /@fortawesome/fontawesome-svg-core@6.5.2:
     resolution: {integrity: sha512-5CdaCBGl8Rh9ohNdxeeTMxIj8oc3KNBgIeLMvJosBMdslK/UnEB8rzyDRrbKdL1kDweqBPo4GT9wvnakHWucZw==}
@@ -5507,7 +5507,7 @@ packages:
   /@vue/shared@3.4.26:
     resolution: {integrity: sha512-Fg4zwR0GNnjzodMt3KRy2AWGMKQXByl56+4HjN87soxLNU9P5xcJkstAlIeEF3cU6UYOzmJl1tV0dVPGIljCnQ==}
 
-  /@vuetify/loader-shared@1.7.1(vue@3.4.26)(vuetify@3.6.1):
+  /@vuetify/loader-shared@1.7.1(vue@3.4.26)(vuetify@3.6.13):
     resolution: {integrity: sha512-kLUvuAed6RCvkeeTNJzuy14pqnkur8lTuner7v7pNE/kVhPR97TuyXwBSBMR1cJeiLiOfu6SF5XlCYbXByEx1g==}
     peerDependencies:
       vue: ^3.0.0
@@ -5516,7 +5516,7 @@ packages:
       find-cache-dir: 3.3.2
       upath: 2.0.1
       vue: 3.4.26(typescript@5.4.5)
-      vuetify: 3.6.1(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26)
+      vuetify: 3.6.13(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26)
     dev: true
 
   /@vueuse/components@10.9.0(vue@3.4.26):
@@ -13787,18 +13787,18 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /vite-plugin-vuetify@1.0.2(vite@5.2.10)(vue@3.4.26)(vuetify@3.6.1):
+  /vite-plugin-vuetify@1.0.2(vite@5.2.10)(vue@3.4.26)(vuetify@3.6.13):
     resolution: {integrity: sha512-MubIcKD33O8wtgQXlbEXE7ccTEpHZ8nPpe77y9Wy3my2MWw/PgehP9VqTp92BLqr0R1dSL970Lynvisx3UxBFw==}
     engines: {node: '>=12'}
     peerDependencies:
       vite: ^2.7.0 || ^3.0.0 || ^4.0.0
       vuetify: ^3.0.0-beta.4
     dependencies:
-      '@vuetify/loader-shared': 1.7.1(vue@3.4.26)(vuetify@3.6.1)
+      '@vuetify/loader-shared': 1.7.1(vue@3.4.26)(vuetify@3.6.13)
       debug: 4.3.4
       upath: 2.0.1
       vite: 5.2.10(sass@1.76.0)
-      vuetify: 3.6.1(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26)
+      vuetify: 3.6.13(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26)
     transitivePeerDependencies:
       - supports-color
       - vue
@@ -14072,8 +14072,8 @@ packages:
       '@vue/shared': 3.4.26
       typescript: 5.4.5
 
-  /vuetify@3.6.1(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26):
-    resolution: {integrity: sha512-fzcY9LNuLZUwXG4XyklkGJwFv/ejQaERAgE5e+U5M9dtbF9ZRs56mGi2uqOhQOv6o+vbikpHZ/rfHfhb/XlO0g==}
+  /vuetify@3.6.13(typescript@5.4.5)(vite-plugin-vuetify@1.0.2)(vue@3.4.26):
+    resolution: {integrity: sha512-Gz7jxXAkmff2m6CM0EUWOo/72TM322/3I6aDna++k1nPOW1/hNx4td1MZG4u75fzdn3r+uIe0dbF7SWuhu6DWA==}
     engines: {node: ^12.20 || >=14.13}
     peerDependencies:
       typescript: '>=4.7'
@@ -14092,7 +14092,7 @@ packages:
         optional: true
     dependencies:
       typescript: 5.4.5
-      vite-plugin-vuetify: 1.0.2(vite@5.2.10)(vue@3.4.26)(vuetify@3.6.1)
+      vite-plugin-vuetify: 1.0.2(vite@5.2.10)(vue@3.4.26)(vuetify@3.6.13)
       vue: 3.4.26(typescript@5.4.5)
     dev: true
 

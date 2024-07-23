@@ -12,6 +12,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -34,7 +35,7 @@
     "vite-plugin-vuetify": "^1.0.2",
     "vue": "^3.3.10",
     "vue-router": "^4.2.5",
-    "vuetify": "^3.5.5"
+    "vuetify": "^3.6.13"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.501.0",
@@ -44,7 +45,6 @@
     "@bitsongjs/metadata": "^0.2.1",
     "@bitsongjs/telescope": "3.0.0-dev.23",
     "@chenfengyuan/vue-countdown": "2",
-    "@fortawesome/fontawesome-free": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@lucia-auth/adapter-prisma": "^3.0.2",
     "@mdi/font": "^7.3.67",
