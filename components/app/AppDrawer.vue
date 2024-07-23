@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer id="navdrawer" color="black">
+  <v-navigation-drawer id="navdrawer" v-model="drawer" color="black">
     <div class="d-flex pt-3 pb-1 pl-4">
       <div>
         <NuxtLink to="/">
