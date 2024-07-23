@@ -1,15 +1,20 @@
 <template>
-  <v-layout ref="app">
-    <app-drawer />
-    <app-bar :show-logo="false" />
+  <v-layout id="app">
+    <ClientOnly>
+      <app-drawer />
+      <app-bar :show-logo="false" />
+    </ClientOnly>
+
     <v-main :class="{ 'v-main--player-queue': showQueue && track?.id !== undefined && !mobile }">
       <ClientOnly>
         <AppAlertConfirmEmail />
       </ClientOnly>
       <slot />
     </v-main>
-    <AppPlayerQueue />
-    <AppPlayer />
+    <!--<ClientOnly>
+      <AppPlayerQueue />
+      <AppPlayer />
+    </ClientOnly>-->
   </v-layout>
 </template>
 
