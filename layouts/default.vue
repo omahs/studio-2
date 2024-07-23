@@ -11,10 +11,8 @@
       </ClientOnly>
       <slot />
     </v-main>
-    <!--<ClientOnly>
-      <AppPlayerQueue />
-      <AppPlayer />
-    </ClientOnly>-->
+    <AppPlayer />
+    <AppPlayerQueue />
   </v-layout>
 </template>
 
