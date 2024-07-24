@@ -21,7 +21,7 @@ export async function useProfile(address: string) {
   }
 
   const { data: nfts, isFetching } = useQuery({
-    queryKey: ['profile', address, 'nfts'],
+    queryKey: ['profile', address, 'nfts2'],
     queryFn: async () => {
       const data = await $fetch<ProfileNftsResponse>(`${useRuntimeConfig().public.mediaApiDirect}/u/${address}/nfts`)
 
