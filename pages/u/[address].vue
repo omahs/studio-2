@@ -4,6 +4,8 @@
       <AppProfileHeader :address="address" :avatar="user?.avatar" :cover="user?.cover" :username="user?.username"
         :email="user?.email" />
 
+      <AppProfileMarketplaces v-if="user" :marketplaces="marketplaces?.marketplaces" />
+
       <AppProfileNfts v-if="user" :nfts="nfts" />
     </template>
   </app-page>
@@ -33,4 +35,5 @@ useSeoMeta({
 });
 
 const { nfts } = await useProfile(address.value)
+const { data: marketplaces } = await useMarketplace(address.value)
 </script>

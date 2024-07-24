@@ -55,7 +55,12 @@ function onRefresh() {
 
 <template>
   <!--<v-skeleton-loader v-if="isFetching" type="card" width="320" class="ml-4" />-->
-  <v-container v-if="nfts" fluid>
+  <v-container v-if="nfts && nfts?.length > 0" fluid>
+    <v-row>
+      <v-col>
+        <h2 class="text-h4">Collected</h2>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col cols="auto" v-for="nft in nfts" :key="nft.nft">
         <v-card width="316">
