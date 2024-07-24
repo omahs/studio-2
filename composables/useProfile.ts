@@ -20,22 +20,22 @@ export async function useProfile(address: string) {
     sortBy.value = value
   }
 
-  const { data, isFetching } = useQuery({
+  const { data: nfts, isFetching } = useQuery({
     queryKey: ['profile', address, 'nfts'],
     queryFn: async () => {
-      return await $fetch<ProfileNftsResponse>(`${useRuntimeConfig().public.mediaApiDirect}/u/${address}/nfts`)
-    },
-    staleTime: 1000 * 60 * 5, // 5 minutes,
-  })
+      const data = await $fetch<ProfileNftsResponse>(`${useRuntimeConfig().public.mediaApiDirect}/u/${address}/nfts`)
 
-  const nfts = computed(() => {
-    if (!data.value) return []
-    return data.value.nfts.sort((a, b) => {
-      if (sortBy.value === 'value') {
-        return b.value - a.value
-      }
-      return 0
-    })
+      return data.nfts.sort((a, b) => {
+        if (sortBy.value === 'value') {
+          return Number(b.value) - Number(a.value)
+        }
+
+        return 0
+      })
+    },
+    staleTime: 1000 * 60 * 2, // 1 minute,
+    refetchIntervalInBackground: true,
+    refetchInterval: 1000 * 60 * 1, // 1 minute,
   })
 
   return {
