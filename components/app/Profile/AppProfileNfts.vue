@@ -1,17 +1,18 @@
 <script lang="ts" setup>
+import type { ProfileNft } from '~/composables/useProfile';
+
 const route = useRoute();
 const showContextMenu = computed(() => route.name === "me");
 
 const props = defineProps<{
-  address: string;
+  nfts: ProfileNft[] | undefined;
 }>();
 
 const emit = defineEmits<{
   (e: "refresh"): void;
 }>();
 
-const { address } = toRefs(props);
-const { nfts, isFetching } = await useProfile(address.value)
+const { nfts } = toRefs(props);
 
 const tokens = ref<string[]>([])
 const showTokensDialog = computed(() => tokens.value.length > 0)
@@ -37,7 +38,7 @@ const showTransferDialog = reactive<{
 })
 
 function setTransferDialog(nft: string) {
-  const _nft = nfts.value.find(n => n.nft === nft)
+  const _nft = nfts.value?.find(n => n.nft === nft)
   if (!_nft) return
 
   showTransferDialog.dialog = true
@@ -53,7 +54,7 @@ function onRefresh() {
 </script>
 
 <template>
-  <v-skeleton-loader v-if="isFetching" type="card" width="320" class="ml-4" />
+  <!--<v-skeleton-loader v-if="isFetching" type="card" width="320" class="ml-4" />-->
   <v-container v-if="nfts" fluid>
     <v-row>
       <v-col cols="auto" v-for="nft in nfts" :key="nft.nft">
@@ -63,10 +64,15 @@ function onRefresh() {
               <NuxtImg :src="useIpfsLink(nft.image)" width="285" aspect="1" />
             </NuxtLink>
             <div class="d-flex justify-space-between">
-              <div class="text-h6" :style="{ height: '65px' }">
-                <NuxtLink :to="`/nfts/${nft.nft}`" class="text-decoration-none text-white">
-                  {{ nft.name }}
-                </NuxtLink>
+              <div :style="{ height: '90px' }">
+                <div class="text-subtitle-2 text-surface-variant mt-1">
+                  {{ nft.subtitle }}
+                </div>
+                <div class="text-h6">
+                  <NuxtLink :to="`/nfts/${nft.nft}`" class="text-decoration-none text-white">
+                    {{ nft.name }}
+                  </NuxtLink>
+                </div>
               </div>
               <div v-if="showContextMenu">
                 <v-menu location="bottom right">

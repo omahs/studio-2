@@ -4,7 +4,7 @@
       <AppProfileHeader v-if="user" :address="user.address" :avatar="user.avatar" :cover="user.cover"
         :username="user.username" :email="user.email" />
 
-      <AppProfileNfts v-if="user" :address="user.address" />
+      <AppProfileNfts v-if="user" :nfts="nfts" />
     </template>
   </app-page>
 </template>
@@ -24,4 +24,6 @@ useSeoMeta({
   twitterCard: "summary_large_image",
   ogImage: user?.value?.avatar ? useIpfsLink(user?.value?.avatar) : defaultImage,
 });
+
+const { nfts } = await useProfile(user.value!.address)
 </script>

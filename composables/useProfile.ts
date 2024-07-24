@@ -1,16 +1,19 @@
 import { useQuery } from '@tanstack/vue-query'
 
+export interface ProfileNft {
+  nft: string;
+  name: string;
+  subtitle: string;
+  image: string;
+  totalIds: number;
+  tokenIds: string[];
+  value: number;
+}
+
 export interface ProfileNftsResponse {
   totalCount: number;
   totalValue: number;
-  nfts: {
-    nft: string;
-    name: string;
-    image: string;
-    totalIds: number;
-    tokenIds: string[]
-    value: number;
-  }[]
+  nfts: ProfileNft[]
 }
 
 export async function useProfile(address: string) {
