@@ -18,6 +18,23 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  id: 'green',
+  title: 'Green',
+  artists: ["Goose Pärk"],
+  description: "Introducing \"Green,\" exclusively crafted for the web3 community by Goose Pärk. Originally composed in Miami in 2021, this track holds a special place in my heart. Although I never had the opportunity to finish it back then, I recently revisited and completed it. I'm thrilled to finally share one of my favorite creations with you. I've also included the original video of me experimenting with ideas for this track. Enjoy! \n\nExclusively being released on BitSong!",
+  creator: "bitsong13xknrd2t5d28w3rnkly2dx3yxdwr97vhqr4z5w",
+  sellerFeeBps: 200,
+  referralFeeBps: 50,
+  previewUrl: "https://media-api.bitsong.studio/ipfs/QmTdcnMXoCsgYAito1uCPkjZgP8bMK3jcYTgaD1PV4sd31",
+  artworkUrl: "https://media-api.bitsong.studio/ipfs/QmcpqSHjhEu4MpWdtzhTQoddQ8gNHe1rCfVxJ82C2mNcML",
+  startTime: 1722006000,
+  genre: "Hip-Hop",
+  explicit: "Explicit",
+  license: "All Rights Reserved",
+  initialPrice: 0.004628,
+  nftAddress: "bitsong1l48c99x2hqhnnz3cn49ku3faxt0wa0ukzqvn2shxcqtx0halnulskfyxwf",
+  marketplaceAddress: "bitsong1lp29px9sca90y8rnpmlfuq058c0xvayguhjsz25g4uqszd4j7qlqhaldgr"
+}, {
   id: 'god-help-me',
   title: 'God help me',
   artists: ["ANXELS"],
