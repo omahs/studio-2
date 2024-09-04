@@ -40,6 +40,7 @@
             <v-row>
               <v-col class="text-surface-variant">
                 <v-btn color="primary" @click.stop="onTranscode" :loading="isTranscoding">Transcode</v-btn>
+                <v-btn :href="`/api/nfts/${nftId}/preview`" target="_blanc">Preview Data</v-btn>
               </v-col>
             </v-row>
           </v-col>
