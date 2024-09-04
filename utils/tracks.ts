@@ -18,6 +18,177 @@ interface Track {
 }
 
 const tracks: Track[] = [{
+  "id": "huyu",
+  "title": "Huyu",
+  "artists": [
+    "Florin Dumbraveanu"
+  ],
+  "description": "I'm thrilled to introduce my latest track, \"HUYU.\" It's an African deep house piece that brings together rich rhythms, soulful vocals, and all the vibrant energy you’d expect from this genre. \"HUYU\" is all about connecting with the roots, feeling the groove, and letting the music move you.\n\nOwning the \"HUYU\" Music NFT comes with some cool perks:\n\nUnique Ownership: You’ll have a one-of-a-kind digital collectible that captures the essence of African deep house.\n\nSupport the Artist: Your ownership directly supports me and helps keep the music flowing.\n\nExclusive Content: Get access to special content like alternate versions, behind-the-scenes looks, and more.\n\nCommunity Engagement: Join a community of deep house lovers and get a chance to connect with me and other fans.\n\nSpecial Perks: Enjoy benefits like early access to new tracks, personalized messages, and more.\n\nHope you vibe with \"HUYU\" as much as I do!",
+  "creator": "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  "sellerFeeBps": 400,
+  "referralFeeBps": 50,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmSv2YsmF3VWVuhfpdChKP5EcrgLt4smhNKg5gAcVmTiTF",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmeRAQcE1pDufU77Qrk6Z34WyR9iCFe6JuZ7GgsqYHWY66",
+  "startTime": 1729702800,
+  "genre": "House",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.013906,
+  "nftAddress": "bitsong1y8ccjaz6c6sv6yarqrd96cufj4rd2plkz6manwh05rd4q57nlf8q9kdmq5",
+  "marketplaceAddress": "bitsong127u6s0k5mqk82krz5rqf5kuk2wj55673jacz5rfnhr39n9ukuecs5d7fcl"
+}, {
+  "id": "martinez",
+  "title": "Martinez",
+  "artists": [
+    "Florin Dumbraveanu"
+  ],
+  "description": "I'm excited to share my latest track, \"Martinez.\" This House track is the perfect soundtrack for an aperitif in Ibiza, capturing that laid-back yet vibrant vibe that makes the island so special. Whether you're chilling with friends or setting the mood for a night out, \"Martinez\" brings those sun-soaked, feel-good vibes right to you.\n\nOwning the \"Martinez\" Music NFT comes with a variety of exclusive benefits, including:\n\nUnique Ownership: Get a one-of-a-kind digital collectible that embodies the essence of Ibiza's vibrant house music scene.\n\nSupport the Artists: Your support ensures I can keep creating the music you love, with direct benefits from your engagement.\n\nExclusive Content: Gain access to behind-the-scenes content, alternate mixes, and other exclusive materials that give you a deeper connection to the track.\n\nCommunity Engagement: Be part of a community that shares your love for House music, with opportunities to connect directly with me and other fans.\n\nSpecial Perks: Enjoy perks like early access to new tracks, personalized messages, and more.\n\nLet \"Martinez\" set the mood for your perfect Ibiza moment!",
+  "creator": "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  "sellerFeeBps": 400,
+  "referralFeeBps": 50,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmRv1v7nsfdraydtsB8EmqD9x44rBiMRqU8JobCyvSZSNv",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmT6qD7tMXBVXgoeU9ci2j6AUQkuF8KsNm5nTR4nNHQTRq",
+  "startTime": 1729098000,
+  "genre": "House",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.01043,
+  "nftAddress": "bitsong16hp8k6am0pz86z43t973nuwaglhux7g2qk4jwgu3aza6hxshyycq9pkduj",
+  "marketplaceAddress": "bitsong1u4zgv9te0s8sczuvsaa38cv9604gfx3cx7tw8dyrlgnuqsjhtkns8njuzm"
+}, {
+  "id": "nerd-equipment",
+  "title": "Nerd Equipment",
+  "artists": [
+    "Florin Dumbraveanu"
+  ],
+  "description": "I'm excited to present my latest track, \"Nerd Equipment.\" This one is a techno-minimal piece that’s all about precision and clean, driving beats. If you're into the stripped-back, focused energy of minimal techno, this track will definitely hit the spot. It's designed to keep you locked into the groove, whether you're deep in the mix or just enjoying a focused moment.\n\nOwning the \"Nerd Equipment\" Music NFT comes with a variety of exclusive benefits, including:\n\nUnique Ownership: Own a digital asset that embodies the essence of minimal techno, crafted with care and precision.\n\nSupport the Artists: Your support ensures I can continue creating the kind of music you love, directly benefiting from your engagement.\n\nExclusive Content: Access special content like studio sessions, alternate versions, and more that give you a deeper connection to the track.\n\nCommunity Engagement: Join a group of like-minded techno enthusiasts, with opportunities to connect directly with me and others in the community.\n\nSpecial Perks: Enjoy unique perks such as early access to new releases, personalized shout-outs, and more.",
+  "creator": "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  "sellerFeeBps": 500,
+  "referralFeeBps": 50,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmeUwZsn3uB6rP1hwSva3xg27HT2fSLemRmehZw1iqr7zJ",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmZrKuZUCACDmshuTX49GDPHvNwRYkn4Dr5JsA9H9TSy9K",
+  "startTime": 1728493200,
+  "genre": "Techno",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.00702,
+  "nftAddress": "bitsong18a5s28femwggrt9g8kfnf84zyxq6zrgd0q58mvaxa7rpj2fp6htqa8xcs7",
+  "marketplaceAddress": "bitsong1ktm9gwmqnpjuwexzzvk53jen3naf7wclr8qev0ng83tqcpnct22qq4hcfj"
+}, {
+  "id": "kanua",
+  "title": "Kanua",
+  "artists": [
+    "Florin Dumbraveanu"
+  ],
+  "description": "I'm thrilled to introduce \"Kanua,\" my latest Afro House track. This one is all about deep, soulful rhythms and vibrant Afro vocals that transport you straight to the heart of the dance floor. With its rich blend of tribal beats and infectious energy, \"Kanua\" is perfect for those who love to feel the groove and let the music take over. I can't wait for you all to experience it!\n\nOwning the \"Kanua\" Music NFT comes with a variety of exclusive benefits, including:\n\nUnique Ownership: Own a one-of-a-kind digital asset that captures the essence of Afro House music.\n\nSupport the Artists: Your support directly helps me keep creating the Afro House vibes you love.\n\nExclusive Content: Get access to special content like unreleased remixes, behind-the-scenes videos, and more.\n\nCommunity Engagement: Join an exclusive community of Afro House fans and collectors, with chances to connect directly with me.\n\nSpecial Perks: Enjoy unique perks such as virtual performances, personalized messages, and more.",
+  "creator": "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  "sellerFeeBps": 500,
+  "referralFeeBps": 50,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmYEyA4eXie5DjY2kFd2fQJfmTXVq4nf9h4KA42wvE38Qr",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmeobZNNUVDimXZCMN5QYX4eHoX9xERYd2QUQeJhMEgmv5",
+  "startTime": 1727888400,
+  "genre": "House",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.005265,
+  "nftAddress": "bitsong1u760x9pqg8r26lwea6wen6ltavwdncxt936aq4hcsqgtcdq5279szytsrs",
+  "marketplaceAddress": "bitsong1ne03d3m9dvspsu0emksj2uftqxhtl2mre03ecxxw5sxk8yg7wwhsp8m4yn"
+}, {
+  "id": "get-down",
+  "title": "Get Down",
+  "artists": [
+    "Florin Dumbraveanu"
+  ],
+  "description": "I'm excited to drop my latest track, \"Get Down.\" This one's for the techno lovers out there—it's all about deep, driving beats and a relentless groove that’ll keep you moving. With minimal vocals, the focus is purely on the rhythm and energy, perfect for those late-night sessions or whenever you need to get lost in the music. Can't wait for you all to feel the vibe!\n\nOwning the \"Get Down\" Music NFT comes with a variety of exclusive benefits, including:\n\nUnique Ownership: Claim a digital asset that represents a piece of cutting-edge techno artistry.\n\nSupport the Artists: Your purchase directly supports me, helping me continue to create the music you love.\n\nExclusive Content: Gain access to exclusive content like unreleased tracks, behind-the-scenes studio footage, and more.\n\nCommunity Engagement: Join an exclusive community of techno fans and collectors, with opportunities to connect directly with me.\n\nSpecial Perks: Enjoy unique perks such as virtual DJ sets, personalized shout-outs, and more.",
+  "creator": "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  "sellerFeeBps": 500,
+  "referralFeeBps": 50,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmafSEkNCzh3SYFDhZKKztDvb9JLCnZQ5MbmTAndE6yj7D",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmNbrFEJf1yxtSAFxFy1DTKBNo1CU6g3iLMp2YVGRaEDEE",
+  "startTime": 1727283600,
+  "genre": "House",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.006581,
+  "nftAddress": "bitsong1w8utct6h9j7l28c0z65j3tp9x64vemzvcy3hnvgayunqg42p9zuqwr8cw5",
+  "marketplaceAddress": "bitsong1nhrffv7a6rr7th8vv34d332laz44gjl2jjdlp6w04hjfpll64mesxpuxep"
+}, {
+  "id": "save-me",
+  "title": "Save Me",
+  "artists": [
+    "Florin Dumbraveanu"
+  ],
+  "description": "I'm thrilled to introduce my new track, \"Save Me.\" This deep house tune blends beautiful vocals with exotic tribal sounds and notes that take you on a journey. It's perfect for anyone who loves immersive beats and soulful melodies. Whether you're chilling at home or out on the dance floor, \"Save Me\" has the vibes to set the mood. I can't wait for you all to experience it!\n\nOwning the \"Save Me\" Music NFT comes with a variety of exclusive benefits, including:\n\nUnique Ownership: Own a special digital asset that captures a piece of deep house magic.\n\nSupport the Artists: Your purchase directly supports me, ensuring fair compensation for the music you love.\n\nExclusive Content: Get access to exclusive content like alternate versions of the track, behind-the-scenes moments, and more.\n\nCommunity Engagement: Be part of a unique community of fans and collectors, with chances to interact directly with me.\n\nSpecial Perks: Enjoy perks like virtual concerts, personalized messages, and other surprises.\n\nLooking forward to sharing this musical journey with you all!",
+  "creator": "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  "sellerFeeBps": 400,
+  "referralFeeBps": 50,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmVXDU4swRpNevq3MDeVxzAjHqenQqHypAN6qTDHHVmf5J",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmPArYYpJwHekS8irp2Bv29NJcQsfGpYCbqUmGbuwhFM8A",
+  "startTime": 1726678800,
+  "genre": "House",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.01227,
+  "nftAddress": "bitsong1k680p3jgxrw3pr5as8lzryj6j3xt8tl2uq5rznrt7s0kaxwwe0xsahfddz",
+  "marketplaceAddress": "bitsong1vl73lc4g9agl8vht3d47twptv88straw66vesd0pjqg67q9schmq5086rf"
+}, {
+  "id": "me-and-my-brother",
+  "title": "Me And My Brother",
+  "artists": [
+    "Florin Dumbraveanu"
+  ],
+  "description": "I'm excited to share my latest track, \"Me And My Brother.\" It's a minimal techno piece that's all about energy and good vibes. \nIf you're into driving beats and a rhythmic flow, this one’s for you. It’s got that pulse that’ll keep you moving, whether you’re in the club or just vibing at home. \nCan't wait for you all to hear it!\n\n\nOwning the \"Me And My Brother\" Music NFT comes with a variety of exclusive benefits, including:\n\nUnique Ownership: Own a one-of-a-kind digital asset that represents a piece of musical artistry.\n\nSupport the Artists: Directly support Florin Dumbraveanu, ensuring he receives fair compensation for his creative work.\n\nExclusive Content: Gain access to special content such as behind-the-scenes footage, alternate versions of the track, and exclusive interviews.\n\nCommunity Engagement: Join an exclusive community of fans and collectors, with opportunities to interact directly with Florin.\n\nSpecial Perks: Enjoy unique perks such as virtual concerts, personalized messages from the artist, and more.",
+  "creator": "bitsong1mvqdh3mkc9vaqr5394tkkef08jcnndcernl54j",
+  "sellerFeeBps": 500,
+  "referralFeeBps": 50,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmaYvacLRPxqpRSjaffVQcxh8ni7det4Gu7cSRQaDJ3HVS",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmcPVvkwP19EBoMkapyrmADc3GXvagfdXTmeQxSAtNNF9g",
+  "startTime": 1726074000,
+  "genre": "Techno",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.01053,
+  "nftAddress": "bitsong1e6tkud3yk0h68726qnqz8l8lx3dfghtvkdsupq09jgr79xnztvespuypgc",
+  "marketplaceAddress": "bitsong10nnsamvtc5yux6m9utwc6dtee20h8fe8gp06jfqy0ffqtxrk384sezshvq"
+}, {
+  "id": "going-down",
+  "title": "Going Down",
+  "artists": [
+    "OverSky"
+  ],
+  "description": "\"Going Down\" by Oversky is an EDM track that immediately captivates the listener with its vibrant energy and aggressive melody. The song features simple yet immersive vocals that guide the listener through a rich soundscape filled with pulsating synthesizers and powerful basslines. The production is clean and polished, with intense build-ups that lead to explosive drops, delivering the perfect energy boost. The combination of dynamic electronic elements and a catchy vocal line creates a musical experience that is both engaging and exhilarating, ideal for dance floors and anyone seeking an adrenaline rush through music. Federico Fenu, aka OverSky, started mixing music at 12. He believes music is a universal language that conveys emotions. His love for all genres has inspired him to create innovative tracks.",
+  "creator": "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
+  "sellerFeeBps": 500,
+  "referralFeeBps": 100,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmfSLQsZo8ehxp9TzDojUtnnou5VH5mnpx589JRGqTgV88",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmfFrUGUoLgF4RsExN2u1J21k6hUZHm5ZZcDt1isxQwWyr",
+  "startTime": 1725552000,
+  "genre": "Dance",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.01053,
+  "nftAddress": "bitsong10804823gxas3d9g8knrutvzkkz92m2ctvsafnan8zw6cqa6sd47qpemxts",
+  "marketplaceAddress": "bitsong19c72hpn50mpd86qtp67wqmvg58kvpjtz4u7qy4n5fkt4r9zxlymsyjxn42"
+}, {
+  "id": "raise-your-head",
+  "title": "Raise Your Head",
+  "artists": [
+    "Joseph Rela"
+  ],
+  "description": "\"Raise Your Head\" by Joseph Rela is an electrifying electro house track that commands attention with its high-energy beats and invigorating melody. The song opens with a captivating intro, quickly building momentum with driving basslines and sharp synths that create an atmosphere of excitement. The track features a powerful and uplifting vocal that encourages listeners to rise up and embrace the energy of the music. With its seamless production and dynamic transitions, \"Raise Your Head\" is designed to keep the dance floor moving, offering an exhilarating experience that leaves a lasting impression. Perfect for clubs and festivals, this track showcases Joseph Real's talent for creating infectious, danceable anthems.",
+  "creator": "bitsong1m7wslu5cwdjyu0j83chsl9w592tq7pfqyfdwnm",
+  "sellerFeeBps": 500,
+  "referralFeeBps": 100,
+  "previewUrl": "https://media-api.bitsong.studio/ipfs/QmUd1k66hjTwWKdQpVvBdnRQufRrWDxHafiaxCj21Jc3WR",
+  "artworkUrl": "https://media-api.bitsong.studio/ipfs/QmReWVzHfE9BhCHsK996bxexXPgJpuB6mtjFDYaowqBSX4",
+  "startTime": 1726156800,
+  "genre": "House",
+  "explicit": "Clean",
+  "license": "All Rights Reserved",
+  "initialPrice": 0.01053,
+  "nftAddress": "bitsong15wt59jxmdh54xd2t40fdegcxsn25hmuse73c0r5e2420kvsy2f0s6xl2nl",
+  "marketplaceAddress": "bitsong13r5yuaqqu4lhnm56ad8te79xte9shtn536av7naysv0p2zdxv9cs4uzlle"
+}, {
   id: 'grippin-grain',
   title: 'Grippin\' Grain',
   artists: ["Goose Pärk", "GiiipsonPoet"],
