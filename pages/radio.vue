@@ -92,12 +92,22 @@ const radios: PlayerTrack[] = [{
   sources: {
     audio: "https://icy.unitedradio.it/RMC.aac"
   }
+}, {
+  id: '404-deep-radio',
+  title: '404 Deep Radio',
+  artist: 'Spain',
+  cover: 'https://static.mytuner.mobi/media/tvos_radios/HuP2FvedHF.png',
+  sources: {
+    audio: "https://sonic.mediacp.eu/8116/stream"
+  }
 }]
 
 const { playRadio } = usePlayer()
 
 function play(id: string) {
   const radio = radios.find(r => r.id == id)
+  if (!radio) return
+
   playRadio(radio)
 }
 </script>
