@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import type { MarketPlace } from '~/components/upload/Marketplace.vue';
-import type { RoylatiesItem } from '~/components/upload/Royalties.vue';
+import type { RoyaltiesItem } from '~/components/upload/Royalties.vue';
 import type { TrackInfo } from '~/components/upload/TrackInfo.vue';
 import type { TrackInfoAdditionalData } from '~/components/upload/TrackInfoAdditionalData.vue';
 import type { AuthorPublisher } from '~/components/upload/TrackInfoAuthors.vue';
@@ -69,7 +69,7 @@ const form = reactive({
     role: "",
     address: "",
     shares: 1000,
-  }] as RoylatiesItem[],
+  }] as RoyaltiesItem[],
   marketplace: {
     creatorFee: 3,
     referralFee: 0.5,
@@ -148,11 +148,11 @@ watch(track, (newValue) => {
       address: royalty.address,
       shares: royalty.shares,
     }
-  }) as RoylatiesItem[] : [{
+  }) as RoyaltiesItem[] : [{
     role: "",
     address: "",
     shares: 1000,
-  }] as RoylatiesItem[]
+  }] as RoyaltiesItem[]
 
   form.marketplace = {
     creatorFee: (newValue?.marketplace && newValue?.marketplace.length > 0) ? newValue.marketplace[0].creator_fee ?? 3 : 3,
