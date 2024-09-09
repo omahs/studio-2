@@ -73,21 +73,21 @@
 import { bitsongAddressSchema, nonEmptyStringSchema } from '@bitsongjs/metadata';
 import { z } from 'zod'
 
-export interface RoylatiesItem {
+export interface RoyaltiesItem {
   role?: string;
   address?: string;
   shares?: number;
 }
 
 const emits = defineEmits<{
-  'update:modelValue': [payload: RoylatiesItem[]];
+  'update:modelValue': [payload: RoyaltiesItem[]];
   "done": [];
 }>();
 
 const error = ref("");
 const loading = ref(false);
 
-const props = defineProps<{ modelValue: RoylatiesItem[], trackId: string }>();
+const props = defineProps<{ modelValue: RoyaltiesItem[], trackId: string }>();
 const modelValue = useVModel(props, 'modelValue', emits, {
   passive: true,
 })
